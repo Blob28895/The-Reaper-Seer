@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391270122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.076, y: 0.064, z: 0}
+  m_LocalPosition: {x: 0.244, y: 0.008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -733,13 +733,13 @@ GameObject:
   - component: {fileID: 1609294280}
   - component: {fileID: 1609294279}
   - component: {fileID: 1609294278}
+  - component: {fileID: 1609294285}
   - component: {fileID: 1609294283}
   - component: {fileID: 1609294284}
-  - component: {fileID: 1609294285}
   - component: {fileID: 1609294286}
   - component: {fileID: 1609294287}
   m_Layer: 3
-  m_Name: BadStickMan
+  m_Name: Reaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,18 +758,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00957799, y: 0.06651138}
+  m_Offset: {x: -0.023460545, y: -0.0029013604}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.171541, y: 0.18697724}
+  m_Size: {x: 0.34121662, y: 0.39367285}
   m_EdgeRadius: 0
 --- !u!50 &1609294279
 Rigidbody2D:
@@ -833,7 +833,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2124299300, guid: bde66e558119bc54d937be9d2c3b816d, type: 3}
+  m_Sprite: {fileID: -1844035508, guid: a88230153c3beba48adcefc389f4ca2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -853,7 +853,7 @@ Transform:
   m_GameObject: {fileID: 1609294277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.37, y: -2.31, z: 0}
-  m_LocalScale: {x: 6.7743115, y: 6.414019, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1932137542}
@@ -875,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1609294284}
+  animator: {fileID: 1609294286}
   runSpeed: 40
 --- !u!114 &1609294284
 MonoBehaviour:
@@ -917,9 +918,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: -0.07}
+  m_Offset: {x: -0.02, y: -0.18}
   serializedVersion: 2
-  m_Radius: 0.082493596
+  m_Radius: 0.13956623
 --- !u!95 &1609294286
 Animator:
   serializedVersion: 4
@@ -954,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1609294286}
   attackPoint: {fileID: 391270123}
-  attackRange: 0.5
+  attackRange: 0.75
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
