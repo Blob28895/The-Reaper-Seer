@@ -49,6 +49,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		return m_FacingRight;
 	}
+	public bool getGrounded()
+	{
+		return m_Grounded;
+	}
 
 	private void FixedUpdate()
 	{

@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isDodging = false;
     private Vector2 moveDir = new Vector2(0, 0);
+    private bool airDodged = false;
+    float nextDodgeTime = 0f;
+    public float DodgeCooldown = 0.6f;
     // Update is called once per frame
     // Use this to get input
     void Update()
@@ -30,47 +33,61 @@ public class PlayerMovement : MonoBehaviour
 		{
             jump = true;
 		}
-            if (Input.GetButtonDown("Dodge"))
+            if (Input.GetButtonDown("Dodge") && Time.time >= nextDodgeTime && airDodged == false)
             {
                 Vector3 currVelocity = controller.getVelocity(); // returns the current velocity of the character
-                                                                 //These if statements take the velocity and turn it into basically boolean values of 1 if moving in that direction and 0 if not
+                nextDodgeTime = Time.time + DodgeCooldown;
                 facingRight = controller.getFacing();
-                if (Input.GetKey("d"))
+                if (Input.GetKey("d")) //figuring out which direction to dash
                 {
-                    xmove = 1.0f;
+                    xmove += 1.0f;
                 }
                 if (Input.GetKey("a"))
                 {
-                    xmove = -1.0f;
-                }
-                if (Input.GetKey("a") && Input.GetKey("d"))
-                {
-                    xmove = 0f;
+                    xmove += -1.0f;
                 }
                 if (Input.GetKey("w"))
                 {
-                    ymove = 1.0f;
+                    ymove += 1.0f;
                 }
                 if (Input.GetKey("s"))
                 {
-                    ymove = -1.0f;
+                    ymove += -1.0f;
                 }
-                if (Input.GetKey("w") && Input.GetKey("s"))
-                {
-                    ymove = 0f;
-                }
+                if (xmove == 0f && ymove == 0f) //if there is no direction, but the dodge button was pressed, we still want to dodge
+				{
+                    if(facingRight) // dodge the direction we are facing
+					{
+                        xmove = 1.0f;
+					}
+					else
+					{
+                        xmove = -1.0f;
+					}
+				}
                 isDodging = true;
-                Debug.Log(xmove + "|" + ymove);
-                moveDir = new Vector2(xmove, ymove);
+                //Debug.Log(xmove + "|" + ymove);
+                if(controller.getGrounded() == false)
+				{
+                    airDodged = true;
+				}
+                moveDir = new Vector2(xmove*1.25f, ymove/2);
+                if(moveDir.x != 0f && moveDir.y != 0f)
+				{
+                    moveDir.x -= 0.4f;
+                    //moveDir.y -= 0.4f;
+				}
+                Debug.Log(moveDir);
             }
             /*xmove = 0f;
             ymove = 0f;
              */
-            if(isDodging)
-			{
-                Debug.Log("I am mid dodge right now");
-			}
+           
         }
+        if(controller.getGrounded() == true)
+		{
+            airDodged = false;
+		}
     }
 
     //This function is dedicated for physics

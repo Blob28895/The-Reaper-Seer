@@ -877,6 +877,8 @@ MonoBehaviour:
   controller: {fileID: 1609294284}
   animator: {fileID: 1609294286}
   runSpeed: 40
+  dodgeSpeed: 60
+  DodgeCooldown: 0.6
 --- !u!114 &1609294284
 MonoBehaviour:
   m_ObjectHideFlags: 0
