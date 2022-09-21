@@ -141,6 +141,10 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	public void dodge(Vector2 direction)
+	{
+		m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, direction, ref m_Velocity, m_MovementSmoothing);
+	}
 
 	private void Flip()
 	{
