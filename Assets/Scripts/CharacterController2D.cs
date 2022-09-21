@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private Vector3 targetVelocity;
 
 	[Header("Events")]
 	[Space]
@@ -39,6 +40,14 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+	}
+	public Vector3 getVelocity()
+	{
+		return targetVelocity;
+	}
+	public bool getFacing()
+	{
+		return m_FacingRight;
 	}
 
 	private void FixedUpdate()
@@ -106,7 +115,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
@@ -144,3 +153,5 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 }
+
+	
