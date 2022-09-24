@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//this line is being added as a test
 public class PlayerMovement : MonoBehaviour
 {
     // When you create public variables up here they are adjustable in the unity UI
     public CharacterController2D controller;
+    public Animator animator;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if(Input.GetButtonDown("Jump"))
 		{
