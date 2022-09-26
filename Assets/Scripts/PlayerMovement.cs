@@ -4,19 +4,21 @@ using UnityEngine;
 //this line is being added as a test
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     // When you create public variables up here they are adjustable in the unity UI
+    public BoxCollider2D BoxCollider;
+    public CircleCollider2D CircleCollider;
     public CharacterController2D controller;
     public Animator animator;
     public float runSpeed = 40f;
-    public float dodgeSpeed = 60f;
     float horizontalMove = 0f;
     bool jump = false;
     private float xmove = 0f;
     private float ymove = 0f;
     private bool facingRight = true;
     private bool isDodging = false;
-    private Vector2 moveDir = new Vector2(0, 0);
+    private Vector3 moveDir = new Vector3(0, 0, 0);
+    
     private bool airDodged = false;
     float nextDodgeTime = 0f;
     public float DodgeCooldown = 0.6f;
@@ -71,13 +73,13 @@ public class PlayerMovement : MonoBehaviour
 				{
                     airDodged = true;
 				}
-                moveDir = new Vector2(xmove*1.25f, ymove/2);
-                if(moveDir.x != 0f && moveDir.y != 0f)
+                moveDir = new Vector3(xmove, ymove, 0).normalized;
+                /*if(moveDir.x != 0f && moveDir.y != 0f)
 				{
                     moveDir.x -= 0.4f;
                     //moveDir.y -= 0.4f;
-				}
-                Debug.Log(moveDir);
+				}*/
+                //Debug.Log(moveDir);
             }
             /*xmove = 0f;
             ymove = 0f;
@@ -101,9 +103,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if(isDodging)
 		{
-            controller.dodge(moveDir * dodgeSpeed);
+            /*Vector2 offset = BoxCollider.size;
+            Debug.Log(offset.x + "|" + offset.x/2);*/
+            controller.dodge(moveDir);
             isDodging = false;
-            moveDir = new Vector2(0, 0);
+            moveDir = new Vector3(0, 0, 0);
             xmove = 0f;
             ymove = 0f;
 		}

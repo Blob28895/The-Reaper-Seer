@@ -10,7 +10,10 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;// A collider that will be disabled when crouching
+	[SerializeField] private BoxCollider2D BoxCollider;
+	[SerializeField] private CircleCollider2D CircleCollider;
+	[SerializeField] private float m_dashDistance = 3f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -19,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	private Vector3 targetVelocity;
+	//public RaycastHit2D hit;
 
 	[Header("Events")]
 	[Space]
@@ -53,7 +57,22 @@ public class CharacterController2D : MonoBehaviour
 	{
 		return m_Grounded;
 	}
-
+	public Transform getFrontEdge()
+	{
+		Vector2 output = BoxCollider.offset;
+		Debug.Log(output.x);
+		float edge = BoxCollider.size.x / 2;
+		
+		return BoxCollider.transform;
+	}
+	public Transform getTopEdge()
+	{
+		return BoxCollider.transform;
+	}
+	public Transform getBottomEdge()
+	{
+		return BoxCollider.transform;
+	}
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -145,9 +164,93 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	public void dodge(Vector2 direction)
+	public void dodge(Vector3 direction)
 	{
-		m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, direction, ref m_Velocity, m_MovementSmoothing);
+
+		//direction *= 0.05f;
+
+		/*RaycastHit2D[] hits;
+		hits = Physics2D.RaycastAll(transform.position, direction, m_dashDistance, m_WhatIsGround);
+		Debug.DrawRay(transform.position, direction, Color.green);
+		for (int i = 0; i < hits.Length; i++)
+		{
+			
+			RaycastHit2D hit = hits[i];
+			Renderer rend = hit.transform.GetComponent<Renderer>();
+			Debug.Log(hit.collider.gameObject.name);
+		}*/
+			
+		//m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, direction, ref m_Velocity, m_MovementSmoothing);
+		RaycastHit2D[] hits;
+		Vector2 temp = transform.position;
+		if(direction.x > 0)
+		{
+			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
+		}
+		if(direction.x < 0)
+		{
+			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
+		}
+		if(direction.y > 0)
+		{
+			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
+		}
+		if(direction.y < 0)
+		{
+			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
+		}
+		direction *= m_dashDistance;
+		//float bugFix = m_dashDistance * 0.05f;
+		//Debug.Log(transform.position.x + "|" + transform.position.y + "_-_" + temp.x + "|" + temp.y);
+		Debug.Log(direction.x + "|" + direction.y);
+		hits = Physics2D.RaycastAll(temp, direction, m_dashDistance, m_WhatIsGround);
+		temp.y -= CircleCollider.offset.y;
+		Debug.DrawRay(temp, direction, Color.red, 1.5f);
+		Debug.DrawRay(transform.position, direction, Color.green, 1.5f);
+		if (hits.Length == 0)
+		{
+
+			//Debug.DrawRay(transform.position, direction, Color.green);
+			Debug.Log("dash");
+			m_Rigidbody2D.transform.position += direction;
+			
+			;
+		}
+		else
+		{
+			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
+			Vector2 contactPoint = hits[0].point;
+			float distance = Vector2.Distance(contactPoint, failedDash);
+			direction /= m_dashDistance;
+			Vector3 spriteSize = new Vector3(0,0,0);
+			if (direction.x > 0)
+			{
+				spriteSize.x += BoxCollider.size.x;
+			}
+			if (direction.x < 0)
+			{
+				spriteSize.x -= BoxCollider.size.x;
+			}
+			if (direction.y > 0)
+			{
+				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
+			}
+			if (direction.y < 0)
+			{
+				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
+			}
+			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - distance)) - spriteSize/2;
+			/*for (int i = 0; i < hits.Length; i++)
+			{
+
+				RaycastHit2D hit = hits[i];
+				Renderer rend = hit.transform.GetComponent<Renderer>();
+				Debug.Log(hit.collider.gameObject.name);
+			}*/
+			
+			//Debug.Log("fuck you");
+		}
+		
 	}
 
 	private void Flip()
