@@ -8,6 +8,7 @@ public class MeleeEnemyController : MonoBehaviour
     public float speed;
     public Transform target;
     public float minimumDistance;
+    public float maximumDistance;
     private bool facingRight = false;
     private float dist;
 
@@ -31,13 +32,13 @@ public class MeleeEnemyController : MonoBehaviour
     void Update()
     {
         // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance)
+        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
         {
             Move();
         }
 
         // When the enemy is close enough to the player, it will start attacking
-        else
+        else if (Vector2.Distance(transform.position, target.position) <= minimumDistance)
         {
             // Controls the attack rate
             if (Time.time > nextAttackTime)
@@ -53,7 +54,7 @@ public class MeleeEnemyController : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         dist = target.position.x - transform.position.x;
-        Debug.Log(dist);
+        // Debug.Log(dist);
         if (dist < 0 && !facingRight)
         {
             Flip();
