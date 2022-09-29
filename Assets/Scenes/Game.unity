@@ -136,7 +136,8 @@ GameObject:
   - component: {fileID: 195261975}
   - component: {fileID: 195261976}
   - component: {fileID: 195261977}
-  - component: {fileID: 195261978}
+  - component: {fileID: 195261980}
+  - component: {fileID: 195261981}
   m_Layer: 6
   m_Name: BadStickEnemy
   m_TagString: Untagged
@@ -279,7 +280,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &195261978
+--- !u!114 &195261980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,9 +289,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 195261972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56585f099cf54a44e9e0d743b1bb7936, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ccb9a95ebbe48d48b5ce84ec193d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!114 &195261981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195261972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb25b19af8bcd84ab455c753446e11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  target: {fileID: 1609294281}
+  minimumDistance: 3
 --- !u!1 &305455350
 GameObject:
   m_ObjectHideFlags: 0
