@@ -8,6 +8,8 @@ public class MeleeEnemyController : MonoBehaviour
     public float speed;
     public Transform target;
     public float minimumDistance;
+    private bool facingRight = false;
+    private float dist;
 
     // Used for attacking
     public Animator animator;
@@ -18,6 +20,12 @@ public class MeleeEnemyController : MonoBehaviour
     // Attack rate
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+
+    // Start is called once before update
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,6 +39,7 @@ public class MeleeEnemyController : MonoBehaviour
         // When the enemy is close enough to the player, it will start attacking
         else
         {
+            // Controls the attack rate
             if (Time.time > nextAttackTime)
             {
                 Attack();
@@ -39,21 +48,51 @@ public class MeleeEnemyController : MonoBehaviour
         }
     }
 
-    void Move()
+    // Function that moves the enemy
+    private void Move()
     {
-        // Moves the enemy
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        dist = target.position.x - transform.position.x;
+        Debug.Log(dist);
+        if (dist < 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist > 0 && facingRight)
+        {
+            Flip();
+        }
     }
 
-    void Attack()
+    // Function that allows the enemy to attack
+    private void Attack()
     {
         // Play attack animation
         animator.SetTrigger("Attack");
 
         // Detect if the player gets hit
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
-        //Debug.Log("Enemy hit " + hitPlayer.name);
+        //Debug.Log("Player hit " + hitPlayer.name);
 
         // Add code here to cause the player to take damage 
+    }
+
+    // Function that flips the model when moving in the other direction
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    // Function so that when we are editing the scene we can visually see the hitbox
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
