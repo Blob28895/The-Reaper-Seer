@@ -9,7 +9,7 @@ public class MeleeEnemyController : MonoBehaviour
     public Transform target;
     public float minimumDistance;
     public float maximumDistance;
-    private bool facingRight = false;
+    private bool facingRight = true;
     private float dist;
 
     // Used for attacking
@@ -20,7 +20,7 @@ public class MeleeEnemyController : MonoBehaviour
     public int attackDamage = 1;
     // Attack rate
     public float attackRate = 2f;
-    float nextAttackTime = 0f;
+    private float nextAttackTime = 0f;
 
     // Start is called once before update
     void Start()
@@ -55,11 +55,11 @@ public class MeleeEnemyController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         dist = target.position.x - transform.position.x;
         // Debug.Log(dist);
-        if (dist < 0 && !facingRight)
+        if (dist > 0 && !facingRight)
         {
             Flip();
         }
-        else if (dist > 0 && facingRight)
+        else if (dist < 0 && facingRight)
         {
             Flip();
         }
