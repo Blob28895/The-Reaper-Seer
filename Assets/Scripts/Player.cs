@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         // Insert hurt animation here
 
+        Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     {
         // Death animation goes here
 
+        Debug.Log("Player is now dead.");
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
