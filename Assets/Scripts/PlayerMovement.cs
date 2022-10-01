@@ -74,17 +74,7 @@ public class PlayerMovement : MonoBehaviour
                     airDodged = true;
 				}
                 moveDir = new Vector3(xmove, ymove, 0).normalized;
-                /*if(moveDir.x != 0f && moveDir.y != 0f)
-				{
-                    moveDir.x -= 0.4f;
-                    //moveDir.y -= 0.4f;
-				}*/
-                //Debug.Log(moveDir);
             }
-            /*xmove = 0f;
-            ymove = 0f;
-             */
-           
         }
         if(controller.getGrounded() == true)
 		{
@@ -98,21 +88,17 @@ public class PlayerMovement : MonoBehaviour
         //      With this specific character controller the "false, false" means "i do not want to crouch, and I do not want to jump"
         if (!isDodging)
         {
-            controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+            controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump); // Time.fixedDeltaTime is the amount of time that has passed since the last time FixedUpdate() was called
             jump = false;
         }
         if(isDodging)
 		{
-            /*Vector2 offset = BoxCollider.size;
-            Debug.Log(offset.x + "|" + offset.x/2);*/
             controller.dodge(moveDir);
             isDodging = false;
             moveDir = new Vector3(0, 0, 0);
             xmove = 0f;
             ymove = 0f;
 		}
-        // Time.fixedDeltaTime is the amount of time that has passed since the last time FixedUpdate() was called
-
 
 	}
 }

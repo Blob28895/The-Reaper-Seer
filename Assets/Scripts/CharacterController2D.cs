@@ -57,22 +57,6 @@ public class CharacterController2D : MonoBehaviour
 	{
 		return m_Grounded;
 	}
-	public Transform getFrontEdge()
-	{
-		Vector2 output = BoxCollider.offset;
-		Debug.Log(output.x);
-		float edge = BoxCollider.size.x / 2;
-		
-		return BoxCollider.transform;
-	}
-	public Transform getTopEdge()
-	{
-		return BoxCollider.transform;
-	}
-	public Transform getBottomEdge()
-	{
-		return BoxCollider.transform;
-	}
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -166,24 +150,10 @@ public class CharacterController2D : MonoBehaviour
 
 	public void dodge(Vector3 direction)
 	{
-
-		//direction *= 0.05f;
-
-		/*RaycastHit2D[] hits;
-		hits = Physics2D.RaycastAll(transform.position, direction, m_dashDistance, m_WhatIsGround);
-		Debug.DrawRay(transform.position, direction, Color.green);
-		for (int i = 0; i < hits.Length; i++)
-		{
-			
-			RaycastHit2D hit = hits[i];
-			Renderer rend = hit.transform.GetComponent<Renderer>();
-			Debug.Log(hit.collider.gameObject.name);
-		}*/
-			
-		//m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, direction, ref m_Velocity, m_MovementSmoothing);
-		RaycastHit2D[] hits;
+		RaycastHit2D[] hitsTop;
+		RaycastHit2D[] hitsBottom;
 		Vector2 temp = transform.position;
-		if(direction.x > 0)
+		if(direction.x > 0) // get neccessary offset of the hitboxes
 		{
 			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
 		}
@@ -200,36 +170,51 @@ public class CharacterController2D : MonoBehaviour
 			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
 		}
 		direction *= m_dashDistance;
-		//float bugFix = m_dashDistance * 0.05f;
-		//Debug.Log(transform.position.x + "|" + transform.position.y + "_-_" + temp.x + "|" + temp.y);
-		Debug.Log(direction.x + "|" + direction.y);
-		hits = Physics2D.RaycastAll(temp, direction, m_dashDistance, m_WhatIsGround);
+		Vector2 topRay = temp;
+		Vector2 bottomRay = temp;
+		topRay.y = m_CeilingCheck.position.y - ((GetComponent<Renderer>().bounds.size.y) / 10);
+		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
+		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_WhatIsGround);
+		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_WhatIsGround);
 		temp.y -= CircleCollider.offset.y;
-		Debug.DrawRay(temp, direction, Color.red, 1.5f);
-		Debug.DrawRay(transform.position, direction, Color.green, 1.5f);
-		if (hits.Length == 0)
+		Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
+		Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
+		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
+		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
 		{
-
-			//Debug.DrawRay(transform.position, direction, Color.green);
-			Debug.Log("dash");
+			//Debug.Log("dash"); test if we made it into this if statement
 			m_Rigidbody2D.transform.position += direction;
-			
-			;
 		}
-		else
-		{
+		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
+		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
+		  //figure out which one hit something
+			RaycastHit2D[] hitRay;
+			if (hitsTop.Length != 0 && hitsBottom.Length == 0)
+			{
+				hitRay = hitsTop;
+			}
+			else if(hitsBottom.Length != 0 && hitsTop.Length == 0)
+			{
+				hitRay = hitsBottom;
+			}
+			else
+			{
+				if (direction.y > 0) { hitRay = hitsTop; }
+				else if (direction.y < 0) { hitRay = hitsBottom; }
+				else { hitRay = hitsBottom; }
+			}
 			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
-			Vector2 contactPoint = hits[0].point;
-			float distance = Vector2.Distance(contactPoint, failedDash);
+			Vector2 contactPoint = hitRay[0].point;
+			float failDistance = Vector2.Distance(contactPoint, failedDash);
 			direction /= m_dashDistance;
 			Vector3 spriteSize = new Vector3(0,0,0);
-			if (direction.x > 0)
+			if (direction.x > 0) // get neccessary offset of the hitboxes
 			{
-				spriteSize.x += BoxCollider.size.x;
+				spriteSize.x += BoxCollider.size.x*2;
 			}
 			if (direction.x < 0)
 			{
-				spriteSize.x -= BoxCollider.size.x;
+				spriteSize.x -= BoxCollider.size.x*2;
 			}
 			if (direction.y > 0)
 			{
@@ -239,16 +224,19 @@ public class CharacterController2D : MonoBehaviour
 			{
 				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
 			}
-			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - distance)) - spriteSize/2;
-			/*for (int i = 0; i < hits.Length; i++)
+			if(direction.x != 0 && direction.y < 0) //if diagonal
 			{
-
-				RaycastHit2D hit = hits[i];
-				Renderer rend = hit.transform.GetComponent<Renderer>();
-				Debug.Log(hit.collider.gameObject.name);
-			}*/
-			
-			//Debug.Log("fuck you");
+				spriteSize.y /= 2;
+			}
+			if(direction.x != 0 && direction.y > 0)
+			{
+				spriteSize /= 2;
+			}
+			if(direction.x == 0 && direction.y > 0)
+			{
+				spriteSize.y /= 2;
+			}
+			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
 		}
 		
 	}
