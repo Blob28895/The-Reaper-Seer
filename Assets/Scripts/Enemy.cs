@@ -27,9 +27,14 @@ public class Enemy : MonoBehaviour
     void Die()
 	{
         Debug.Log("The enemy is dead");
-        //Death animation goes here
+        // Disables the rest of the enemy scripts so that it can't continue attacking the player
+        foreach (MonoBehaviour script in gameObject.GetComponents<MonoBehaviour>())
+        {
+            script.enabled = false;
+        }
+        // Death animation goes here
 
-        //Disable the enemy
+        // Disable the enemy
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;

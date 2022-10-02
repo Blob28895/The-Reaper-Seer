@@ -289,7 +289,7 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 8
-  attackDamage: 2
+  attackDamage: 1
   attackRate: 2
 --- !u!1 &391270122
 GameObject:
