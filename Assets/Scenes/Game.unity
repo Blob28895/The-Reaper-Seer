@@ -1026,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbdf28454938d9e45916533896cb4a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1609294286}
   maxHealth: 10
   currentHealth: 0
 --- !u!1 &1932137541

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Animator animator;
     public int maxHealth = 10;
     public int currentHealth;
     // Start is called before the first frame update
@@ -48,8 +49,9 @@ public class Player : MonoBehaviour
             script.enabled = false;
         }
         // Death animation goes here
+        animator.SetBool("Dead", true);
 
-        GetComponent<SpriteRenderer>().enabled = false;
+        //GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
     }
 }
