@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     // Function that plays the dying animation and disables the player when they run out of health
     private void Die()
     {
-        Debug.Log("Player is now dead.");
+        //Debug.Log("Player is now dead.");
         // Makes it so that the player can no longer move after death
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         // Used for disabling both the circle and box collider on the Reaper
@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
         animator.SetBool("Dead", true);
 
         //GetComponent<SpriteRenderer>().enabled = false;
+        // Used for ending the game and giving the player the option to restart
+        FindObjectOfType<GameHandler>().GameOver();
         this.enabled = false;
     }
 }
