@@ -6,29 +6,26 @@ public class Player : MonoBehaviour
 {
     public Animator animator;
     public int maxHealth = 10;
-    public int currentHealth;
+    private int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     // Function that applies damage to the player
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        // Insert hurt animation here
-        animator.SetTrigger("Hurt");
-        Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
-        if (currentHealth <= 0)
+        if (enabled)
         {
-            Die();
+            currentHealth -= damage;
+            // Insert hurt animation here
+            animator.SetTrigger("Hurt");
+            Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
