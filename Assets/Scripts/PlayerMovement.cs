@@ -18,10 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isDodging = false;
     private Vector3 moveDir = new Vector3(0, 0, 0);
-    
+    private bool isAttacking = false;
+    public float attackSlowMultiplier;
+
     private bool airDodged = false;
     float nextDodgeTime = 0f;
     public float DodgeCooldown = 0.6f;
+    public void setAttacking(bool set)
+    {
+        isAttacking = set;
+    }
     // Update is called once per frame
     // Use this to get input
     void Update()
@@ -88,6 +94,9 @@ public class PlayerMovement : MonoBehaviour
         //      With this specific character controller the "false, false" means "i do not want to crouch, and I do not want to jump"
         if (!isDodging)
         {
+            if (isAttacking) {
+                horizontalMove *= attackSlowMultiplier;
+            }
             controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump); // Time.fixedDeltaTime is the amount of time that has passed since the last time FixedUpdate() was called
             jump = false;
         }

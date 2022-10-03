@@ -217,13 +217,13 @@ AnimatorStateMachine:
     m_Position: {x: 120, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1929165200089200501}
-    m_Position: {x: -130, y: 360, z: 0}
+    m_Position: {x: -310, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6017033254560196851}
-    m_Position: {x: -170, y: 90, z: 0}
+    m_Position: {x: -90, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6336542212509286271}
-    m_Position: {x: -340, y: 360, z: 0}
+    m_Position: {x: -370, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -8246891794935830792}
@@ -232,7 +232,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -140, y: 230, z: 0}
+  m_AnyStatePosition: {x: -310, y: 250, z: 0}
   m_EntryPosition: {x: 80, y: 80, z: 0}
   m_ExitPosition: {x: 270, y: 90, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -263,7 +263,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hurt
     m_Type: 9
     m_DefaultFloat: 0
