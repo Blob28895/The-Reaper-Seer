@@ -15,14 +15,17 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
 	{
-        currentHealth -= damage;
-        Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
-        //insert hurt animation here
-        animator.SetTrigger("Hurt");
-        if (currentHealth <= 0)
-		{
-            Die();
-		}
+        if (enabled)
+        {
+            currentHealth -= damage;
+            Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
+            //insert hurt animation here
+            animator.SetTrigger("Hurt");
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
 	}
 
     void Die()
@@ -36,7 +39,10 @@ public class Enemy : MonoBehaviour
         // Death animation goes here
 
         // Disable the enemy
-        GetComponent<Collider2D>().enabled = false;
+        foreach (Collider2D c in GetComponents<Collider2D>())
+        {
+            c.enabled = false;
+        }
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
 	}
