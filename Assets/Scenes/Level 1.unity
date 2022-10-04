@@ -297,7 +297,7 @@ MonoBehaviour:
   controller: {fileID: 283336629}
   animator: {fileID: 283336628}
   runSpeed: 40
-  attackSlowMultiplier: 0
+  attackSlowMultiplier: 0.5
   DodgeCooldown: 0.6
 --- !u!58 &283336631
 CircleCollider2D:
