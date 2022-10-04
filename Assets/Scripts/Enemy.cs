@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
+    public Animator animator;
     int currentHealth;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
         //insert hurt animation here
-        
+        animator.SetTrigger("Hurt");
         if (currentHealth <= 0)
 		{
             Die();
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
 	{
         Debug.Log("The enemy is dead");
         //Death animation goes here
-
+        
         //Disable the enemy
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;

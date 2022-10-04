@@ -34,12 +34,14 @@ public class MeleeEnemyController : MonoBehaviour
         // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
         if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
         {
+            animator.SetBool("Moving", true);
             Move();
         }
 
         // When the enemy is close enough to the player, it will start attacking
         else if (Vector2.Distance(transform.position, target.position) <= minimumDistance)
         {
+            animator.SetBool("Moving", false);
             // Controls the attack rate
             if (Time.time > nextAttackTime)
             {
