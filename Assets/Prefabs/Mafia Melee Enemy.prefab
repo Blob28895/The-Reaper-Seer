@@ -67,7 +67,7 @@ Transform:
   m_Children:
   - {fileID: 7661710627118404820}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7661710627625135610
 SpriteRenderer:
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019917712, y: -0.04574558}
+  m_Offset: {x: -0.0019917786, y: -0.011838749}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,7 +186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29879415, y: 0.65015626}
+  m_Size: {x: 0.29879415, y: 0.5823426}
   m_EdgeRadius: 0
 --- !u!114 &7661710627625135603
 MonoBehaviour:
@@ -216,13 +216,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   target: {fileID: 0}
-  minimumDistance: 1.7
+  minimumDistance: 1.5
   maximumDistance: 8
   animator: {fileID: 7661710627625135608}
   attackPoint: {fileID: 7661710627118404820}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 0.7
+  attackRange: 0.6
   attackDamage: 1
-  attackRate: 2
+  attackRate: 1
