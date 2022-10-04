@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3fc085a450a6ce64283f9f4b58c21e6f
+guid: c751ab02f2d44454ea5ec9bdef74e384
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,154 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NewReaper_1_0
+      name: preDuelReaperSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928fec0a7a78bbf4599c536608bb11e0
+      internalID: 1097076627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2451b8dacfae66a4da35d15ddc013f1b
+      internalID: -645311574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa784fba8d43d440b56542fc3d76a23
+      internalID: -1371978470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad25dbb5c1eb5c647943567bb5d4d0a2
+      internalID: -2040422538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3235a5aa85f39247960770f84968913
+      internalID: -1987100120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe4c249b2c1e1c4894ec20c524c1e7e
+      internalID: -246041128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037b67af1c0efdb4cacc456f13994ce7
+      internalID: 1663098412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_7
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +268,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69f80505553bc0a4b915898462dd2417
-      internalID: 1514935394
+      spriteID: 89d6a8c1853a99848990d7039680147f
+      internalID: -69334031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_1
+      name: preDuelReaperSheet_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14acc7f17d9b964c9c39183cd7ca6b3
+      internalID: 402966558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66f1f28dc44b5742822c92c4d53bff3
+      internalID: 1442574759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d4dbb9c14bd1743a93809b029d3db9
+      internalID: 1144576087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_11
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f245e2143617f5e4f9a38851acbfd94f
-      internalID: 271084249
+      spriteID: 6549155e5a24d5a44b8cc3a65ded3652
+      internalID: 501521754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_2
+      name: preDuelReaperSheet_12
       rect:
         serializedVersion: 2
         x: 64
@@ -163,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73b344e6cf978ab44925cdcb7c7c45a7
-      internalID: 1292670612
+      spriteID: 6c03decd476df4748ad186e946eab90d
+      internalID: 968010678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_3
+      name: preDuelReaperSheet_13
       rect:
         serializedVersion: 2
         x: 128
@@ -184,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4f69ac4e80231146846662c148622a3
-      internalID: 866462754
+      spriteID: 577d553b4299a4148b295a31b13ef7fd
+      internalID: -2077575218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_4
+      name: preDuelReaperSheet_14
       rect:
         serializedVersion: 2
         x: 192
@@ -205,143 +415,185 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e48d53219fa83e4ca88ff7b7b70b1af
-      internalID: -616234289
+      spriteID: 6154fdac185d34a49844ab1fe7995fef
+      internalID: -2128215764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_5
+      name: preDuelReaperSheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e6d1f1c9f005e498497053b6d9f7d1
+      internalID: 1296776395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3693652b08f00574fa217d8a7b3c8121
+      internalID: 2075641683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31aab6bae89c064d9eb772637a1606c
+      internalID: 965317579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d02fba3677af924ea9899b78a61554e
+      internalID: -1117287667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5780bf60fe7ad454ca9a99be3df6d5bf
+      internalID: 1591087729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7756aa2dcc7569447a354caa6e01e4e1
+      internalID: -686637462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4226b4a95af5178488c3fa8d79f8ec06
+      internalID: -526110170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efb8d130f6ee1e43bc71f1d4945c5e2
+      internalID: -245066897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preDuelReaperSheet_23
       rect:
         serializedVersion: 2
         x: 256
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61ab3fb41d67f2047a4dc2f7c7a69f02
-      internalID: -90879192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_6
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02b9045076f557a4e948eecc2a648d31
-      internalID: -410593181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a01fd8c8cc32b31468a950ec8e667335
-      internalID: 852679768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25be92aad9432c34ea8a82b882504cab
-      internalID: 1845287049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d707723347199f42b3db6a2819ffbfa
-      internalID: -2057098938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_10
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5dfb54aa36ccf894db26cb5c0d72985e
-      internalID: 604961435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_11
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 320
         width: 64
         height: 64
@@ -352,98 +604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39cdc786305682846bbc92095548e152
-      internalID: -700156673
+      spriteID: cdfc6b4a70ad30244bb225396b684844
+      internalID: -1824673175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_12
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b58deb1fe756fd4484ccb2ada5450dd
-      internalID: 112007558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_13
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f54879b2cfb104146ac07d8fe7635a88
-      internalID: 1546242815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_14
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47625c42bea9ac8458cf4e41174120e5
-      internalID: -1749253761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_15
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21cd9846869ab5549b1cec63f9944bd5
-      internalID: 320533976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewReaper_1_16
+      name: preDuelReaperSheet_24
       rect:
         serializedVersion: 2
         x: 320
@@ -457,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e14b792a97dcf4db7e53b05616b463
-      internalID: -1129018755
+      spriteID: b6fd0f0fa7a454444b57c44e78c3b1e4
+      internalID: 555421542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_17
+      name: preDuelReaperSheet_25
       rect:
         serializedVersion: 2
         x: 384
@@ -478,14 +646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e69f2d442826f04b94d57f64883a3a6
-      internalID: 386206486
+      spriteID: d23c68e1906550d44a09fb25e56238a8
+      internalID: 403819594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_18
+      name: preDuelReaperSheet_26
       rect:
         serializedVersion: 2
         x: 448
@@ -499,14 +667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec6106ef8dfe8cc4388607e0b070b348
-      internalID: 1249014234
+      spriteID: f8e781db377572e43a88b6a7c4ea811f
+      internalID: 531546875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_19
+      name: preDuelReaperSheet_27
       rect:
         serializedVersion: 2
         x: 512
@@ -520,14 +688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89dca6d498e3b9b4d9a694b9aa19d824
-      internalID: 1236811338
+      spriteID: 3d6ab1641f4419d40b1e0c363301298d
+      internalID: 324768661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_20
+      name: preDuelReaperSheet_28
       rect:
         serializedVersion: 2
         x: 576
@@ -541,14 +709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51db6dcf73578594cb2061d0f488d63f
-      internalID: -269512475
+      spriteID: fbafbdaeaa92b20468281e1848de10d5
+      internalID: -1737731613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_21
+      name: preDuelReaperSheet_29
       rect:
         serializedVersion: 2
         x: 640
@@ -562,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 788f448e278f5fb43ad7de09d2806208
-      internalID: -1005270893
+      spriteID: ae6ed630d23c77647a441faf3562d445
+      internalID: 630551559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_22
+      name: preDuelReaperSheet_30
       rect:
         serializedVersion: 2
         x: 704
@@ -583,14 +751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a99bc6a728a62b43b5e3da2e43e722b
-      internalID: 1603021964
+      spriteID: 07cdb2a344033ee4aa63dd520f466524
+      internalID: 265093254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_23
+      name: preDuelReaperSheet_31
       rect:
         serializedVersion: 2
         x: 768
@@ -604,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b26c444a9e56f0f4594355604edcb4e6
-      internalID: 394457915
+      spriteID: ce12d448ad57fd04ca2a7ff02bdc7588
+      internalID: -384592664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_24
+      name: preDuelReaperSheet_32
       rect:
         serializedVersion: 2
         x: 0
@@ -625,14 +793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028122809a6b9d2418ae54013f58842f
-      internalID: 1824698391
+      spriteID: bf4f3588fd87cc24da51abd4998e9ae7
+      internalID: -88543632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_25
+      name: preDuelReaperSheet_33
       rect:
         serializedVersion: 2
         x: 64
@@ -646,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5dae3b971d575f44b2dd306eee51663
-      internalID: -1256053970
+      spriteID: e83de7fc7421e5148a46b350ca67f31c
+      internalID: -398382659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_26
+      name: preDuelReaperSheet_34
       rect:
         serializedVersion: 2
         x: 128
@@ -667,14 +835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8527336474ca85409669bb87b02dc4b
-      internalID: 583041570
+      spriteID: 6d3110c90f10bd247be4817a6215d82a
+      internalID: -790106677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_27
+      name: preDuelReaperSheet_35
       rect:
         serializedVersion: 2
         x: 192
@@ -688,14 +856,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a79875cb2230f9a4d9a0fc813aa226f6
-      internalID: -1826447158
+      spriteID: 536b5a5d5d625a341b43e1e6e9f25c01
+      internalID: 1723418623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_28
+      name: preDuelReaperSheet_36
       rect:
         serializedVersion: 2
         x: 256
@@ -709,14 +877,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09bfb3a7d82892c40821ead611e1c974
-      internalID: 1377138292
+      spriteID: cc3d626ace8faa04a904c5580bb17a52
+      internalID: -1347064622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_29
+      name: preDuelReaperSheet_37
       rect:
         serializedVersion: 2
         x: 0
@@ -730,14 +898,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b73977d941fc30488fd6b5262b540a5
-      internalID: -233627622
+      spriteID: 1db121f5c1701234899538fb0c059f72
+      internalID: -2019005359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_30
+      name: preDuelReaperSheet_38
       rect:
         serializedVersion: 2
         x: 64
@@ -751,14 +919,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac72d12f6eac992489c79a2582251898
-      internalID: -623040908
+      spriteID: 3b2bc6ba0b8a2434ba6625aecd3fe9aa
+      internalID: 1522162764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_31
+      name: preDuelReaperSheet_39
       rect:
         serializedVersion: 2
         x: 0
@@ -772,14 +940,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f20359c1c1e714c8525245a505be97
-      internalID: 196489053
+      spriteID: 7e0c3ceb3b89abc47b90be66d1919720
+      internalID: -1462056626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_32
+      name: preDuelReaperSheet_40
       rect:
         serializedVersion: 2
         x: 64
@@ -793,14 +961,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2862b34e8d2eea243a1a6afaf96a063d
-      internalID: 807438010
+      spriteID: 9bd7cb58608e6724d941ae0ed403c200
+      internalID: -359949921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_33
+      name: preDuelReaperSheet_41
       rect:
         serializedVersion: 2
         x: 0
@@ -814,14 +982,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 869c38c591367894e851ee75fee67ea8
-      internalID: 1418818200
+      spriteID: 1f616a54c2c0dc94b8926a37acb5fe23
+      internalID: 1671580820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_34
+      name: preDuelReaperSheet_42
       rect:
         serializedVersion: 2
         x: 64
@@ -835,14 +1003,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33a33dee85188a0498e7b3569ca841ae
-      internalID: -2003236533
+      spriteID: 268c952af26dcef45897ec9f32fece92
+      internalID: 1761647079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_35
+      name: preDuelReaperSheet_43
       rect:
         serializedVersion: 2
         x: 128
@@ -856,14 +1024,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19876d23152e5c641919d089a5df34eb
-      internalID: 2064101875
+      spriteID: 8f0c3bbfcabd5434b954f9114496b0a9
+      internalID: -1390138633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_36
+      name: preDuelReaperSheet_44
       rect:
         serializedVersion: 2
         x: 192
@@ -877,14 +1045,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66d52fdb2d600714e99db6ff678e5f51
-      internalID: -30647972
+      spriteID: d4aee1756b2894c43b0126eaf49e365c
+      internalID: 800961967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_37
+      name: preDuelReaperSheet_45
       rect:
         serializedVersion: 2
         x: 0
@@ -898,14 +1066,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d44356c1bb08df419caf2bb3b7abbd8
-      internalID: 998492089
+      spriteID: bfe77f923eec3784f929b200f2a94955
+      internalID: 659911608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_38
+      name: preDuelReaperSheet_46
       rect:
         serializedVersion: 2
         x: 64
@@ -919,14 +1087,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 282ca498e0dae7246b6b8e7923db9438
-      internalID: 946645944
+      spriteID: fc8dfbf6d9dc53241977dcf506e6f78a
+      internalID: 1112747595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_39
+      name: preDuelReaperSheet_47
       rect:
         serializedVersion: 2
         x: 128
@@ -940,14 +1108,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dbcc71e7b23257429670c082d2514cd
-      internalID: -1978633411
+      spriteID: 638f05104ab6da44daea0542b374c86f
+      internalID: -1564369336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_40
+      name: preDuelReaperSheet_48
       rect:
         serializedVersion: 2
         x: 192
@@ -961,14 +1129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ed9d4ec7df097745b5247dde83b7346
-      internalID: -48389055
+      spriteID: e9513d87eba1f3c43b498393965287e6
+      internalID: 1374339078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_41
+      name: preDuelReaperSheet_49
       rect:
         serializedVersion: 2
         x: 256
@@ -982,14 +1150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61fa07172a98fd944890d77a80a290e5
-      internalID: -329686944
+      spriteID: e3e1b5da121a7c649a6bcb2f288cc60a
+      internalID: -1590923448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_42
+      name: preDuelReaperSheet_50
       rect:
         serializedVersion: 2
         x: 320
@@ -1003,14 +1171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab9152afe48339d43bccec0d9557cc42
-      internalID: -1842917526
+      spriteID: 88ae2a82b73eeb24ba0465783721c482
+      internalID: -704588065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_43
+      name: preDuelReaperSheet_51
       rect:
         serializedVersion: 2
         x: 384
@@ -1024,14 +1192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67861f14f62eda0408ba03343bfd6100
-      internalID: -680848246
+      spriteID: 0c6373cb579e757458097fa273ab7e5e
+      internalID: -1952404333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_44
+      name: preDuelReaperSheet_52
       rect:
         serializedVersion: 2
         x: 448
@@ -1045,14 +1213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 859f283aef7d28740ac7aa8e31127c35
-      internalID: -761290107
+      spriteID: e2b58473c7f34894981ce5d19a82a2f0
+      internalID: -973255546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_45
+      name: preDuelReaperSheet_53
       rect:
         serializedVersion: 2
         x: 512
@@ -1066,14 +1234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84560c9acd9039a4185d5d82fafc55d3
-      internalID: 367077902
+      spriteID: 4a227ee09773e414c827ac1ad14bb886
+      internalID: -675796708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_46
+      name: preDuelReaperSheet_54
       rect:
         serializedVersion: 2
         x: 576
@@ -1087,14 +1255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0d25f9526d84e444ada17c9ad299ca1
-      internalID: -1311232966
+      spriteID: 15920d1340ad61342a0a70b24c43dd61
+      internalID: -2136398849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewReaper_1_47
+      name: preDuelReaperSheet_55
       rect:
         serializedVersion: 2
         x: 640
@@ -1108,8 +1276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce2fc579c430f784f999b468d7cd9001
-      internalID: -665769634
+      spriteID: bee3195587de09944849fd2eafbeff23
+      internalID: -4060903
       vertices: []
       indices: 
       edges: []
@@ -1125,54 +1293,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NewReaper_1_47: -665769634
-      NewReaper_1_20: -269512475
-      NewReaper_1_16: -1129018755
-      NewReaper_1_39: -1978633411
-      NewReaper_1_14: -1749253761
-      NewReaper_1_5: -90879192
-      NewReaper_1_21: -1005270893
-      NewReaper_1_32: 807438010
-      NewReaper_1_27: -1826447158
-      NewReaper_1_25: -1256053970
-      NewReaper_1_38: 946645944
-      NewReaper_1_36: -30647972
-      NewReaper_1_44: -761290107
-      NewReaper_1_34: -2003236533
-      NewReaper_1_29: -233627622
-      NewReaper_1_24: 1824698391
-      NewReaper_1_40: -48389055
-      NewReaper_1_41: -329686944
-      NewReaper_1_19: 1236811338
-      NewReaper_1_42: -1842917526
-      NewReaper_1_26: 583041570
-      NewReaper_1_30: -623040908
-      NewReaper_1_31: 196489053
-      NewReaper_1_28: 1377138292
-      NewReaper_1_33: 1418818200
-      NewReaper_1_4: -616234289
-      NewReaper_1_45: 367077902
-      NewReaper_1_3: 866462754
-      NewReaper_1_18: 1249014234
-      NewReaper_1_37: 998492089
-      NewReaper_1_0: 1514935394
-      NewReaper_1_46: -1311232966
-      NewReaper_1_23: 394457915
-      NewReaper_1_7: 852679768
-      NewReaper_1_22: 1603021964
-      NewReaper_1_12: 112007558
-      NewReaper_1_35: 2064101875
-      NewReaper_1_43: -680848246
-      NewReaper_1_17: 386206486
-      NewReaper_1_6: -410593181
-      NewReaper_1_13: 1546242815
-      NewReaper_1_9: -2057098938
-      NewReaper_1_1: 271084249
-      NewReaper_1_15: 320533976
-      NewReaper_1_10: 604961435
-      NewReaper_1_11: -700156673
-      NewReaper_1_2: 1292670612
-      NewReaper_1_8: 1845287049
+      preDuelReaperSheet_32: -88543632
+      preDuelReaperSheet_9: 1442574759
+      preDuelReaperSheet_19: 1591087729
+      preDuelReaperSheet_52: -973255546
+      preDuelReaperSheet_26: 531546875
+      preDuelReaperSheet_22: -245066897
+      preDuelReaperSheet_27: 324768661
+      preDuelReaperSheet_41: 1671580820
+      preDuelReaperSheet_7: -69334031
+      preDuelReaperSheet_40: -359949921
+      preDuelReaperSheet_1: -645311574
+      preDuelReaperSheet_30: 265093254
+      preDuelReaperSheet_42: 1761647079
+      preDuelReaperSheet_33: -398382659
+      preDuelReaperSheet_24: 555421542
+      preDuelReaperSheet_47: -1564369336
+      preDuelReaperSheet_39: -1462056626
+      preDuelReaperSheet_34: -790106677
+      preDuelReaperSheet_48: 1374339078
+      preDuelReaperSheet_45: 659911608
+      preDuelReaperSheet_36: -1347064622
+      preDuelReaperSheet_37: -2019005359
+      preDuelReaperSheet_46: 1112747595
+      preDuelReaperSheet_43: -1390138633
+      preDuelReaperSheet_28: -1737731613
+      preDuelReaperSheet_4: -1987100120
+      preDuelReaperSheet_0: 1097076627
+      preDuelReaperSheet_17: 965317579
+      preDuelReaperSheet_55: -4060903
+      preDuelReaperSheet_49: -1590923448
+      preDuelReaperSheet_2: -1371978470
+      preDuelReaperSheet_20: -686637462
+      preDuelReaperSheet_10: 1144576087
+      preDuelReaperSheet_8: 402966558
+      preDuelReaperSheet_15: 1296776395
+      preDuelReaperSheet_38: 1522162764
+      preDuelReaperSheet_23: -1824673175
+      preDuelReaperSheet_12: 968010678
+      preDuelReaperSheet_31: -384592664
+      preDuelReaperSheet_53: -675796708
+      preDuelReaperSheet_21: -526110170
+      preDuelReaperSheet_29: 630551559
+      preDuelReaperSheet_44: 800961967
+      preDuelReaperSheet_54: -2136398849
+      preDuelReaperSheet_6: 1663098412
+      preDuelReaperSheet_5: -246041128
+      preDuelReaperSheet_11: 501521754
+      preDuelReaperSheet_18: -1117287667
+      preDuelReaperSheet_50: -704588065
+      preDuelReaperSheet_14: -2128215764
+      preDuelReaperSheet_51: -1952404333
+      preDuelReaperSheet_16: 2075641683
+      preDuelReaperSheet_13: -2077575218
+      preDuelReaperSheet_25: 403819594
+      preDuelReaperSheet_35: 1723418623
+      preDuelReaperSheet_3: -2040422538
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
