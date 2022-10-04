@@ -77,7 +77,11 @@ public class MeleeEnemyController : MonoBehaviour
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
         //Debug.Log("Player hit " + hitPlayer.name);
 
-        // Add code here to cause the player to take damage 
+        // Add code here to cause the player to take damage
+        if (hitPlayer != null)
+        {
+            hitPlayer.GetComponent<Player>().TakeDamage(attackDamage);
+        }
     }
 
     // Function that flips the model when moving in the other direction
