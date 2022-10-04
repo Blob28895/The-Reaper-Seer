@@ -4,7 +4,7 @@ using UnityEngine;
 //this line is being added as a test
 public class PlayerMovement : MonoBehaviour
 {
-
+    private Rigidbody2D RB;
     // When you create public variables up here they are adjustable in the unity UI
     public BoxCollider2D BoxCollider;
     public CircleCollider2D CircleCollider;
@@ -28,15 +28,21 @@ public class PlayerMovement : MonoBehaviour
     {
         isAttacking = set;
     }
-    // Update is called once per frame
-    // Use this to get input
-    void Update()
+	void Start()
+	{
+        RB = controller.getRB();
+	}
+	// Update is called once per frame
+	// Use this to get input
+	void Update()
     {
         if(!isDodging) { 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+        animator.SetBool("grounded", controller.getGrounded());
+        animator.SetFloat("Vertical", RB.velocity.y);
+        
         if(Input.GetButtonDown("Jump"))
 		{
             jump = true;

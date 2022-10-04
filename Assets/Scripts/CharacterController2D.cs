@@ -49,6 +49,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		return targetVelocity;
 	}
+	public Rigidbody2D getRB()
+	{
+		return m_Rigidbody2D;
+	}
 	public bool getFacing()
 	{
 		return m_FacingRight;
