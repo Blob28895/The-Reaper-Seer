@@ -37,13 +37,15 @@ public class Enemy : MonoBehaviour
             script.enabled = false;
         }
         // Death animation goes here
+        animator.SetBool("Dead", true);
 
         // Disable the enemy
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         foreach (Collider2D c in GetComponents<Collider2D>())
         {
             c.enabled = false;
         }
-        GetComponent<SpriteRenderer>().enabled = false;
+        // GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
 	}
 }
