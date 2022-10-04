@@ -10,7 +10,10 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;// A collider that will be disabled when crouching
+	[SerializeField] private BoxCollider2D BoxCollider;
+	[SerializeField] private CircleCollider2D CircleCollider;
+	[SerializeField] private float m_dashDistance = 3f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -18,6 +21,8 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private Vector3 targetVelocity;
+	//public RaycastHit2D hit;
 
 	[Header("Events")]
 	[Space]
@@ -40,7 +45,22 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
-
+	public Vector3 getVelocity()
+	{
+		return targetVelocity;
+	}
+	public Rigidbody2D getRB()
+	{
+		return m_Rigidbody2D;
+	}
+	public bool getFacing()
+	{
+		return m_FacingRight;
+	}
+	public bool getGrounded()
+	{
+		return m_Grounded;
+	}
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -106,7 +126,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
@@ -132,6 +152,98 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	public void dodge(Vector3 direction)
+	{
+		RaycastHit2D[] hitsTop;
+		RaycastHit2D[] hitsBottom;
+		Vector2 temp = transform.position;
+		if(direction.x > 0) // get neccessary offset of the hitboxes
+		{
+			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
+		}
+		if(direction.x < 0)
+		{
+			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
+		}
+		if(direction.y > 0)
+		{
+			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
+		}
+		if(direction.y < 0)
+		{
+			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
+		}
+		direction *= m_dashDistance;
+		Vector2 topRay = temp;
+		Vector2 bottomRay = temp;
+		topRay.y = m_CeilingCheck.position.y - ((GetComponent<Renderer>().bounds.size.y) / 10);
+		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
+		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_WhatIsGround);
+		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_WhatIsGround);
+		temp.y -= CircleCollider.offset.y;
+		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
+		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
+		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
+		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
+		{
+			//Debug.Log("dash"); test if we made it into this if statement
+			m_Rigidbody2D.transform.position += direction;
+		}
+		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
+		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
+		  //figure out which one hit something
+			RaycastHit2D[] hitRay;
+			if (hitsTop.Length != 0 && hitsBottom.Length == 0)
+			{
+				hitRay = hitsTop;
+			}
+			else if(hitsBottom.Length != 0 && hitsTop.Length == 0)
+			{
+				hitRay = hitsBottom;
+			}
+			else
+			{
+				if (direction.y > 0) { hitRay = hitsTop; }
+				else if (direction.y < 0) { hitRay = hitsBottom; }
+				else { hitRay = hitsBottom; }
+			}
+			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
+			Vector2 contactPoint = hitRay[0].point;
+			float failDistance = Vector2.Distance(contactPoint, failedDash);
+			direction /= m_dashDistance;
+			Vector3 spriteSize = new Vector3(0,0,0);
+			if (direction.x > 0) // get neccessary offset of the hitboxes
+			{
+				spriteSize.x += BoxCollider.size.x*2;
+			}
+			if (direction.x < 0)
+			{
+				spriteSize.x -= BoxCollider.size.x*2;
+			}
+			if (direction.y > 0)
+			{
+				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
+			}
+			if (direction.y < 0)
+			{
+				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
+			}
+			if(direction.x != 0 && direction.y < 0) //if diagonal
+			{
+				spriteSize.y /= 2;
+			}
+			if(direction.x != 0 && direction.y > 0)
+			{
+				spriteSize /= 2;
+			}
+			if(direction.x == 0 && direction.y > 0)
+			{
+				spriteSize.y /= 2;
+			}
+			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
+		}
+		
+	}
 
 	private void Flip()
 	{
@@ -144,3 +256,5 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 }
+
+	
