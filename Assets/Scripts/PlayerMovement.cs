@@ -4,7 +4,7 @@ using UnityEngine;
 //this line is being added as a test
 public class PlayerMovement : MonoBehaviour
 {
-
+    private Rigidbody2D RB;
     // When you create public variables up here they are adjustable in the unity UI
     public BoxCollider2D BoxCollider;
     public CircleCollider2D CircleCollider;
@@ -18,19 +18,31 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isDodging = false;
     private Vector3 moveDir = new Vector3(0, 0, 0);
-    
+    private bool isAttacking = false;
+    public float attackSlowMultiplier;
+
     private bool airDodged = false;
     float nextDodgeTime = 0f;
     public float DodgeCooldown = 0.6f;
-    // Update is called once per frame
-    // Use this to get input
-    void Update()
+    public void setAttacking(bool set)
+    {
+        isAttacking = set;
+    }
+	void Start()
+	{
+        RB = controller.getRB();
+	}
+	// Update is called once per frame
+	// Use this to get input
+	void Update()
     {
         if(!isDodging) { 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+        animator.SetBool("grounded", controller.getGrounded());
+        animator.SetFloat("Vertical", RB.velocity.y);
+        
         if(Input.GetButtonDown("Jump"))
 		{
             jump = true;
@@ -88,6 +100,9 @@ public class PlayerMovement : MonoBehaviour
         //      With this specific character controller the "false, false" means "i do not want to crouch, and I do not want to jump"
         if (!isDodging)
         {
+            if (isAttacking) {
+                horizontalMove *= attackSlowMultiplier;
+            }
             controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump); // Time.fixedDeltaTime is the amount of time that has passed since the last time FixedUpdate() was called
             jump = false;
         }

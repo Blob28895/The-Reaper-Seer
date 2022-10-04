@@ -49,6 +49,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		return targetVelocity;
 	}
+	public Rigidbody2D getRB()
+	{
+		return m_Rigidbody2D;
+	}
 	public bool getFacing()
 	{
 		return m_FacingRight;
@@ -177,8 +181,8 @@ public class CharacterController2D : MonoBehaviour
 		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_WhatIsGround);
 		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_WhatIsGround);
 		temp.y -= CircleCollider.offset.y;
-		Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
-		Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
+		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
+		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
 		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
 		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
 		{

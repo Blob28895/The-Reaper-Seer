@@ -9,13 +9,19 @@ public class PlayerCombat : MonoBehaviour
 	public float attackRange = 0.5f;
 	public LayerMask enemyLayers;
 	public int attackDamage = 25;
-
+	public PlayerMovement movement;
 	//attackRate is attacks per second
 	public float attackRate = 2f;
 	float nextAttackTime = 0f;
-    // Update is called once per frame
-    void Update()
+
+	void Start()
+	{
+		movement = GetComponent<PlayerMovement>();
+	}
+	// Update is called once per frame
+	void Update()
     {
+		string state = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
 		if (Time.time >= nextAttackTime)
 		{
 			if (Input.GetButtonDown("Fire3"))
@@ -23,6 +29,16 @@ public class PlayerCombat : MonoBehaviour
 				Attack();
 				nextAttackTime = Time.time + 1f / attackRate; 
 			}
+		}
+		if (state == "attack1" || state == "attack2" || state == "attack3" || state == "transition1" || state == "transition2" || state == "Attack")
+		{
+			//Debug.Log("attacking");
+
+			movement.setAttacking(true);
+		}
+		else
+		{
+			movement.setAttacking(false);
 		}
 	}
 
