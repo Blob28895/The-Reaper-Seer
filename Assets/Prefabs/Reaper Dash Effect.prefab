@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6820722952660682824}
   - component: {fileID: -2897266054036760110}
-  - component: {fileID: -8215106637053558542}
+  - component: {fileID: 4584361852973319150}
   m_Layer: 0
   m_Name: Reaper Dash Effect
   m_TagString: Untagged
@@ -85,15 +85,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8215106637053558542
-MonoBehaviour:
+--- !u!95 &4584361852973319150
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3793060302440629220}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697163aaeb87cb74c8090a6ea81f651a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9ac7281754e5c040b275bb05087c7ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

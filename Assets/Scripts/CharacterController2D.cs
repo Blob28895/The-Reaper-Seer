@@ -248,6 +248,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 			lastRB = m_Rigidbody2D;
 			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+			dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			//dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
 			/*if (Vector3.Distance(m_Rigidbody2D.transform.position, lastRB.transform.position) > 0)
