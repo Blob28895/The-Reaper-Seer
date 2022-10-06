@@ -24,6 +24,9 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 targetVelocity;
 	//public RaycastHit2D hit;
 
+	// Test variables
+	private Rigidbody2D lastRB;
+
 	[Header("Events")]
 	[Space]
 
@@ -240,7 +243,10 @@ public class CharacterController2D : MonoBehaviour
 			{
 				spriteSize.y /= 2;
 			}
+			lastRB = m_Rigidbody2D;
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
+			if (Vector3.Distance(m_Rigidbody2D.transform.position, lastRB.transform.position) <= 0)
+				Debug.Log("No Dash Effect");
 		}
 		
 	}
