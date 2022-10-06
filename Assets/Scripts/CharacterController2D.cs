@@ -26,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
 
 	// Test variables
 	private Rigidbody2D lastRB;
+	private float dashAngle;
 	[SerializeField] private Transform reaperDashEffect;
 
 	[Header("Events")]
@@ -192,8 +193,9 @@ public class CharacterController2D : MonoBehaviour
 		{
 			//Debug.Log("dash"); test if we made it into this if statement
 			lastRB = m_Rigidbody2D;
-			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
 			m_Rigidbody2D.transform.position += direction;
+			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+			dashEffectTransform.eulerAngles = new Vector3(0, 0, 0);
 		}
 		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
 		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
@@ -218,46 +220,46 @@ public class CharacterController2D : MonoBehaviour
 			float failDistance = Vector2.Distance(contactPoint, failedDash);
 			direction /= m_dashDistance;
 			Vector3 spriteSize = new Vector3(0,0,0);
+			// Right
 			if (direction.x > 0) // get neccessary offset of the hitboxes
 			{
 				spriteSize.x += BoxCollider.size.x*2;
 			}
+			// Left
 			if (direction.x < 0)
 			{
 				spriteSize.x -= BoxCollider.size.x*2;
 			}
+			// Up
 			if (direction.y > 0)
 			{
 				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
 			}
+			// Down
 			if (direction.y < 0)
 			{
 				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
 			}
+			// Downward diagonal (left or right)
 			if(direction.x != 0 && direction.y < 0) //if diagonal
 			{
 				spriteSize.y /= 2;
 			}
+			// Upward diagonal (left or right)
 			if(direction.x != 0 && direction.y > 0)
 			{
 				spriteSize /= 2;
 			}
+			// ???
 			if(direction.x == 0 && direction.y > 0)
 			{
 				spriteSize.y /= 2;
 			}
 			lastRB = m_Rigidbody2D;
-			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
-			dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			//dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
-			/*if (Vector3.Distance(m_Rigidbody2D.transform.position, lastRB.transform.position) > 0)
-			{
-				Debug.Log("Dash Effect");
-				Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
-				dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
-			}*/
-				
+			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+			dashEffectTransform.eulerAngles = new Vector3(0, 0, 0);
 		}
 		
 	}
