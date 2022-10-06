@@ -26,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
 
 	// Test variables
 	private Rigidbody2D lastRB;
+	[SerializeField] private Transform reaperDashEffect;
 
 	[Header("Events")]
 	[Space]
@@ -190,6 +191,8 @@ public class CharacterController2D : MonoBehaviour
 		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
 		{
 			//Debug.Log("dash"); test if we made it into this if statement
+			lastRB = m_Rigidbody2D;
+			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
 			m_Rigidbody2D.transform.position += direction;
 		}
 		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
@@ -244,9 +247,16 @@ public class CharacterController2D : MonoBehaviour
 				spriteSize.y /= 2;
 			}
 			lastRB = m_Rigidbody2D;
+			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+			//dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
-			if (Vector3.Distance(m_Rigidbody2D.transform.position, lastRB.transform.position) <= 0)
-				Debug.Log("No Dash Effect");
+			/*if (Vector3.Distance(m_Rigidbody2D.transform.position, lastRB.transform.position) > 0)
+			{
+				Debug.Log("Dash Effect");
+				Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+				dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
+			}*/
+				
 		}
 		
 	}

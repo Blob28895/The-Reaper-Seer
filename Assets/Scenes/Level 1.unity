@@ -337,6 +337,7 @@ MonoBehaviour:
   BoxCollider: {fileID: 283336632}
   CircleCollider: {fileID: 283336631}
   m_dashDistance: 3
+  reaperDashEffect: {fileID: 6820722952660682824, guid: a547ec9e215387741b63d391b943393b, type: 3}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
