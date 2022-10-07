@@ -26,8 +26,7 @@ public class CharacterController2D : MonoBehaviour
 
 	// Test variables
 	private Rigidbody2D lastRB;
-	private float dashAngle;
-	[SerializeField] private Transform reaperDashEffect;
+	[SerializeField] private GameObject reaperDashEffect;
 
 	[Header("Events")]
 	[Space]
@@ -162,18 +161,22 @@ public class CharacterController2D : MonoBehaviour
 		RaycastHit2D[] hitsTop;
 		RaycastHit2D[] hitsBottom;
 		Vector2 temp = transform.position;
+		// Right
 		if(direction.x > 0) // get neccessary offset of the hitboxes
 		{
 			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
 		}
+		// Left
 		if(direction.x < 0)
 		{
 			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
 		}
+		// Up
 		if(direction.y > 0)
 		{
 			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
 		}
+		// Down
 		if(direction.y < 0)
 		{
 			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
@@ -194,8 +197,7 @@ public class CharacterController2D : MonoBehaviour
 			//Debug.Log("dash"); test if we made it into this if statement
 			lastRB = m_Rigidbody2D;
 			m_Rigidbody2D.transform.position += direction;
-			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
-			dashEffectTransform.eulerAngles = new Vector3(0, 0, 0);
+			DashEffect(direction);
 		}
 		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
 		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
@@ -256,12 +258,19 @@ public class CharacterController2D : MonoBehaviour
 				spriteSize.y /= 2;
 			}
 			lastRB = m_Rigidbody2D;
-			//dashEffectTransform.eulerAngles = new Vector3(0, 0, direction.z);
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
-			Transform dashEffectTransform = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
-			dashEffectTransform.eulerAngles = new Vector3(0, 0, 0);
+			DashEffect(direction);
 		}
 		
+	}
+
+	private void DashEffect(Vector3 direction)
+    {
+		float angle = 0;
+		Debug.Log(angle);
+		GameObject dashObject = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
+		dashObject.transform.eulerAngles = new Vector3(0, 0, angle);
+		Destroy(dashObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 	}
 
 	private void Flip()
