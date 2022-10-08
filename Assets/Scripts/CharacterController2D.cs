@@ -24,6 +24,10 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 targetVelocity;
 	//public RaycastHit2D hit;
 
+	// Variables for dash effect
+	private Vector3 beforeDash;
+	[SerializeField] private GameObject reaperDashEffect;
+
 	[Header("Events")]
 	[Space]
 
@@ -154,21 +158,26 @@ public class CharacterController2D : MonoBehaviour
 
 	public void dodge(Vector3 direction)
 	{
+		beforeDash = transform.position;
 		RaycastHit2D[] hitsTop;
 		RaycastHit2D[] hitsBottom;
 		Vector2 temp = transform.position;
+		// Right
 		if(direction.x > 0) // get neccessary offset of the hitboxes
 		{
 			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
 		}
+		// Left
 		if(direction.x < 0)
 		{
 			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
 		}
+		// Up
 		if(direction.y > 0)
 		{
 			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
 		}
+		// Down
 		if(direction.y < 0)
 		{
 			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
@@ -188,6 +197,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			//Debug.Log("dash"); test if we made it into this if statement
 			m_Rigidbody2D.transform.position += direction;
+			DashEffect(direction);
 		}
 		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
 		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
@@ -212,37 +222,66 @@ public class CharacterController2D : MonoBehaviour
 			float failDistance = Vector2.Distance(contactPoint, failedDash);
 			direction /= m_dashDistance;
 			Vector3 spriteSize = new Vector3(0,0,0);
+			// Right
 			if (direction.x > 0) // get neccessary offset of the hitboxes
 			{
 				spriteSize.x += BoxCollider.size.x*2;
 			}
+			// Left
 			if (direction.x < 0)
 			{
 				spriteSize.x -= BoxCollider.size.x*2;
 			}
+			// Up
 			if (direction.y > 0)
 			{
 				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
 			}
+			// Down
 			if (direction.y < 0)
 			{
 				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
 			}
+			// Downward diagonal (left or right)
 			if(direction.x != 0 && direction.y < 0) //if diagonal
 			{
 				spriteSize.y /= 2;
 			}
+			// Upward diagonal (left or right)
 			if(direction.x != 0 && direction.y > 0)
 			{
 				spriteSize /= 2;
 			}
+			// ???
 			if(direction.x == 0 && direction.y > 0)
 			{
 				spriteSize.y /= 2;
 			}
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
+			// Only play the dash effect if the Reaper actually moves when dashing
+			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
+			{
+				DashEffect(direction);
+			}
 		}
 		
+	}
+
+	private void DashEffect(Vector3 direction)
+    {
+		int sign = 1;
+		if (direction.y < 0)
+        {
+			sign = -1;
+        }
+		float angle = Vector3.Angle(Vector3.right, direction) * sign; // Calculate the angle the dash effect should follow with respect to the right direction
+		//Debug.Log(angle);
+		GameObject dashObject = Instantiate(reaperDashEffect, beforeDash + direction / 1.75f, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
+		dashObject.transform.eulerAngles = new Vector3(0, 0, angle); // Apply the angle
+		float actualDashDistance = (m_Rigidbody2D.transform.position - beforeDash).magnitude;
+		//Debug.Log(actualDashDistance);
+		dashObject.transform.localScale = new Vector3(actualDashDistance / 1.5f, 1f, 1f); // Stretch the effect depending on dash distance
+		Destroy(dashObject, 0.25f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
 	}
 
 	private void Flip()
