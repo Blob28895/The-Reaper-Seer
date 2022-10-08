@@ -276,11 +276,11 @@ public class CharacterController2D : MonoBehaviour
         }
 		float angle = Vector3.Angle(Vector3.right, direction) * sign; // Calculate the angle the dash effect should follow with respect to the right direction
 		//Debug.Log(angle);
-		GameObject dashObject = Instantiate(reaperDashEffect, beforeDash, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
+		GameObject dashObject = Instantiate(reaperDashEffect, beforeDash + direction / 3, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
 		dashObject.transform.eulerAngles = new Vector3(0, 0, angle); // Apply the angle
 		float dashDistance = (m_Rigidbody2D.transform.position - beforeDash).magnitude;
-		dashObject.transform.localScale = new Vector3(dashDistance, 1f, 1f); // Stretch the effect depending on dash distance
-		Destroy(dashObject, 0.35f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
+		dashObject.transform.localScale = new Vector3(dashDistance / 1.5f, 1f, 1f); // Stretch the effect depending on dash distance
+		Destroy(dashObject, 0.30f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
 	}
 
 	private void Flip()

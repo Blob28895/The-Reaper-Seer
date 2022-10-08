@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6820722952660682824}
   - component: {fileID: -2897266054036760110}
   - component: {fileID: 4584361852973319150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Reaper Dash Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &-2897266054036760110
 SpriteRenderer:
