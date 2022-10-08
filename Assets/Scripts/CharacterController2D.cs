@@ -24,7 +24,7 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 targetVelocity;
 	//public RaycastHit2D hit;
 
-	// Test variables
+	// Variables for dash effect
 	private Rigidbody2D lastRB;
 	[SerializeField] private GameObject reaperDashEffect;
 
@@ -259,18 +259,28 @@ public class CharacterController2D : MonoBehaviour
 			}
 			lastRB = m_Rigidbody2D;
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
-			DashEffect(direction);
+			// Only play the dash effect if the Reaper actually moves when dashing
+			if ((Mathf.Abs(direction.x) > 0.1f && failDistance < 2.6f) || (Mathf.Abs(direction.y) > 0.1f && failDistance < 1.9f))
+			{
+				DashEffect(direction);
+			}
 		}
 		
 	}
 
 	private void DashEffect(Vector3 direction)
     {
-		float angle = 0;
-		Debug.Log(angle);
-		GameObject dashObject = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity);
-		dashObject.transform.eulerAngles = new Vector3(0, 0, angle);
-		Destroy(dashObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+		int sign = 1;
+		if (direction.y < 0)
+        {
+			sign = -1;
+        }
+		float angle = Vector3.Angle(Vector3.right, direction) * sign; // Calculate the angle the dash effect should follow with respect to the right direction
+		//Debug.Log(angle);
+		GameObject dashObject = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
+		dashObject.transform.eulerAngles = new Vector3(0, 0, angle); // Apply the angle
+		dashObject.transform.localScale = new Vector3(1f, 1f, 1f);
+		Destroy(dashObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); // Destroy the clone after the animation plays
 	}
 
 	private void Flip()
