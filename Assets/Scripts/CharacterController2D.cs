@@ -25,7 +25,7 @@ public class CharacterController2D : MonoBehaviour
 	//public RaycastHit2D hit;
 
 	// Variables for dash effect
-	private Rigidbody2D lastRB;
+	private Vector3 beforeDash;
 	[SerializeField] private GameObject reaperDashEffect;
 
 	[Header("Events")]
@@ -158,6 +158,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public void dodge(Vector3 direction)
 	{
+		beforeDash = transform.position;
 		RaycastHit2D[] hitsTop;
 		RaycastHit2D[] hitsBottom;
 		Vector2 temp = transform.position;
@@ -195,7 +196,6 @@ public class CharacterController2D : MonoBehaviour
 		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
 		{
 			//Debug.Log("dash"); test if we made it into this if statement
-			lastRB = m_Rigidbody2D;
 			m_Rigidbody2D.transform.position += direction;
 			DashEffect(direction);
 		}
@@ -257,10 +257,9 @@ public class CharacterController2D : MonoBehaviour
 			{
 				spriteSize.y /= 2;
 			}
-			lastRB = m_Rigidbody2D;
 			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
 			// Only play the dash effect if the Reaper actually moves when dashing
-			if ((Mathf.Abs(direction.x) > 0.1f && failDistance < 2.6f) || (Mathf.Abs(direction.y) > 0.1f && failDistance < 1.9f))
+			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
 			{
 				DashEffect(direction);
 			}
@@ -277,10 +276,11 @@ public class CharacterController2D : MonoBehaviour
         }
 		float angle = Vector3.Angle(Vector3.right, direction) * sign; // Calculate the angle the dash effect should follow with respect to the right direction
 		//Debug.Log(angle);
-		GameObject dashObject = Instantiate(reaperDashEffect, lastRB.position, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
+		GameObject dashObject = Instantiate(reaperDashEffect, beforeDash, Quaternion.identity); // Clone the effect at the location the Reaper was last standing
 		dashObject.transform.eulerAngles = new Vector3(0, 0, angle); // Apply the angle
-		dashObject.transform.localScale = new Vector3(1f, 1f, 1f);
-		Destroy(dashObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length); // Destroy the clone after the animation plays
+		float dashDistance = (m_Rigidbody2D.transform.position - beforeDash).magnitude;
+		dashObject.transform.localScale = new Vector3(dashDistance, 1f, 1f); // Stretch the effect depending on dash distance
+		Destroy(dashObject, 0.35f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
 	}
 
 	private void Flip()
