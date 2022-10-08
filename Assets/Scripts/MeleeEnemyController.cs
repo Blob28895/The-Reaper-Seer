@@ -11,7 +11,8 @@ public class MeleeEnemyController : MonoBehaviour
     public float maximumDistance;
     private bool facingRight = true;
     private float dist;
-
+    private Enemy enemy;
+    private int currentHealth;
     // Used for attacking
     public Animator animator;
     public Transform attackPoint;
@@ -21,16 +22,27 @@ public class MeleeEnemyController : MonoBehaviour
     // Attack rate
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
-
+    public float hitStun = 0.6f;
+    private float stunEnd = 0f;
     // Start is called once before update
     void Start()
     {
+        enemy = GetComponent<Enemy>();
+        currentHealth = enemy.maxHealth;
 
     }
-
-    // Update is called once per frame
-    void Update()
+	public void setStunEnd()
+	{
+        stunEnd = Time.time + hitStun;
+	}
+	// Update is called once per frame
+	void Update()
     {
+        if(enemy.getCurrentHealth() < currentHealth)
+		{
+            setStunEnd();
+		}
+        currentHealth = enemy.getCurrentHealth();
         // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
         if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
         {
@@ -43,7 +55,7 @@ public class MeleeEnemyController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
             // Controls the attack rate
-            if (Time.time > nextAttackTime)
+            if (Time.time >= nextAttackTime && Time.time >= stunEnd)
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;

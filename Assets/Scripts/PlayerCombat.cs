@@ -79,7 +79,7 @@ public class PlayerCombat : MonoBehaviour
 				{
 					Attack();
 					nextAttackTime = Time.time + attack2Time;
-					Debug.Log(nextAttackTime);
+					//Debug.Log(nextAttackTime);
 					inCombo = true;
 					comboTime = Time.time + attack2Time + transition2Time;
 					//Debug.Log("Attack 2");
@@ -99,16 +99,6 @@ public class PlayerCombat : MonoBehaviour
 			animator.SetTrigger("endCombo");
 			inCombo = false;
 		}
-		/*if (Time.time >= nextAttackTime)
-		{
-			if (Input.GetButtonDown("Fire3"))
-			{
-				Attack();
-				//this line works something like if the time is 400 then the next time he can attack is at 400 + (1/attkrate)
-				//so if the rate is two he can attack again at 400 + (1/2) or at 400.5
-				//nextAttackTime = Time.time + 1f / attackRate;
-			}
-		}*/
 
 		if (state == "attack1" || state == "attack2" || state == "attack3" || state == "transition1" || state == "transition2")
 		{
@@ -146,7 +136,7 @@ public class PlayerCombat : MonoBehaviour
 		//Apply damage to those enemies
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			//Debug.Log("We hit " + enemy.name);
+			Debug.Log("We hit " + enemy.name);
 			enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 		}
 	}

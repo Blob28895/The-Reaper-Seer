@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
             currentHealth -= damage;
             // Insert hurt animation here
             animator.SetTrigger("Hurt");
-            Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
+            //Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
             if (currentHealth <= 0)
             {
                 Die();

@@ -474,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 1223294388}
+  Controller: {fileID: 0}
 --- !u!114 &305455356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,6 +1559,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7661710627625135608, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
   m_PrefabInstance: {fileID: 7661710627446791151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1305694025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  m_PrefabInstance: {fileID: 7661710627446791151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb25b19af8bcd84ab455c753446e11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1309924375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,7 +2057,7 @@ MonoBehaviour:
   controller: {fileID: 1609294284}
   animator: {fileID: 1609294286}
   runSpeed: 40
-  attackSlowMultiplier: 0.5
+  attackSlowMultiplier: 0.35
   DodgeCooldown: 0.6
 --- !u!114 &1609294284
 MonoBehaviour:
@@ -2136,8 +2148,8 @@ MonoBehaviour:
   controller: {fileID: 1609294284}
   movement: {fileID: 1609294283}
   attackRate: 2
-  attackDelay: 1
-  comboTransitionDelay: 0.25
+  attackDelay: 0.5
+  comboTransitionDelay: 0.3
 --- !u!114 &1609294288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,6 +2469,14 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: maxHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 1305694025}
     - target: {fileID: 7661710627625135606, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Size.y
       value: 0.5008397

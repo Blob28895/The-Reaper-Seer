@@ -7,18 +7,23 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     public Animator animator;
     int currentHealth;
+    public Component Controller;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
+    public int getCurrentHealth()
+	{
+        return currentHealth;
+	}
 
     public void TakeDamage(int damage)
 	{
         if (enabled)
         {
             currentHealth -= damage;
-            Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
+            //Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
             //insert hurt animation here
             animator.SetTrigger("Hurt");
             if (currentHealth <= 0)
@@ -30,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
 	{
-        Debug.Log("The enemy is dead");
+        //Debug.Log("The enemy is dead");
         // Disables the rest of the enemy scripts so that it can't continue attacking the player
         foreach (MonoBehaviour script in gameObject.GetComponents<MonoBehaviour>())
         {
