@@ -344,7 +344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &305455351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -473,7 +473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  animator: {fileID: 0}
+  animator: {fileID: 1223294388}
+  Controller: {fileID: 0}
 --- !u!114 &305455356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,6 +1554,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122632288}
   m_CullTransparentMesh: 1
+--- !u!95 &1223294388 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7661710627625135608, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  m_PrefabInstance: {fileID: 7661710627446791151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1305694025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  m_PrefabInstance: {fileID: 7661710627446791151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb25b19af8bcd84ab455c753446e11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1309924375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2057,7 @@ MonoBehaviour:
   controller: {fileID: 1609294284}
   animator: {fileID: 1609294286}
   runSpeed: 40
-  attackSlowMultiplier: 0.5
+  attackSlowMultiplier: 0.35
   DodgeCooldown: 0.6
 --- !u!114 &1609294284
 MonoBehaviour:
@@ -2128,8 +2145,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackDamage: 25
-  movement: {fileID: 0}
+  controller: {fileID: 1609294284}
+  movement: {fileID: 1609294283}
   attackRate: 2
+  attackDelay: 0.5
+  comboTransitionDelay: 0.3
 --- !u!114 &1609294288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2449,6 +2469,14 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: maxHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 1305694025}
     - target: {fileID: 7661710627625135606, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Size.y
       value: 0.5008397
@@ -2471,11 +2499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.46
+      value: 20.73
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.29
+      value: -7.22
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2512,6 +2540,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
