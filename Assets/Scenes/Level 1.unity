@@ -290,8 +290,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackDamage: 34
-  movement: {fileID: 0}
+  controller: {fileID: 283336629}
+  movement: {fileID: 283336630}
   attackRate: 2
+  attackDelay: 1
+  comboTransitionDelay: 0.25
 --- !u!95 &283336628
 Animator:
   serializedVersion: 4
