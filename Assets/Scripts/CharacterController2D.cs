@@ -68,7 +68,27 @@ public class CharacterController2D : MonoBehaviour
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
-		m_Grounded = false;
+		float extraHeight = 0.5f;
+		// Using a boxcast to determine if the Reaper is on the ground
+		RaycastHit2D raycastHit = Physics2D.BoxCast(BoxCollider.bounds.center, BoxCollider.bounds.size, 0f, Vector2.down, extraHeight, m_WhatIsGround);
+
+		// The following lines until m_Grounded is only for debugging purposes
+		Color rayColor;
+		if (raycastHit.collider != null)
+		{
+			rayColor = Color.green;
+		}
+		else
+		{
+			rayColor = Color.red;
+		}
+		Debug.DrawRay(BoxCollider.bounds.center + new Vector3(BoxCollider.bounds.extents.x, 0), Vector2.down * (BoxCollider.bounds.extents.y + extraHeight), rayColor);
+		Debug.DrawRay(BoxCollider.bounds.center - new Vector3(BoxCollider.bounds.extents.x, 0), Vector2.down * (BoxCollider.bounds.extents.y + extraHeight), rayColor);
+		Debug.DrawRay(BoxCollider.bounds.center - new Vector3(BoxCollider.bounds.extents.x, BoxCollider.bounds.extents.y + extraHeight), Vector2.right * (BoxCollider.bounds.extents.x * 2), rayColor);
+		Debug.Log(raycastHit.collider);
+
+		// Considered grounded if it hits any collider that is on the m_WhatIsGround Layermask
+		m_Grounded = raycastHit.collider != null;
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -77,7 +97,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			if (colliders[i].gameObject != gameObject)
 			{
-				m_Grounded = true;
+				//m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
