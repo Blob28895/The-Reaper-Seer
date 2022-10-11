@@ -19729,7 +19729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 823763249}
   - component: {fileID: 823763248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wetFloorSign (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21124,7 +21124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1986210251}
   - component: {fileID: 1986210250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wetFloorSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21420,7 +21420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099054335}
   - component: {fileID: 2099054334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wetFloorSign (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
