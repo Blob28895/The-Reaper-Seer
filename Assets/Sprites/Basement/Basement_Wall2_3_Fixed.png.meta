@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3fd48a41a90e5d74cb765a02bcd8458c
+guid: 6d3c56efa49409849824b375e8214c6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,28 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basement_Wall2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a2787838b79c344ba78d8b787447ed4
-      internalID: -173988726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basement_Wall2_1
+      name: Basement_Wall2_3_Fixed_0
       rect:
         serializedVersion: 2
         x: 32
@@ -154,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c2b4cf6670ead44ea5d90b82d6237a7
-      internalID: -1223454152
+      spriteID: 16e32ce934efc99478f85aa3dc6b1c74
+      internalID: -482071344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_2
+      name: Basement_Wall2_3_Fixed_1
       rect:
         serializedVersion: 2
         x: 64
@@ -175,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f1ef3cbfcb49f44887ea74c2067956f
-      internalID: -1690662158
+      spriteID: 2f1a3cc409f240b4786a448b176f2907
+      internalID: 1174107232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_3
+      name: Basement_Wall2_3_Fixed_2
       rect:
         serializedVersion: 2
         x: 96
@@ -196,18 +175,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1be7878fc2ab6df46aa00c31b54e5662
-      internalID: -657035228
+      spriteID: eab78b6dd618b8242954b344d0e3c2c7
+      internalID: -1128754684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_4
+      name: Basement_Wall2_3_Fixed_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 128
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -217,14 +196,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f556235bdaab2994eaa5b9b78419864d
-      internalID: -1986264608
+      spriteID: 1c974ca011d879b4fb766498874d30de
+      internalID: 174254351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_5
+      name: Basement_Wall2_3_Fixed_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b937ced249a294591bc7d50712a227
+      internalID: -1141518170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_5
       rect:
         serializedVersion: 2
         x: 32
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e2b39de599324b479ea6774ab4f1c09
-      internalID: -366860317
+      spriteID: 57bc0173c833fbe498589c164fe0e46d
+      internalID: -1803866524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_6
+      name: Basement_Wall2_3_Fixed_6
       rect:
         serializedVersion: 2
         x: 64
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e6d2c0685310b459ae8a5af46e0d64
-      internalID: 843894995
+      spriteID: 1155de603477ea7489f397763e80ef7a
+      internalID: -1242265755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_7
+      name: Basement_Wall2_3_Fixed_7
       rect:
         serializedVersion: 2
         x: 96
@@ -280,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce4e2226a70d5443a576cc0e2b73538
-      internalID: 753103338
+      spriteID: 9c1cade19ce0f1242b582a0401c1d08f
+      internalID: -921585418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_8
+      name: Basement_Wall2_3_Fixed_8
       rect:
         serializedVersion: 2
         x: 128
@@ -301,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287e7f4538782cb41bcb5435ed8d464f
-      internalID: 305702970
+      spriteID: cb7c9290329a387478f8837b144a6a9f
+      internalID: 1264989909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_9
+      name: Basement_Wall2_3_Fixed_9
       rect:
         serializedVersion: 2
         x: 160
@@ -322,18 +322,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1005ac7ee833e346acb1b70de040c4e
-      internalID: -1254331935
+      spriteID: c7f35eeb40f91da46992f5e1825591c6
+      internalID: -1239879922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_10
+      name: Basement_Wall2_3_Fixed_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 192
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -343,14 +343,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e330a69c60288974a8ec6e901063f152
-      internalID: -972948701
+      spriteID: 30c9bdfec1631d34f9ae51cc9bd8f895
+      internalID: -138831783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_11
+      name: Basement_Wall2_3_Fixed_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19009d306624ce845865b43170c93084
+      internalID: 669350453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_12
       rect:
         serializedVersion: 2
         x: 32
@@ -364,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d087558258f23a4199d26095908e091
-      internalID: 1482885873
+      spriteID: 36f41ab3d6e2d9e449458ff2465bc843
+      internalID: -748723302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_12
+      name: Basement_Wall2_3_Fixed_13
       rect:
         serializedVersion: 2
         x: 64
@@ -385,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe8494e94db915740957f95660aaafe5
-      internalID: 639087577
+      spriteID: ef7f4b2ed1c063740921e3063899c339
+      internalID: 1948412896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_13
+      name: Basement_Wall2_3_Fixed_14
       rect:
         serializedVersion: 2
         x: 96
@@ -406,14 +427,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f71d4f14328fb9438fc357d77749923
-      internalID: 978091136
+      spriteID: ab8717cdb683873479a342d8baf16845
+      internalID: -2114325375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_14
+      name: Basement_Wall2_3_Fixed_15
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481d0213e4577054b90237a4454a537a
+      internalID: 467297985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_16
       rect:
         serializedVersion: 2
         x: 160
@@ -427,18 +469,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b5605c12b515a4581fa1003acead40
-      internalID: -85699724
+      spriteID: 3cf6a2ecf3009e34cbd8b40c7ffde125
+      internalID: -1029806077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_15
+      name: Basement_Wall2_3_Fixed_17
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 192
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -448,14 +490,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8156ca1dd8f604587ac0fcc2758c95
-      internalID: 1214578928
+      spriteID: e436b25507ab8eb409c5eefbec15e882
+      internalID: 703921160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_16
+      name: Basement_Wall2_3_Fixed_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642ed4928edd2354baebe7d86e40d834
+      internalID: 647598503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_19
       rect:
         serializedVersion: 2
         x: 32
@@ -469,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db54e1b68ed77a40bd80868f75260b5
-      internalID: 1760764073
+      spriteID: e93eb5e743635a9409af9547b25652f5
+      internalID: 196803705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_17
+      name: Basement_Wall2_3_Fixed_20
       rect:
         serializedVersion: 2
         x: 64
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9591b0e36d4185d4ab458ffd3568a9c4
-      internalID: 601940730
+      spriteID: 6944ef7dd3a6e45498b7bea4504fd690
+      internalID: -1740295693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_18
+      name: Basement_Wall2_3_Fixed_21
       rect:
         serializedVersion: 2
         x: 96
@@ -511,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d44ec488baace04796ddbb53fe3ade3
-      internalID: 959020128
+      spriteID: 505d95e43511ba74e820bec3e1b5b699
+      internalID: -759060086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_19
+      name: Basement_Wall2_3_Fixed_22
       rect:
         serializedVersion: 2
         x: 128
@@ -532,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aca370c2a5f13b4e8b8d115ddc95b43
-      internalID: 1498633571
+      spriteID: 91c708f052a59064787ca0f2b86eec32
+      internalID: -1649714000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_20
+      name: Basement_Wall2_3_Fixed_23
       rect:
         serializedVersion: 2
         x: 160
@@ -553,18 +616,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b1fe8c371fb2f458f39e2ebb31f91d
-      internalID: 723193148
+      spriteID: 002e27ebc9606eb4ba21a8c5220436bd
+      internalID: 1325470009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_21
+      name: Basement_Wall2_3_Fixed_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -574,14 +637,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 709cbfbde0813d1468786806bb842709
-      internalID: -288919600
+      spriteID: 5900237b3e5c7494bade6e82c8387392
+      internalID: 1934363489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_22
+      name: Basement_Wall2_3_Fixed_25
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5d5e46f4be15e43a1ae3ab517e46b1
+      internalID: 284143176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_26
       rect:
         serializedVersion: 2
         x: 32
@@ -595,14 +679,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25a2658624d9eb9489bd6c3587be22c7
-      internalID: -424236056
+      spriteID: 7d4181d4c5b42e14c83c2287e5727b34
+      internalID: 2135125957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_23
+      name: Basement_Wall2_3_Fixed_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f4dcaf052e17041917872ef1d7870b
+      internalID: -1479390420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_28
       rect:
         serializedVersion: 2
         x: 96
@@ -616,14 +721,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c83e832ad37c1a4b80903ef51730369
-      internalID: 1512590645
+      spriteID: becced788136ceb4d849d60379ac3af1
+      internalID: 719104729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_24
+      name: Basement_Wall2_3_Fixed_29
       rect:
         serializedVersion: 2
         x: 128
@@ -637,14 +742,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d585d728c48ad2c47b3c9e21ae13ec5b
-      internalID: 1380147428
+      spriteID: c7913e2c26165cd4fb414e16e8f935a6
+      internalID: -55184421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_25
+      name: Basement_Wall2_3_Fixed_30
       rect:
         serializedVersion: 2
         x: 160
@@ -658,14 +763,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceee0e175960eca45bfd3099fd0965b6
-      internalID: 1637101631
+      spriteID: d6e7cd35283c12f4bae227ffbfaafa92
+      internalID: 1553635887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_26
+      name: Basement_Wall2_3_Fixed_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6af55a8d5275e3448bf0a4c180c06fe
+      internalID: -700537906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_32
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a36e8a89d6b5845ad843ce52695e2f
+      internalID: 317436939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f041a8c9b79c4404087dae254a4e5164
+      internalID: -261941284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04488d6d515bd374682e720e6835ea81
+      internalID: -1508275603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_35
       rect:
         serializedVersion: 2
         x: 96
@@ -679,14 +868,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de19660afad3820419570579161d1308
-      internalID: 106893202
+      spriteID: d473d6d7dda3ea146b7a19e1e5fd9f5b
+      internalID: -1101753036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_27
+      name: Basement_Wall2_3_Fixed_36
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505b6a0ae7cfd8e469d230ab77983b48
+      internalID: -1913195114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_37
       rect:
         serializedVersion: 2
         x: 160
@@ -700,14 +910,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2489c1dcdf87ddd4698afbae4161cd36
-      internalID: 870545181
+      spriteID: ea8d807e0cbfeeb44b056dc504b1d167
+      internalID: -340630302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_28
+      name: Basement_Wall2_3_Fixed_38
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1c33ea1e304c9408b743137837efe5
+      internalID: 1994463089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_39
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c911432deef174944aa9b8a38b81fc33
+      internalID: -1666318306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_40
       rect:
         serializedVersion: 2
         x: 96
@@ -721,14 +973,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4260cc8fd54d3874ca42cc998c74fa5b
-      internalID: 1766483533
+      spriteID: 135d754c5b7362745aa6e3517a3a9423
+      internalID: 577362830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_29
+      name: Basement_Wall2_3_Fixed_41
       rect:
         serializedVersion: 2
         x: 128
@@ -742,14 +994,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7ee1efa2d3dfa24c84ec3087265abcb
-      internalID: 1154952704
+      spriteID: e8132be473a8edc4f82ee4362d49e0a3
+      internalID: 1870070216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basement_Wall2_30
+      name: Basement_Wall2_3_Fixed_42
       rect:
         serializedVersion: 2
         x: 160
@@ -763,8 +1015,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99d79dfcce8895a4abc292d77e7bd4f7
-      internalID: 2104240260
+      spriteID: ac20e84fe6b416d4aac84e1e36a8e807
+      internalID: -1810132227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9e2aa78008d7941ab05214b0006c35
+      internalID: -11387332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basement_Wall2_3_Fixed_44
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb68aabaaa2f15740b43861461101795
+      internalID: 1809900496
       vertices: []
       indices: 
       edges: []
@@ -780,37 +1074,51 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basement_Wall2_14: -85699724
-      Basement_Wall2_9: -1254331935
-      Basement_Wall2_12: 639087577
-      Basement_Wall2_19: 1498633571
-      Basement_Wall2_5: -366860317
-      Basement_Wall2_25: 1637101631
-      Basement_Wall2_29: 1154952704
-      Basement_Wall2_21: -288919600
-      Basement_Wall2_30: 2104240260
-      Basement_Wall2_26: 106893202
-      Basement_Wall2_13: 978091136
-      Basement_Wall2_11: 1482885873
-      Basement_Wall2_24: 1380147428
-      Basement_Wall2_1: -1223454152
-      Basement_Wall2_18: 959020128
-      Basement_Wall2_3: -657035228
-      Basement_Wall2_15: 1214578928
-      Basement_Wall2_7: 753103338
-      Basement_Wall2_2: -1690662158
-      Basement_Wall2_4: -1986264608
-      Basement_Wall2_27: 870545181
-      Basement_Wall2_20: 723193148
-      Basement_Wall2_23: 1512590645
-      Basement_Wall2_22: -424236056
-      Basement_Wall2_0: -173988726
-      Basement_Wall2_16: 1760764073
-      Basement_Wall2_28: 1766483533
-      Basement_Wall2_6: 843894995
-      Basement_Wall2_17: 601940730
-      Basement_Wall2_10: -972948701
-      Basement_Wall2_8: 305702970
+      Basement_Wall2_3_Fixed_10: -138831783
+      Basement_Wall2_3_Fixed_29: -55184421
+      Basement_Wall2_3_Fixed_1: 1174107232
+      Basement_Wall2_3_Fixed_9: -1239879922
+      Basement_Wall2_3_Fixed_35: -1101753036
+      Basement_Wall2_3_Fixed_4: -1141518170
+      Basement_Wall2_3_Fixed_23: 1325470009
+      Basement_Wall2_3_Fixed_12: -748723302
+      Basement_Wall2_3_Fixed_16: -1029806077
+      Basement_Wall2_3_Fixed_13: 1948412896
+      Basement_Wall2_3_Fixed_27: -1479390420
+      Basement_Wall2_3_Fixed_17: 703921160
+      Basement_Wall2_3_Fixed_20: -1740295693
+      Basement_Wall2_3_Fixed_7: -921585418
+      Basement_Wall2_3_Fixed_30: 1553635887
+      Basement_Wall2_3_Fixed_25: 284143176
+      Basement_Wall2_3_Fixed_36: -1913195114
+      Basement_Wall2_3_Fixed_33: -261941284
+      Basement_Wall2_3_Fixed_14: -2114325375
+      Basement_Wall2_3_Fixed_5: -1803866524
+      Basement_Wall2_3_Fixed_11: 669350453
+      Basement_Wall2_3_Fixed_2: -1128754684
+      Basement_Wall2_3_Fixed_37: -340630302
+      Basement_Wall2_3_Fixed_21: -759060086
+      Basement_Wall2_3_Fixed_0: -482071344
+      Basement_Wall2_3_Fixed_40: 577362830
+      Basement_Wall2_3_Fixed_18: 647598503
+      Basement_Wall2_3_Fixed_38: 1994463089
+      Basement_Wall2_3_Fixed_44: 1809900496
+      Basement_Wall2_3_Fixed_28: 719104729
+      Basement_Wall2_3_Fixed_15: 467297985
+      Basement_Wall2_3_Fixed_26: 2135125957
+      Basement_Wall2_3_Fixed_22: -1649714000
+      Basement_Wall2_3_Fixed_39: -1666318306
+      Basement_Wall2_3_Fixed_32: 317436939
+      Basement_Wall2_3_Fixed_24: 1934363489
+      Basement_Wall2_3_Fixed_6: -1242265755
+      Basement_Wall2_3_Fixed_42: -1810132227
+      Basement_Wall2_3_Fixed_34: -1508275603
+      Basement_Wall2_3_Fixed_3: 174254351
+      Basement_Wall2_3_Fixed_31: -700537906
+      Basement_Wall2_3_Fixed_41: 1870070216
+      Basement_Wall2_3_Fixed_8: 1264989909
+      Basement_Wall2_3_Fixed_43: -11387332
+      Basement_Wall2_3_Fixed_19: 196803705
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
