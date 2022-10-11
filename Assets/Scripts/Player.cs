@@ -37,7 +37,8 @@ public class Player : MonoBehaviour
     {
         //Debug.Log("Player is now dead.");
         // Makes it so that the player can no longer move after death
-        //GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         // Used for disabling both the circle and box collider on the Reaper
         /*
         foreach (Collider2D c in GetComponents<Collider2D>())
@@ -54,8 +55,8 @@ public class Player : MonoBehaviour
         animator.SetBool("Dead", true);
 
         //GetComponent<SpriteRenderer>().enabled = false;
+        this.enabled = false;
         // Used for ending the game and giving the player the option to restart
         FindObjectOfType<GameHandler>().GameOver();
-        this.enabled = false;
     }
 }
