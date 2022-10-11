@@ -15,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
 	public float attackRate = 2f;
 	public float attackDelay = 1f;
 	public float comboTransitionDelay = 0.25f;
+	public float secondTransitionDelay = 0.35f;
 	float nextAttackTime = 0f;
 	bool inCombo = false;
 	float comboTime = 0f;
@@ -62,7 +63,7 @@ public class PlayerCombat : MonoBehaviour
 		string state = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
 		//Debug.Log(state);
 		transition1Time = comboTransitionDelay;
-		transition2Time = comboTransitionDelay;
+		transition2Time = secondTransitionDelay;
 		if (Time.time >= nextAttackTime)
 		{
 			if (Input.GetButtonDown("Fire3")) // if we push the fire button
