@@ -103,6 +103,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -795,10 +807,10 @@ TextureImporter:
       Basement_Wall2_0: -173988726
       Basement_Wall2_16: 1760764073
       Basement_Wall2_28: 1766483533
-      Basement_Wall2_10: -972948701
-      Basement_Wall2_17: 601940730
-      Basement_Wall2_8: 305702970
       Basement_Wall2_6: 843894995
+      Basement_Wall2_17: 601940730
+      Basement_Wall2_10: -972948701
+      Basement_Wall2_8: 305702970
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

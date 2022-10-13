@@ -85,7 +85,7 @@ public class CharacterController2D : MonoBehaviour
 		Debug.DrawRay(BoxCollider.bounds.center + new Vector3(BoxCollider.bounds.extents.x, 0), Vector2.down * (BoxCollider.bounds.extents.y + extraHeight), rayColor);
 		Debug.DrawRay(BoxCollider.bounds.center - new Vector3(BoxCollider.bounds.extents.x, 0), Vector2.down * (BoxCollider.bounds.extents.y + extraHeight), rayColor);
 		Debug.DrawRay(BoxCollider.bounds.center - new Vector3(BoxCollider.bounds.extents.x, BoxCollider.bounds.extents.y + extraHeight), Vector2.right * (BoxCollider.bounds.extents.x * 2), rayColor);
-		Debug.Log(raycastHit.collider);
+		//Debug.Log(raycastHit.collider);
 
 		// Considered grounded if it hits any collider that is on the m_WhatIsGround Layermask
 		m_Grounded = raycastHit.collider != null;

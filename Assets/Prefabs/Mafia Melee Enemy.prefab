@@ -153,7 +153,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -215,16 +215,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb25b19af8bcd84ab455c753446e11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   target: {fileID: 0}
   minimumDistance: 1.5
-  maximumDistance: 8
+  maximumDistance: 12
   animator: {fileID: 7661710627625135608}
   attackPoint: {fileID: 7661710627118404820}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 0.6
+  attackRange: 0.7
   attackDamage: 1
   attackRate: 1
   hitStun: 1
