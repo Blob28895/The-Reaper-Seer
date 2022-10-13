@@ -181,6 +181,7 @@ public class CharacterController2D : MonoBehaviour
 		beforeDash = transform.position;
 		RaycastHit2D[] hitsTop;
 		RaycastHit2D[] hitsBottom;
+		RaycastHit2D[] hitsMiddle;
 		Vector2 temp = transform.position;
 		// Right
 		if(direction.x > 0) // get neccessary offset of the hitboxes
@@ -209,33 +210,38 @@ public class CharacterController2D : MonoBehaviour
 		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
 		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_WhatIsGround);
 		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_WhatIsGround);
+		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatIsGround);
 		temp.y -= CircleCollider.offset.y;
 		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
 		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
 		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
-		if (hitsTop.Length == 0 && hitsBottom.Length == 0) // if there is nothing blocking our dash
+		if (hitsTop.Length == 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0) // if there is nothing blocking our dash
 		{
 			//Debug.Log("dash"); test if we made it into this if statement
 			m_Rigidbody2D.transform.position += direction;
 			DashEffect(direction);
 		}
-		else if (hitsTop.Length > 0 || hitsBottom.Length > 0)
+		else if (hitsTop.Length > 0 || hitsBottom.Length > 0 || hitsMiddle.Length > 0)
 		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
 		  //figure out which one hit something
 			RaycastHit2D[] hitRay;
-			if (hitsTop.Length != 0 && hitsBottom.Length == 0)
+			if (hitsTop.Length != 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0)
 			{
 				hitRay = hitsTop;
 			}
-			else if(hitsBottom.Length != 0 && hitsTop.Length == 0)
+			else if(hitsBottom.Length != 0 && hitsTop.Length == 0 && hitsMiddle.Length == 0)
 			{
 				hitRay = hitsBottom;
+			}
+			else if(hitsBottom.Length == 0 && hitsTop.Length == 0 && hitsMiddle.Length != 0)
+			{
+				hitRay = hitsMiddle;
 			}
 			else
 			{
 				if (direction.y > 0) { hitRay = hitsTop; }
 				else if (direction.y < 0) { hitRay = hitsBottom; }
-				else { hitRay = hitsBottom; }
+				else { hitRay = hitsMiddle; }
 			}
 			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
 			Vector2 contactPoint = hitRay[0].point;
