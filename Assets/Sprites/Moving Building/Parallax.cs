@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Paralax : MonoBehaviour
+public class Parallax : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
     public float animationSpeed = 1f;
@@ -12,7 +12,7 @@ public class Paralax : MonoBehaviour
 
     private void Update()
     {
-        meshRenderer.material.mainTextureOffset += new Vector2(animationSpeed * Time.deltaTime, 0);
+        meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.deltaTime);
     }
 
 }
