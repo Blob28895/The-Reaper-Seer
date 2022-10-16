@@ -826,6 +826,8 @@ GameObject:
   - component: {fileID: 894334539}
   - component: {fileID: 894334541}
   - component: {fileID: 894334542}
+  - component: {fileID: 894334543}
+  - component: {fileID: 894334544}
   m_Layer: 0
   m_Name: Scientist
   m_TagString: Untagged
@@ -896,7 +898,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1385416085}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -934,7 +937,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26166213, y: -0.046778202}
+  m_Offset: {x: 0.26166213, y: -0.45519033}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -945,8 +948,45 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.103452, y: 2.9064436}
+  m_Size: {x: 1.103452, y: 2.0896194}
   m_EdgeRadius: 0
+--- !u!58 &894334543
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894334538}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7b98b880d21099044b5d9ce7ba9e6cd0, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25, y: 0.77}
+  serializedVersion: 2
+  m_Radius: 0.64
+--- !u!114 &894334544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894334538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed5ec3f89331334c81371832fb5b6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  minimumDistance: 5
+  target: {fileID: 1248206690}
+  throwPoint: {fileID: 1385416085}
+  flask: {fileID: 7221897379737540449, guid: e3fc21cc05f1394459a49e6d71608a59, type: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  throwRate: 0.5
 --- !u!1 &1013271511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1794,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317440143}
   m_CullTransparentMesh: 1
+--- !u!1 &1385416084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385416085}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1385416085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385416084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.56, y: -0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 894334540}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463847214
 GameObject:
   m_ObjectHideFlags: 0
