@@ -20,7 +20,7 @@ public class BulletScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         Vector3 direction = player.transform.position - transform.position;
-        rb.velocity = new Vector2(direction.x, 1).normalized * force;
+        rb.velocity = new Vector2(direction.x, 0).normalized * force;
 
         float rot = Mathf.Atan2(0, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
