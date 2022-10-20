@@ -12,7 +12,7 @@ public class ScientistBossController : MonoBehaviour
     public GameObject flask;
     public LayerMask playerLayer;
     public float throwRate = 0.5f;
-    private float nextThrow = 0f;
+    private float nextThrow = 2f;
     private bool jumping = false;
     // Start is called before the first frame update
     void Start()

@@ -4,22 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ElevatorButton : MonoBehaviour
 {
+	public Animator animator;
+	public float transitionTime = 1f;
 	private bool transition = false;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(transition && collision.name == "Reaper")
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-			transition = false;
+			StartCoroutine(TransitionToScientistFight());
 		}
 	}
 	private void OnTriggerStay2D(Collider2D collision)
 	{
 		if (transition && collision.name == "Reaper")
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-			transition = false;
+			StartCoroutine(TransitionToScientistFight());
 		}
 	}
     // Update is called once per frame
@@ -30,4 +30,13 @@ public class ElevatorButton : MonoBehaviour
 			transition = true;
 		}
     }
+
+	IEnumerator TransitionToScientistFight()
+    {
+		enabled = false;
+		animator.SetTrigger("Start");
+		yield return new WaitForSeconds(transitionTime);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		transition = false;
+	}
 }

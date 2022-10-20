@@ -3634,6 +3634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2f1321506d07c4e84c6578ba928c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 4334728585071270621}
+  transitionTime: 1
 --- !u!1 &1894006208
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,3 +4456,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 813f3102b67b1964fa9514446db39557, type: 3}
+--- !u!95 &4334728585071270621 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 445862897933918275, guid: 813f3102b67b1964fa9514446db39557, type: 3}
+  m_PrefabInstance: {fileID: 4334728585071270620}
+  m_PrefabAsset: {fileID: 0}
