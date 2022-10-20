@@ -28,6 +28,8 @@ public class FlaskProjectile : MonoBehaviour
         if (collision.name != "Scientist")
         {
             Debug.Log(collision.name);
+            // Breaking animation here
+
             Destroy(gameObject);
         }
     }
