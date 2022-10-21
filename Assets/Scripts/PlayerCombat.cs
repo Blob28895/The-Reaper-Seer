@@ -82,6 +82,8 @@ public class PlayerCombat : MonoBehaviour
 
 				Attack(): the function handles many things, it decides which animation needs to play, plays it, then applies damage to things
 
+				attackDelay: this is the time between combos
+
 				The first if statement is just when we arent attacking, to be honest I could probably replace all the state checks and just check if we are
 				inCombo, but this seems to work
 
@@ -129,6 +131,7 @@ public class PlayerCombat : MonoBehaviour
 			//Debug.Log(Time.time);
 			animator.SetTrigger("endCombo");
 			inCombo = false;
+			nextAttackTime = Time.time + attackDelay;
 		}
 
 		if (state == "attack1" || state == "attack2" || state == "attack3" || state == "transition1" || state == "transition2")
