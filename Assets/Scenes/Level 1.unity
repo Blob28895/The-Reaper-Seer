@@ -359,7 +359,7 @@ MonoBehaviour:
   attackRate: 2
   attackDelay: 1
   comboTransitionDelay: 0.25
-  secondTransitionDelay: 0.35
+  secondTransitionDelay: 1.01
 --- !u!95 &283336628
 Animator:
   serializedVersion: 4

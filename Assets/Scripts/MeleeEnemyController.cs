@@ -56,7 +56,8 @@ public class MeleeEnemyController : MonoBehaviour
             // Controls the attack rate
             if (Time.time >= nextAttackTime && Time.time >= stunEnd)
             {
-                Attack();
+                //Attack();
+                animator.SetTrigger("Attack");
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
@@ -87,7 +88,7 @@ public class MeleeEnemyController : MonoBehaviour
     private void Attack()
     {
         // Play attack animation
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
 
         // Detect if the player gets hit
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);

@@ -202,7 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 7661710627625135608}
-  Controller: {fileID: 0}
 --- !u!114 &7661710627625135602
 MonoBehaviour:
   m_ObjectHideFlags: 0
