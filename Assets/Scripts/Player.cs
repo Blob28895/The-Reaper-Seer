@@ -5,13 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator animator;
-    public int maxHealth = 10;
-    private int currentHealth;
+    public static int maxHealth = 10;
+    //private int currentHealth;
     public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        //currentHealth = staticVariables.currHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
     {
         if (enabled)
         {
-            currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            staticVariables.currHealth -= damage;
+            healthBar.SetHealth(staticVariables.currHealth);
             // Insert hurt animation here
             animator.SetTrigger("Hurt");
             //Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
-            if (currentHealth <= 0)
+            if (staticVariables.currHealth <= 0)
             {
                 Die();
             }
