@@ -13,10 +13,17 @@ public class Player : MonoBehaviour
     {
         //currentHealth = staticVariables.currHealth;
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(staticVariables.currHealth);
     }
-
-    // Function that applies damage to the player
-    public void TakeDamage(int damage)
+	public void Update()
+	{
+		if(Input.GetKeyDown("h"))
+		{
+            TakeDamage(1);
+		}
+	}
+	// Function that applies damage to the player
+	public void TakeDamage(int damage)
     {
         if (enabled)
         {

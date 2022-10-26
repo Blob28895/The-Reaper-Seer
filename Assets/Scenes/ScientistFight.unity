@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 1248206683}
   - component: {fileID: 1248206682}
   - component: {fileID: 1248206681}
+  - component: {fileID: 1248206691}
   m_Layer: 3
   m_Name: Reaper
   m_TagString: Untagged
@@ -1353,7 +1354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1248206683}
-  maxHealth: 10
   healthBar: {fileID: 1066802284}
 --- !u!114 &1248206682
 MonoBehaviour:
@@ -1584,6 +1584,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248206691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248206680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a21a56d8d6a34441a099d981921a926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311301094
 GameObject:
   m_ObjectHideFlags: 0
