@@ -27,6 +27,7 @@ public class GameHandler : MonoBehaviour
             yield return null;
         }
         // After the space key is pressed, the scene is reloaded
+        staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Scene Reloaded!");
     }
