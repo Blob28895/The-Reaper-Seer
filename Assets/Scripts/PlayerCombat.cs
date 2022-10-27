@@ -164,7 +164,18 @@ public class PlayerCombat : MonoBehaviour
 		{
 			animator.SetTrigger("attack3");
 		}
-
+		//DealDamage();
+		/*//Detect enemies in range of attack
+		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+		//Apply damage to those enemies
+		foreach (Collider2D enemy in hitEnemies)
+		{
+			Debug.Log("We hit " + enemy.name);
+			enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+		}*/
+	}
+	public void DealDamage()
+	{
 		//Detect enemies in range of attack
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 		//Apply damage to those enemies

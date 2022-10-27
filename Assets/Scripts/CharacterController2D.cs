@@ -239,8 +239,8 @@ public class CharacterController2D : MonoBehaviour
 			}
 			else
 			{
-				if (direction.y > 0) { hitRay = hitsTop; }
-				else if (direction.y < 0) { hitRay = hitsBottom; }
+				if (direction.y > 0 && hitsTop.Length != 0) { hitRay = hitsTop; }
+				else if (direction.y < 0 && hitsBottom.Length != 0) { hitRay = hitsBottom; }
 				else { hitRay = hitsMiddle; }
 			}
 			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);

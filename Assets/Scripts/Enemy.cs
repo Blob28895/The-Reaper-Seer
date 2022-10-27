@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     public Animator animator;
     int currentHealth;
+    public KillTracker killTracker;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,8 @@ public class Enemy : MonoBehaviour
         }
         // Death animation goes here
         animator.SetBool("Dead", true);
-
+        //Count them as dead in the counter
+        killTracker.KilledEnemy(gameObject);
         // Disable the enemy
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         foreach (Collider2D c in GetComponents<Collider2D>())

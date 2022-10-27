@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -244,6 +248,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -8413,6 +8421,10 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -8600,6 +8612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65acca52b5a7d8040aad641ef4c803a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Keycard: {fileID: 0}
 --- !u!1 &518486443
 GameObject:
   m_ObjectHideFlags: 0
@@ -19302,6 +19315,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -19493,6 +19510,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -19717,6 +19738,10 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -20473,6 +20498,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -20536,6 +20565,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -21112,6 +21145,10 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -21879,6 +21916,10 @@ PrefabInstance:
       propertyPath: minimumDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336636}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 6
