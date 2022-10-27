@@ -27,16 +27,16 @@ public class ScientistBossController : MonoBehaviour
         if (Time.time >= nextThrow)
         {
             // Insert throwing animation here, animation will trigger the ThrowFlask() function
-            animator.SetTrigger("Throw");
+            animator.SetBool("Throw", true);
             nextThrow = Time.time + 1f / throwRate;
         }
         // Move towards the Reaper when he's far enough away
-        if (!jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
+        else if (!animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
         {
             MoveTowards();
         }
         // Move away from the Reaper if he gets too close
-        else if (!jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
+        else if (!animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
         {
             MoveAway();
         }
@@ -66,6 +66,7 @@ public class ScientistBossController : MonoBehaviour
         Instantiate(flask, throwPoint.position, Quaternion.identity);
         // Insert reload animation after throwing flask
         //animator.SetTrigger("Reload");
+        animator.SetBool("Throw", false);
     }
 
     // Function that allows the scientist to summon poisonous gas
