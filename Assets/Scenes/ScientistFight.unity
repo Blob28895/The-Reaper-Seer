@@ -827,8 +827,8 @@ GameObject:
   - component: {fileID: 894334541}
   - component: {fileID: 894334542}
   - component: {fileID: 894334543}
-  - component: {fileID: 894334544}
   - component: {fileID: 894334545}
+  - component: {fileID: 894334544}
   m_Layer: 0
   m_Name: Scientist
   m_TagString: Untagged
