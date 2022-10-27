@@ -342,7 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 283336628}
-  maxHealth: 10
   healthBar: {fileID: 944050776}
 --- !u!114 &283336627
 MonoBehaviour:
@@ -582,10 +581,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 283336625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab784962d3b1f644b9219342c813c8b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a21a56d8d6a34441a099d981921a926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Keycard: {fileID: 0}
 --- !u!1 &302862025
 GameObject:
   m_ObjectHideFlags: 0
