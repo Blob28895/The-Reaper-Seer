@@ -28,10 +28,12 @@ public class ScientistBossController : MonoBehaviour
             ThrowFlask();
             nextThrow = Time.time + 1f / throwRate;
         }
+        // Move towards the Reaper when he's far enough away
         if (!jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
         {
             MoveTowards();
         }
+        // Move away from the Reaper if he gets too close
         else if (!jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
         {
             MoveAway();
@@ -48,6 +50,7 @@ public class ScientistBossController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
     }
 
+    // Function for a potential jumping ability
     private void Jump()
     {
         jumping = true;
@@ -55,11 +58,15 @@ public class ScientistBossController : MonoBehaviour
         jumping = false;
     }
 
+    // Function that throws a flask at the Reaper
     private void ThrowFlask()
     {
-       Instantiate(flask, throwPoint.position, Quaternion.identity);
+        // Insert throwing animation here
+        Instantiate(flask, throwPoint.position, Quaternion.identity);
+        // Insert reload animation after throwing flask
     }
 
+    // Function that allows the scientist to summon poisonous gas
     private void SummonPoisonGas()
     {
 
