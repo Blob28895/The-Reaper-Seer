@@ -6,9 +6,24 @@ public class VerticalPlatform : MonoBehaviour
 {
     private PlatformEffector2D effector;
     public float waitTime = 0f;
+    private bool colliding = false;
 
-    // Start is called before the first frame update
-    void Start()
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.name == "Reaper")
+		{
+            colliding = true;
+		}
+	}
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if(collision.gameObject.name == "Reaper")
+		{
+			colliding = false;
+		}
+	}
+	// Start is called before the first frame update
+	void Start()
     {
         effector = GetComponent<PlatformEffector2D>();    
     }
@@ -20,7 +35,7 @@ public class VerticalPlatform : MonoBehaviour
 		{
             waitTime = 0.5f;
 		}*/
-        if(Input.GetKey("s"))
+        if(Input.GetKey("s") && colliding)
 		{
             /*if(waitTime <=0)
 			{*/
