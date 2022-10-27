@@ -38,13 +38,23 @@ public class MeleeEnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if(enemy.getCurrentHealth() < currentHealth)
+        // Moved flip code here to prevent "chokehold" from happening
+        dist = target.position.x - transform.position.x;
+        if (dist > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist < 0 && facingRight)
+        {
+            Flip();
+        }
+        if (enemy.getCurrentHealth() < currentHealth)
 		{
             setStunEnd();
 		}
         currentHealth = enemy.getCurrentHealth();
         // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
+        if (Mathf.Abs(transform.position.x - target.position.x) > minimumDistance && Mathf.Abs(transform.position.x - target.position.x) < maximumDistance)
         {
             animator.SetBool("Moving", true);
             Move();
@@ -71,17 +81,18 @@ public class MeleeEnemyController : MonoBehaviour
     // Function that moves the enemy
     private void Move()
     {
+        /*Vector2 targetVelocity;
+        if (facingRight)
+        {
+            targetVelocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+        else
+        {
+            targetVelocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+        GetComponent<Rigidbody2D>().velocity = targetVelocity;*/
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        dist = target.position.x - transform.position.x;
         // Debug.Log(dist);
-        if (dist > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (dist < 0 && facingRight)
-        {
-            Flip();
-        }
     }
 
     // Function that allows the enemy to attack
