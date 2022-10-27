@@ -25,7 +25,7 @@ public class FlaskProjectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name != "Scientist")
+        if (collision.name != "Scientist" && collision.name != "Platform")
         {
             Debug.Log(collision.name);
             Destroy(gameObject);
