@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1156812911646137053}
   - component: {fileID: -4247820827685510911}
   m_Layer: 0
-  m_Name: Temp_Flask
+  m_Name: Flask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: cc59e1ae2b5dccd43902eb5ebe850ceb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b971ff53d7aed8e4e89f031c54c91ef8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.06}
+  m_Offset: {x: -0.01, y: -0.35}
   serializedVersion: 2
-  m_Radius: 0.47542495
+  m_Radius: 0.16191608
 --- !u!114 &-4247820827685510911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  spinSpeed: 90
+  spinSpeed: 135
   rb: {fileID: 8295516706810312181}

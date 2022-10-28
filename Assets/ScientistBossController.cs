@@ -26,19 +26,24 @@ public class ScientistBossController : MonoBehaviour
     {
         if (Time.time >= nextThrow)
         {
-            // Insert throwing animation here, animation will trigger the ThrowFlask() function
-            animator.SetBool("Throw", true);
-            nextThrow = Time.time + 1f / throwRate;
+            animator.SetBool("Moving", false);
+            animator.SetBool("Reload", true);
         }
         // Move towards the Reaper when he's far enough away
-        else if (!animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
+        else if (!animator.GetBool("Reload") && !animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
         {
+            animator.SetBool("Moving", true);
             MoveTowards();
         }
         // Move away from the Reaper if he gets too close
-        else if (!animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
+        else if (!animator.GetBool("Reload") && !animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
         {
+            animator.SetBool("Moving", true);
             MoveAway();
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
         }
     }
 
@@ -60,12 +65,18 @@ public class ScientistBossController : MonoBehaviour
         jumping = false;
     }
 
+    private void startThrow()
+    {
+        // Insert throwing animation here, animation will trigger the ThrowFlask() function
+        animator.SetBool("Reload", false);
+        animator.SetBool("Throw", true);
+        nextThrow = Time.time + 1f / throwRate;
+    }
+
     // Function that throws a flask at the Reaper
     private void ThrowFlask()
     {
         Instantiate(flask, throwPoint.position, Quaternion.identity);
-        // Insert reload animation after throwing flask
-        //animator.SetTrigger("Reload");
         animator.SetBool("Throw", false);
     }
 

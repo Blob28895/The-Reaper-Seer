@@ -6,7 +6,7 @@ public class FlaskProjectile : MonoBehaviour
 {
     private Vector3 targetPosition;
     public float speed;
-    public int spinSpeed = 90;
+    public int spinSpeed = 135;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
