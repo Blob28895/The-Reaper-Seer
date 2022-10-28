@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlaskProjectile : MonoBehaviour
 {
     private Vector3 targetPosition;
+    public int attackDamage = 1;
     public float speed;
     public int spinSpeed = 135;
     public Rigidbody2D rb;
@@ -28,6 +29,10 @@ public class FlaskProjectile : MonoBehaviour
         if (collision.name != "Scientist")
         {
             Debug.Log(collision.name);
+            if (collision.name == "Reaper")
+            {
+                collision.GetComponent<Player>().TakeDamage(attackDamage);
+            }
             Destroy(gameObject);
         }
     }
