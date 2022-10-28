@@ -15,24 +15,32 @@ public class FlaskProjectile : MonoBehaviour
         Vector3 reaperPosition = FindObjectOfType<CharacterController2D>().transform.position;
         targetPosition.Set(reaperPosition.x, reaperPosition.y + 8f, 0);
         rb.AddForce((targetPosition - transform.position) * speed);
-        //targetPosition = reaperPosition;
+        // Change the spin direction depending on which direction the flask is thrown
+        if (targetPosition.x - transform.position.x < 0)
+        {
+            spinSpeed *= -1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, spinSpeed * Time.deltaTime));
-        //transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
+
+    // Function that runs when the flask collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Do not collide with the scientist
         if (collision.name != "Scientist")
         {
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
+            // If the flask hits the Reaper, deal damage
             if (collision.name == "Reaper")
             {
                 collision.GetComponent<Player>().TakeDamage(attackDamage);
             }
+            // Remove the flask object after colliding
             Destroy(gameObject);
         }
     }
