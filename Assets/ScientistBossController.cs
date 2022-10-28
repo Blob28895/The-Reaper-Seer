@@ -14,6 +14,8 @@ public class ScientistBossController : MonoBehaviour
     public float throwRate = 0.5f;
     private Animator animator;
     private float nextThrow = 0f;
+    private float dist;
+    private bool facingRight = false;
     private bool jumping = false;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,18 @@ public class ScientistBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get the distance to determine which direction the Scientist should be facing
+        dist = target.position.x - transform.position.x;
+        if (dist > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist < 0 && facingRight)
+        {
+            Flip();
+        }
+        // Allows the scientist to attack. After the reload animation plays, the throw animation will play and the throw animation will
+        // trigger the ThrowFlask() function
         if (Time.time >= nextThrow)
         {
             animator.SetBool("Moving", false);
@@ -61,13 +75,14 @@ public class ScientistBossController : MonoBehaviour
     private void Jump()
     {
         jumping = true;
-
+        // Code to do the actual jumping goes here
         jumping = false;
     }
 
+    // Function that runs after the reload animation plays
     private void startThrow()
     {
-        // Insert throwing animation here, animation will trigger the ThrowFlask() function
+        // Throw animation will trigger the ThrowFlask() function
         animator.SetBool("Reload", false);
         animator.SetBool("Throw", true);
         nextThrow = Time.time + 1f / throwRate;
@@ -84,5 +99,14 @@ public class ScientistBossController : MonoBehaviour
     private void SummonPoisonGas()
     {
 
+    }
+
+    // Function that flips the model to face the other direction
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
