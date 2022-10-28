@@ -15,6 +15,6 @@ public class staticVariables : MonoBehaviour
 	}
 	void Update()
 	{
-		Debug.Log(currHealth);
+		//Debug.Log(currHealth);
 	}
 }

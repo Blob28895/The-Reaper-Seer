@@ -24,11 +24,11 @@ public class GasScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("y"))
+        /*if(Input.GetKeyDown("y"))
 		{
             Debug.Log("Firing");
             FireGas();
-		}   
+		}*/   
     }
 
     public void FireGas()
