@@ -27,7 +27,7 @@ public class FlaskProjectile : MonoBehaviour
     {
         if (collision.name != "Scientist" && collision.name != "Platform")
         {
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
             Destroy(gameObject);
         }
     }
