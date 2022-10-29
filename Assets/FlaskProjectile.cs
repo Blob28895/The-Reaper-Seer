@@ -8,10 +8,13 @@ public class FlaskProjectile : MonoBehaviour
     public int attackDamage = 1;
     public float speed;
     public int spinSpeed = 135;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         Vector3 reaperPosition = FindObjectOfType<CharacterController2D>().transform.position;
         targetPosition.Set(reaperPosition.x, reaperPosition.y + 8f, 0);
         rb.AddForce((targetPosition - transform.position) * speed);
@@ -32,16 +35,20 @@ public class FlaskProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Do not collide with the scientist
-        if (collision.name != "Scientist")
+        if (collision.name != "Scientist" && enabled)
         {
-            //Debug.Log(collision.name);
+            Debug.Log(collision.name);
+            enabled = false;
             // If the flask hits the Reaper, deal damage
             if (collision.name == "Reaper")
             {
                 collision.GetComponent<Player>().TakeDamage(attackDamage);
             }
             // Remove the flask object after colliding
-            Destroy(gameObject);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            animator.SetTrigger("Break");
+            // float time = animator.GetCurrentAnimatorClipInfo(0).Length;
+            Destroy(gameObject, 0.75f);
         }
     }
 }
