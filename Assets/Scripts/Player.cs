@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 10;
     private int currentHealth;
     public HealthBar healthBar;
+    public GameOverScreen GameOverScreen;
     // Start is called before the first frame update
     void Start()
     {
