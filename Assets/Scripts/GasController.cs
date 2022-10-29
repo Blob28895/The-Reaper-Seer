@@ -6,6 +6,10 @@ public class GasController : MonoBehaviour
 {
     List<GameObject> listOfVents = new List<GameObject>();
     List<GasScript> listOfScripts = new List<GasScript>();
+
+    public int randomVents = 3;
+    public float gracePeriod = 4f;
+    private float totalActiveTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +18,7 @@ public class GasController : MonoBehaviour
 		{
             listOfScripts.Add(vent.GetComponent<GasScript>());
 		}
+        totalActiveTime = listOfScripts[0].gasDuration + listOfScripts[0].startDelay;
     }
 
     public void FireAllVents()
@@ -43,13 +48,27 @@ public class GasController : MonoBehaviour
 		}
 	}
 
+    public void EnableVents()
+	{
+        FireAllVents();
+        StartCoroutine(waitForTime());
+    }
+    IEnumerator waitForTime()
+    {
+        Debug.Log("Started Coroutine");
+        //insert a while loop that basically says (while the scientist is still alive)
+        yield return new WaitForSeconds(gracePeriod + totalActiveTime);
+        FireRandomVents(randomVents);
+
+
+    }
     // Update is called once per frame
     void Update()
     {
         
         if(Input.GetKeyDown("y"))
 		{
-            FireRandomVents(3);
+            EnableVents();
 		}
     }
 }
