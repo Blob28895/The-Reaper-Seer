@@ -31,20 +31,21 @@ public class MeleeEnemyController : MonoBehaviour
         currentHealth = enemy.maxHealth;
 
     }
-	public void setStunEnd()
-	{
-        stunEnd = Time.time + hitStun;
-	}
-	// Update is called once per frame
-	void Update()
+    public void setStunEnd()
     {
-        if(enemy.getCurrentHealth() < currentHealth)
-		{
+        stunEnd = Time.time + hitStun;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (enemy.getCurrentHealth() < currentHealth)
+        {
             setStunEnd();
-		}
+        }
         currentHealth = enemy.getCurrentHealth();
-        // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
+        Debug.Log(transform.position.x - target.position.x);
+        // While the enemy is more than the minimum distance away from the player , the enemy will move toward the player
+        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance && Mathf.Abs(transform.position.x - target.position.x) > 0.5f)
         {
             animator.SetBool("Moving", true);
             Move();
