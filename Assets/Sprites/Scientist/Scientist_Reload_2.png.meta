@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4035d1667c521f84d9ed96bbbe5ee871
+guid: b95eaa6896b6ab84aaf3d1078456710f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scientist_Throw_0
+      name: Scientist_Reload_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0258d56213106448a5d739aa26a0b8c
-      internalID: -2110411711
+      spriteID: 3b5e5a3679cf52f4e9a2cb253d003573
+      internalID: -1328529963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_1
+      name: Scientist_Reload_2_1
       rect:
         serializedVersion: 2
         x: 96
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 190f9ec8e00f395408499545e7194844
-      internalID: -2119392331
+      spriteID: 887dba60ae5447046adb5dc51249b09f
+      internalID: -381745747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_2
+      name: Scientist_Reload_2_2
       rect:
         serializedVersion: 2
         x: 192
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4923f6c7ae5ce92459763646319c9b88
-      internalID: -875332940
+      spriteID: 46aea309bff876e4a9057860a38054fa
+      internalID: 229792863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_3
+      name: Scientist_Reload_2_3
       rect:
         serializedVersion: 2
         x: 288
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a383d6fbcf92f246ba948dffa902aa8
-      internalID: -518371542
+      spriteID: 400b2992a1ff77a4997319b2302cfa11
+      internalID: -1557163520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_4
+      name: Scientist_Reload_2_4
       rect:
         serializedVersion: 2
         x: 384
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b705c3acf285894fadc6ceadbaf37fa
-      internalID: -1176742177
+      spriteID: 50def1f4fff2b144da057bcd628dd7a2
+      internalID: 121431721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_5
+      name: Scientist_Reload_2_5
       rect:
         serializedVersion: 2
         x: 480
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd7bba3c22448704c9a4df0270de7c2b
-      internalID: 1739967046
+      spriteID: 181dbdc17ee8ee44c90a868fd98fdec3
+      internalID: -1305014021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Throw_6
+      name: Scientist_Reload_2_6
       rect:
         serializedVersion: 2
         x: 576
@@ -259,8 +259,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 015c36170fa747b4d96e40cdaa1bbd9b
-      internalID: -1234496205
+      spriteID: 266e03b236cc6054eaff27445325ca2e
+      internalID: -1778993318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist_Reload_2_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56523f49b2318ad41b22f1c533441dcf
+      internalID: -1949315164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scientist_Reload_2_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf596a37314e3d40a8bee0e3da06e7e
+      internalID: 759477942
       vertices: []
       indices: 
       edges: []
@@ -276,13 +318,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Scientist_Throw_1: -2119392331
-      Scientist_Throw_4: -1176742177
-      Scientist_Throw_6: -1234496205
-      Scientist_Throw_0: -2110411711
-      Scientist_Throw_3: -518371542
-      Scientist_Throw_5: 1739967046
-      Scientist_Throw_2: -875332940
+      Scientist_Reload_2_7: -1949315164
+      Scientist_Reload_2_6: -1778993318
+      Scientist_Reload_2_2: 229792863
+      Scientist_Reload_2_5: -1305014021
+      Scientist_Reload_2_4: 121431721
+      Scientist_Reload_2_8: 759477942
+      Scientist_Reload_2_1: -381745747
+      Scientist_Reload_2_0: -1328529963
+      Scientist_Reload_2_3: -1557163520
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
