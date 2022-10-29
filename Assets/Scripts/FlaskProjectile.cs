@@ -34,8 +34,8 @@ public class FlaskProjectile : MonoBehaviour
     // Function that runs when the flask collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Do not collide with the scientist
-        if (collision.name != "Scientist" && enabled)
+        // Do not collide with the scientist, gas, or the platform
+        if (collision.name != "Scientist" && enabled && collision.name != "Platform" && collision.gameObject.tag != "Vent")
         {
             Debug.Log(collision.name);
             enabled = false;
