@@ -12,6 +12,7 @@ public class ScientistBossController : MonoBehaviour
     public GameObject flask;
     public LayerMask playerLayer;
     public float throwRate = 0.5f;
+    //private Rigidbody2D rb;
     private Animator animator;
     private float nextThrow = 0f;
     private float dist;
@@ -20,6 +21,7 @@ public class ScientistBossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -63,12 +65,12 @@ public class ScientistBossController : MonoBehaviour
 
     private void MoveTowards()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
     }
 
     private void MoveAway()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), -speed * Time.deltaTime);
     }
 
     // Function for a potential jumping ability
