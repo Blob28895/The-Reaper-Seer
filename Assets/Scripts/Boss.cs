@@ -5,12 +5,15 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public int maxHealth = 200;
-    public Animator animator;
+    private Animator animator;
+    private Renderer renderer;
     int currentHealth;
     public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        renderer = GetComponent<Renderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(maxHealth);
@@ -30,11 +33,23 @@ public class Boss : MonoBehaviour
             //Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
             //insert hurt animation here
             //animator.SetTrigger("Hurt");
+            StartCoroutine(Flash());
             if (currentHealth <= 0)
             {
                 Die();
             }
         }
+    }
+
+    IEnumerator Flash()
+    {
+        float duration = Time.time + 0.3f;
+        while (Time.time < duration)
+        {
+            yield return new WaitForSeconds(0.05f);
+            renderer.enabled = !renderer.enabled;
+        }
+        renderer.enabled = true;
     }
 
     void Die()
