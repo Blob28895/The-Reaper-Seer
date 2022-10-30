@@ -19762,6 +19762,7 @@ RectTransform:
   - {fileID: 240944079}
   - {fileID: 1367049632}
   - {fileID: 66449299}
+  - {fileID: 362545440}
   m_Father: {fileID: 1649043635}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19941,7 +19942,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 1649043635}
+    m_TransformParent: {fileID: 540600917}
     m_Modifications:
     - target: {fileID: 6698493117143962198, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_Name
@@ -20005,23 +20006,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -452.7
+      value: -132.59998
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 72.3
+      value: -90.90001
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21284,7 +21285,6 @@ RectTransform:
   - {fileID: 1967346367}
   - {fileID: 2023074299}
   - {fileID: 540600917}
-  - {fileID: 362545440}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
