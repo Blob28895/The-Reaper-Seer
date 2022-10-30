@@ -13,6 +13,8 @@ public class ScientistBossController : MonoBehaviour
     public LayerMask playerLayer;
     public float throwRate = 0.5f;
     //private Rigidbody2D rb;
+    private int health;
+    private bool enableGasAttacks = false;
     private Animator animator;
     private float nextThrow = 0f;
     private float dist;
@@ -28,6 +30,7 @@ public class ScientistBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health = GetComponent<Boss>().getCurrentHealth();
         // Get the distance to determine which direction the Scientist should be facing
         dist = target.position.x - transform.position.x;
         if (dist > 0 && !facingRight)
@@ -38,21 +41,28 @@ public class ScientistBossController : MonoBehaviour
         {
             Flip();
         }
+        // Scientist will enable gas attacks once he reaches below half health
+        if (health <= 175 && enableGasAttacks == false)
+        {
+            enableGasAttacks = true;
+            animator.SetBool("Moving", false);
+            animator.SetBool("GasButton", true);
+        }
         // Allows the scientist to attack. After the reload animation plays, the throw animation will play and the throw animation will
         // trigger the ThrowFlask() function
-        if (Time.time >= nextThrow)
+        else if (Time.time >= nextThrow)
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Reload", true);
         }
         // Move towards the Reaper when he's far enough away
-        else if (!animator.GetBool("Reload") && !animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
+        else if (CanMove() && Vector2.Distance(transform.position, target.position) > minimumDistance + 0.5f)
         {
             animator.SetBool("Moving", true);
             MoveTowards();
         }
         // Move away from the Reaper if he gets too close
-        else if (!animator.GetBool("Reload") && !animator.GetBool("Throw") && !jumping && Vector2.Distance(transform.position, target.position) < minimumDistance)
+        else if (CanMove() && Vector2.Distance(transform.position, target.position) < minimumDistance)
         {
             animator.SetBool("Moving", true);
             MoveAway();
@@ -61,6 +71,11 @@ public class ScientistBossController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
         }
+    }
+
+    private bool CanMove()
+    {
+        return !animator.GetBool("GasButton") && !animator.GetBool("Reload") && !animator.GetBool("Throw") && !jumping;
     }
 
     private void MoveTowards()
@@ -100,7 +115,9 @@ public class ScientistBossController : MonoBehaviour
     // Function that allows the scientist to summon poisonous gas
     private void SummonPoisonGas()
     {
-
+        animator.SetBool("GasButton", false);
+        // Call Gas Controller code to start gas attacks
+        GetComponent<GasController>().EnableVents();
     }
 
     // Function that flips the model to face the other direction

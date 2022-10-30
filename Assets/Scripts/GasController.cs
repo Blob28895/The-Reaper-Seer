@@ -57,18 +57,18 @@ public class GasController : MonoBehaviour
     {
         Debug.Log("Started Coroutine");
         //insert a while loop that basically says (while the scientist is still alive)
-        yield return new WaitForSeconds(gracePeriod + totalActiveTime);
-        FireRandomVents(randomVents);
-
-
+        while (GetComponent<Boss>().enabled)
+        {
+            yield return new WaitForSeconds(gracePeriod + totalActiveTime);
+            FireRandomVents(randomVents);
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetKeyDown("y"))
+        /* if(Input.GetKeyDown("y"))
 		{
             EnableVents();
-		}
+		}*/
     }
 }
