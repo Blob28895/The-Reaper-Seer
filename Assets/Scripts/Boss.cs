@@ -62,6 +62,7 @@ public class Boss : MonoBehaviour
         }
         // Death animation goes here
         //animator.SetBool("Dead", true);
+        animator.SetTrigger("Die");
         // Disable the enemy
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         foreach (Collider2D c in GetComponents<Collider2D>())
