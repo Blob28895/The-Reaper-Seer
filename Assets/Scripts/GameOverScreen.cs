@@ -9,6 +9,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartButton()
     {
+        staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene("Level 1");
     }
 
@@ -19,6 +20,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void ScientistFight()
     {
+        staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene("ScientistFight");
     }
 }
