@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96.09, y: -12.8}
+  m_AnchoredPosition: {x: -138.3, y: -12.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66449300
@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -462,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -8754,7 +8754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -19613,7 +19613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 151, y: -39}
+  m_AnchoredPosition: {x: 179.3, y: -39}
   m_SizeDelta: {x: 237.70001, y: 29.634003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540600918
@@ -19706,7 +19706,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -19776,7 +19776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -19795,7 +19795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962198, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
       propertyPath: m_Pivot.x
@@ -19900,7 +19900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &631062680
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20078,7 +20078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -20322,7 +20322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -20947,7 +20947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -21523,7 +21523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
