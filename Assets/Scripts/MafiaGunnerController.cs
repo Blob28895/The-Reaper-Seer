@@ -57,6 +57,16 @@ public class MafiaGunnerController : MonoBehaviour
         //float distance = Mathf.Abs(transform.position.x - player.transform.position.x);
 
 
+        dist = target.position.x - transform.position.x;
+        // Debug.Log(dist);
+        if (dist > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist < 0 && facingRight)
+        {
+            Flip();
+        }
 
         if (enemy.getCurrentHealth() < currentHealth)
         {
@@ -162,16 +172,17 @@ public class MafiaGunnerController : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        dist = target.position.x - transform.position.x;
-        // Debug.Log(dist);
-        if (dist > 0 && !facingRight)
+        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        // Allows the enemy to do "hops" to be able to climb stairs when the Reaper is above it
+        if (target.position.y > transform.position.y)
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        else if (dist < 0 && facingRight)
+        // Allows the enmy to only move on the x axis to prevent him from going through the ground
+        else
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
         }
     }
 

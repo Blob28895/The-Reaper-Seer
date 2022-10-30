@@ -38,6 +38,16 @@ public class MeleeEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        dist = target.position.x - transform.position.x;
+        // Debug.Log(dist);
+        if (dist > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist < 0 && facingRight)
+        {
+            Flip();
+        }
         if (enemy.getCurrentHealth() < currentHealth)
         {
             setStunEnd();
@@ -72,16 +82,15 @@ public class MeleeEnemyController : MonoBehaviour
     // Function that moves the enemy
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        dist = target.position.x - transform.position.x;
-        // Debug.Log(dist);
-        if (dist > 0 && !facingRight)
+        // Allows the enemy to do "hops" to be able to climb stairs when the Reaper is above it
+        if (target.position.y > transform.position.y)
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        else if (dist < 0 && facingRight)
+        // Allows the enmy to only move on the x axis to prevent him from going through the ground
+        else
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
         }
     }
 
