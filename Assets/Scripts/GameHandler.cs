@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // Game object that can be used to handle certain events like game overs or pausing
 public class GameHandler : MonoBehaviour
-{
-    // The number of seconds to wait before reading button down
+{    // The number of seconds to wait before reading button down
     public float inputDelay = 1f;
     
     // Function to end the game when the Reaper reaches 0 hp
