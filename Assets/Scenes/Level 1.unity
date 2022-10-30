@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -262,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -406,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalScale.x
@@ -455,6 +459,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -575,7 +583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 283336628}
-  maxHealth: 10
   healthBar: {fileID: 540600918}
 --- !u!114 &283336627
 MonoBehaviour:
@@ -640,10 +647,10 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   m_GroundNoPlatform:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_GroundCheck: {fileID: 312661846}
   m_CeilingCheck: {fileID: 1722137877}
   m_CrouchDisableCollider: {fileID: 0}
@@ -833,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab784962d3b1f644b9219342c813c8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Keycard: {fileID: 0}
+  Keycard: {fileID: 362545437}
 --- !u!1 &302862025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8401,6 +8408,16 @@ Transform:
   m_Father: {fileID: 283336635}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &362545437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6698493117143962198, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+  m_PrefabInstance: {fileID: 611709618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &362545440 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+  m_PrefabInstance: {fileID: 611709618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389173924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,7 +8694,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalScale.x
@@ -8734,6 +8751,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -8848,7 +8869,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &497046185
 MonoBehaviour:
@@ -8862,7 +8883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65acca52b5a7d8040aad641ef4c803a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Keycard: {fileID: 0}
+  Keycard: {fileID: 362545437}
 --- !u!1 &518486443
 GameObject:
   m_ObjectHideFlags: 0
@@ -19707,7 +19728,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19753,9 +19774,116 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mafia Melee Enemy (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+--- !u!1001 &611709618
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1649043635}
+    m_Modifications:
+    - target: {fileID: 6698493117143962198, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_Name
+      value: ID Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962198, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -452.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 72.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698493117143962199, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ac01de6bffe8fb468ac5e2d2f6112b7, type: 3}
 --- !u!1 &631062679
 GameObject:
   m_ObjectHideFlags: 0
@@ -19882,7 +20010,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &709969367
 PrefabInstance:
@@ -19902,7 +20030,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19947,6 +20075,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -20130,7 +20262,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalScale.x
@@ -20187,6 +20319,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -20273,7 +20409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850395833
 GameObject:
@@ -20604,7 +20740,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3876849347951546288, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3876849347951546288, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: m_LocalScale.x
@@ -20658,6 +20794,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3876849347951546290, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
+      propertyPath: killTracker
+      value: 
+      objectReference: {fileID: 283336637}
     - target: {fileID: 3876849347951546293, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: target
       value: 
@@ -20665,6 +20805,10 @@ PrefabInstance:
     - target: {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: m_Name
       value: Mafia Gunner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5294379614052560275, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
@@ -20735,7 +20879,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1640512033
 PrefabInstance:
@@ -20755,7 +20899,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20801,6 +20945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mafia Melee Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
@@ -20822,7 +20970,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20980,8 +21128,9 @@ RectTransform:
   m_Children:
   - {fileID: 2023074299}
   - {fileID: 540600917}
+  - {fileID: 362545440}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21326,7 +21475,7 @@ PrefabInstance:
       objectReference: {fileID: 283336637}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21371,6 +21520,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -21545,7 +21698,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023074295
 GameObject:
@@ -21841,7 +21994,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130327487
 GameObject:
@@ -22142,6 +22295,10 @@ PrefabInstance:
     - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_Name
       value: Mafia Melee Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
