@@ -7,7 +7,8 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
-	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_GroundNoPlatform;
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;// A collider that will be disabled when crouching
@@ -208,9 +209,9 @@ public class CharacterController2D : MonoBehaviour
 		Vector2 bottomRay = temp;
 		topRay.y = m_CeilingCheck.position.y - ((GetComponent<Renderer>().bounds.size.y) / 10);
 		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
-		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_WhatIsGround);
-		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_WhatIsGround);
-		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatIsGround);
+		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_GroundNoPlatform);
+		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_GroundNoPlatform);
+		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_GroundNoPlatform);
 		temp.y -= CircleCollider.offset.y;
 		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
 		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
@@ -239,8 +240,8 @@ public class CharacterController2D : MonoBehaviour
 			}
 			else
 			{
-				if (direction.y > 0) { hitRay = hitsTop; }
-				else if (direction.y < 0) { hitRay = hitsBottom; }
+				if (direction.y > 0 && hitsTop.Length != 0) { hitRay = hitsTop; }
+				else if (direction.y < 0 && hitsBottom.Length != 0) { hitRay = hitsBottom; }
 				else { hitRay = hitsMiddle; }
 			}
 			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);

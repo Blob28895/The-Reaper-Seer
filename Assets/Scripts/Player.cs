@@ -5,27 +5,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator animator;
-    public int maxHealth = 10;
-    private int currentHealth;
-    //public HealthBar healthBar;
+    public static int maxHealth = 10;
+    //private int currentHealth;
+    public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        //healthBar.SetMaxHealth(maxHealth);
+        //currentHealth = staticVariables.currHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(staticVariables.currHealth);
     }
-
-    // Function that applies damage to the player
-    public void TakeDamage(int damage)
+	public void Update()
+	{
+		if(Input.GetKeyDown("h"))
+		{
+            TakeDamage(1);
+		}
+	}
+	// Function that applies damage to the player
+	public void TakeDamage(int damage)
     {
         if (enabled)
         {
-            currentHealth -= damage;
-           // healthBar.SetHealth(currentHealth);
+            staticVariables.currHealth -= damage;
+            healthBar.SetHealth(staticVariables.currHealth);
             // Insert hurt animation here
             animator.SetTrigger("Hurt");
             //Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
-            if (currentHealth <= 0)
+            if (staticVariables.currHealth <= 0)
             {
                 Die();
             }

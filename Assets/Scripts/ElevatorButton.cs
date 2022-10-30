@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ElevatorButton : MonoBehaviour
 {
 	private bool transition = false;
+	public GameObject Keycard;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -25,7 +26,7 @@ public class ElevatorButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Interact"))
+        if(Input.GetButtonDown("Interact") && Keycard.activeSelf == true)
 		{
 			transition = true;
 		}
