@@ -8448,6 +8448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputDelay: 1
+  GameOverScreen: {fileID: 0}
+  gameoverUI: {fileID: 2082750575}
 --- !u!4 &389173926
 Transform:
   m_ObjectHideFlags: 0
@@ -21825,7 +21827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1704869264124899992, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1704869264124899993, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_Pivot.x

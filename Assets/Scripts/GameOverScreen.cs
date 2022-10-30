@@ -16,4 +16,9 @@ public class GameOverScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+
+    public void ScientistFight()
+    {
+        SceneManager.LoadScene("ScientistFight");
+    }
 }

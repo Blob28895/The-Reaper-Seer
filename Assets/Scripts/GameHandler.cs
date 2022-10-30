@@ -8,10 +8,13 @@ using UnityEngine.UI;
 public class GameHandler : MonoBehaviour
 {    // The number of seconds to wait before reading button down
     public float inputDelay = 1f;
-    
+    public GameOverScreen GameOverScreen;
+    public GameObject gameoverUI;
+
     // Function to end the game when the Reaper reaches 0 hp
     public void GameOver()
     {
+        gameoverUI.SetActive(true);
         Debug.Log("Game Over Screen");
 
         // Restart goes here
