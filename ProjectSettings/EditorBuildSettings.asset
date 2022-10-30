@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: f62062eb21df9054c8f9b612686228e8
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Level 1 V2.unity
     guid: bd5b2c057f934a04ea8bac07fe640e57
   - enabled: 1
     path: Assets/Scenes/ScientistFight.unity
