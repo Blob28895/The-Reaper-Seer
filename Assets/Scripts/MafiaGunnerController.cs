@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MafiaGunnerController : MonoBehaviour
 {
-    // Used for movement
+    // Used for movement 
     public float speed;
     public Transform target;
     public float minimumDistance;
     public float maximumDistance;
     private bool facingRight = true;
     private float dist;
+    // Health and anim
     private Enemy enemy;
     private int currentHealth;
     public Animator animator;
@@ -29,7 +30,7 @@ public class MafiaGunnerController : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask playerLayer;
 
-
+    //Hit Stun
     public float hitStun = 0.6f;
     private float stunEnd = 0f;
 
@@ -73,8 +74,10 @@ public class MafiaGunnerController : MonoBehaviour
         else if (distance < range)
         {
             animator.SetBool("Draw", true);
+
             timer += Time.deltaTime;
-            dist = target.position.x - transform.position.x;
+            // To make sure enemy can face player if they dodge past them
+            dist = target.position.x - transform.position.x; 
             if (dist > 0 && !facingRight)
             {
                 Flip();
@@ -84,7 +87,7 @@ public class MafiaGunnerController : MonoBehaviour
             {
                 Flip();
             }
-
+            // Attacks tied to animation events
             if(PlayerInSightFw())
             {
                 if (timer > cooldown)
@@ -119,20 +122,22 @@ public class MafiaGunnerController : MonoBehaviour
         }
     }
 
-    bool PlayerInSightFw()
+    //colliderDistancex -> box will start x distance away from char
+    //colliderDistancey -> box will start y distance above from char
+    bool PlayerInSightFw()  //First Overlap Box in front
     {
         Collider2D collider = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex,new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),0,playerLayer);
 
         return collider != null;
     }
-    bool PlayerInSightUp()
+    bool PlayerInSightUp() //Second Overlap Box above char
     {
         Collider2D collider1 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex + transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
 
         return collider1 != null;
     }
 
-    bool PlayerInSightDw()
+    bool PlayerInSightDw() //Third Overlap Box below char
     {
         Collider2D collider2 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex - transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
 
@@ -140,7 +145,7 @@ public class MafiaGunnerController : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() //Gizmos for first, second and third Overlap Box respectively
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
@@ -150,7 +155,7 @@ public class MafiaGunnerController : MonoBehaviour
     }
 
 
-    void Shoot()
+    void Shoot() //Shoot() will be called as an animation event for smoother anim
     {
         Instantiate(bullet, firepoint.position, Quaternion.identity);
     }
@@ -170,7 +175,7 @@ public class MafiaGunnerController : MonoBehaviour
         }
     }
 
-    private void Flip()
+    private void Flip() //Updated flip
     {
         facingRight = !facingRight;
         transform.Rotate(new Vector3(0, 180, 0));
