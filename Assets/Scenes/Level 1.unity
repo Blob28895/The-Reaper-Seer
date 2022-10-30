@@ -20950,6 +20950,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3876849347951546290, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876849347951546290, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: killTracker
       value: 
       objectReference: {fileID: 283336637}
@@ -20960,6 +20964,10 @@ PrefabInstance:
     - target: {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: m_Name
       value: Mafia Gunner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
       propertyPath: m_TagString
