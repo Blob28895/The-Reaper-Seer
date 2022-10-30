@@ -474,7 +474,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 1223294388}
-  Controller: {fileID: 0}
 --- !u!114 &305455356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,7 +1153,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.16}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 0.32, y: 0.20934299}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -1606,7 +1605,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.16}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 100, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -1770,7 +1769,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.16}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 12.658739, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -1918,7 +1917,7 @@ GameObject:
   - component: {fileID: 1609294288}
   m_Layer: 3
   m_Name: Reaper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,6 +2083,7 @@ MonoBehaviour:
   BoxCollider: {fileID: 1609294278}
   CircleCollider: {fileID: 1609294285}
   m_dashDistance: 3
+  reaperDashEffect: {fileID: 3793060302440629220, guid: a547ec9e215387741b63d391b943393b, type: 3}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2150,6 +2150,7 @@ MonoBehaviour:
   attackRate: 2
   attackDelay: 0.5
   comboTransitionDelay: 0.3
+  secondTransitionDelay: 0.35
 --- !u!114 &1609294288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,6 +2442,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020372774}
   m_CullTransparentMesh: 1
+--- !u!1001 &7230535349316034331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.2712
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808290, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230535349431808295, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1609294281}
+    - target: {fileID: 7230535349431808302, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
+      propertyPath: m_Name
+      value: Mafia_Gun_Idle_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: a51af3d3f70ac224f96f63c8b44cfcaa, type: 3}
 --- !u!1001 &7661710627446791151
 PrefabInstance:
   m_ObjectHideFlags: 0
