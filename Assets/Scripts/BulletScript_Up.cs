@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletScript_Up: MonoBehaviour
 {
     private GameObject player;
     private Rigidbody2D bulletrb;
@@ -21,9 +21,9 @@ public class BulletScript : MonoBehaviour
 
         
         Vector3 direction = player.transform.position - transform.position;
-        bulletrb.velocity = new Vector2(direction.x, direction.y).normalized * force;
+        bulletrb.velocity = new Vector2(direction.x, (direction.y)*7).normalized * force;
 
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        float rot = Mathf.Atan2(-direction.y*7, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
     }
 
@@ -43,12 +43,10 @@ public class BulletScript : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Player>().TakeDamage(attackDamage);
-            Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
-            
     }
 }
