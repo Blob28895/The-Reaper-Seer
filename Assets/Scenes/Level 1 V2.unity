@@ -9422,6 +9422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Keycard: {fileID: 362545437}
+  fadeAnimator: {fileID: 1946753311}
+  transitionTime: 1
 --- !u!1 &518486443
 GameObject:
   m_ObjectHideFlags: 0
@@ -26799,6 +26801,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1946753311 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 445862897933918275, guid: 813f3102b67b1964fa9514446db39557, type: 3}
+  m_PrefabInstance: {fileID: 1244673873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986210249
 GameObject:
   m_ObjectHideFlags: 0
