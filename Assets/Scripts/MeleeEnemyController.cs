@@ -31,20 +31,31 @@ public class MeleeEnemyController : MonoBehaviour
         currentHealth = enemy.maxHealth;
 
     }
-	public void setStunEnd()
-	{
-        stunEnd = Time.time + hitStun;
-	}
-	// Update is called once per frame
-	void Update()
+    public void setStunEnd()
     {
-        if(enemy.getCurrentHealth() < currentHealth)
-		{
+        stunEnd = Time.time + hitStun;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        dist = target.position.x - transform.position.x;
+        // Debug.Log(dist);
+        if (dist > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (dist < 0 && facingRight)
+        {
+            Flip();
+        }
+        if (enemy.getCurrentHealth() < currentHealth)
+        {
             setStunEnd();
-		}
+        }
         currentHealth = enemy.getCurrentHealth();
-        // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance)
+        Debug.Log(transform.position.x - target.position.x);
+        // While the enemy is more than the minimum distance away from the player , the enemy will move toward the player
+        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance && Mathf.Abs(transform.position.x - target.position.x) > 0.5f)
         {
             animator.SetBool("Moving", true);
             Move();
@@ -56,7 +67,8 @@ public class MeleeEnemyController : MonoBehaviour
             // Controls the attack rate
             if (Time.time >= nextAttackTime && Time.time >= stunEnd)
             {
-                Attack();
+                //Attack();
+                animator.SetTrigger("Attack");
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
@@ -70,16 +82,15 @@ public class MeleeEnemyController : MonoBehaviour
     // Function that moves the enemy
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        dist = target.position.x - transform.position.x;
-        // Debug.Log(dist);
-        if (dist > 0 && !facingRight)
+        // Allows the enemy to do "hops" to be able to climb stairs when the Reaper is above it
+        if (target.position.y > transform.position.y)
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        else if (dist < 0 && facingRight)
+        // Allows the enmy to only move on the x axis to prevent him from going through the ground
+        else
         {
-            Flip();
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
         }
     }
 
@@ -87,7 +98,7 @@ public class MeleeEnemyController : MonoBehaviour
     private void Attack()
     {
         // Play attack animation
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
 
         // Detect if the player gets hit
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);

@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
     public float transitionTime = 1f;
     public void PlayGame()
     {
-        StartCoroutine(StartGameRoutine());
+        staticVariables.currHealth = Player.maxHealth;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
