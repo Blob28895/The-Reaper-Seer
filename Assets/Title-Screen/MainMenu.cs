@@ -9,8 +9,9 @@ public class MainMenu : MonoBehaviour
     public float transitionTime = 1f;
     public void PlayGame()
     {
-        staticVariables.currHealth = Player.maxHealth;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //staticVariables.currHealth = Player.maxHealth;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(StartGameRoutine());
     }
 
     public void QuitGame()
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         // Done to get the fade effect to work correctly
         //SceneManager.LoadScene("Level 1");
+        staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
