@@ -6,21 +6,34 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     public GameObject gameoverUI;
+    public Animator fadeAnimator;
+    public float transitionTime = 1f;
 
     public void RestartButton()
     {
-        staticVariables.currHealth = Player.maxHealth;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(TransitionScene(SceneManager.GetActiveScene().name));
+        //staticVariables.currHealth = Player.maxHealth;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void HomeButton()
     {
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(TransitionScene("Main Menu"));
+        //SceneManager.LoadScene("Main Menu");
     }
 
     public void ScientistFight()
     {
+        StartCoroutine(TransitionScene("ScientistFight"));
+        //staticVariables.currHealth = Player.maxHealth;
+        //SceneManager.LoadScene("ScientistFight");
+    }
+
+    IEnumerator TransitionScene(string scene)
+    {
+        fadeAnimator.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;
-        SceneManager.LoadScene("ScientistFight");
+        SceneManager.LoadScene(scene);
     }
 }

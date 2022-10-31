@@ -25598,6 +25598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1704869264124899996, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: fadeAnimator
+      value: 
+      objectReference: {fileID: 1946753311}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
