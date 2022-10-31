@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     public GameObject gameoverUI;
-    public Animator fadeAnimator;
+    private Animator fadeAnimator;
     public float transitionTime = 1f;
 
     public void RestartButton()
@@ -31,6 +31,8 @@ public class GameOverScreen : MonoBehaviour
 
     IEnumerator TransitionScene(string scene)
     {
+        GameObject fade = GameObject.FindWithTag("Fade");
+        fadeAnimator = fade.GetComponent<Animator>();
         fadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;

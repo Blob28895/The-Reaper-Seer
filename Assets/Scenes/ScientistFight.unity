@@ -3650,6 +3650,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 445862897933918280, guid: 813f3102b67b1964fa9514446db39557, type: 3}
+      propertyPath: m_TagString
+      value: Fade
+      objectReference: {fileID: 0}
     - target: {fileID: 445862899151730128, guid: 813f3102b67b1964fa9514446db39557, type: 3}
       propertyPath: m_RootOrder
       value: 0
