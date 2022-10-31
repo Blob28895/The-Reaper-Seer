@@ -10,7 +10,7 @@ public class GameOverScreen : MonoBehaviour
     public void RestartButton()
     {
         staticVariables.currHealth = Player.maxHealth;
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void HomeButton()

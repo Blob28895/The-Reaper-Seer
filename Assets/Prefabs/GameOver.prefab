@@ -224,7 +224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704869264124899992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89091c7b23f5f0148921046867a10576, type: 3}
+  m_Script: {fileID: 11500000, guid: b3061c169ae2cb1469770aad92fde913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverUI: {fileID: 0}
