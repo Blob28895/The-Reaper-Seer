@@ -15,6 +15,13 @@ public class VerticalPlatform : MonoBehaviour
             colliding = true;
 		}
 	}
+	private void OnCollisionStay2D(Collision2D collision)
+	{
+		if (collision.gameObject.name == "Reaper")
+		{
+			colliding = true;
+		}
+	}
 	private void OnCollisionExit2D(Collision2D collision)
 	{
 		if(collision.gameObject.name == "Reaper")
@@ -31,10 +38,11 @@ public class VerticalPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyUp("s"))
+		/*if (Input.GetKeyUp("s"))
 		{
             waitTime = 0.5f;
 		}*/
+		Debug.Log(colliding);
         if(Input.GetKey("s") && colliding)
 		{
             /*if(waitTime <=0)
