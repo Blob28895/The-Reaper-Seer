@@ -59,7 +59,7 @@ public class PlayerCombat : MonoBehaviour
 	void Update()
 	{
 		//Debug.Log(transition1Time);
-		
+
 		string state = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
 		//Debug.Log(state);
 		/*transition1Time = comboTransitionDelay;
@@ -96,25 +96,25 @@ public class PlayerCombat : MonoBehaviour
 				if (state != "attack1" && state != "attack2" && state != "attack3" && state != "transition1" && state != "transition2")
 				{ //if we arent alredy attacking
 					Attack();
-					nextAttackTime = Time.time + attack1Time;
+					nextAttackTime = Time.time + attack1Time / 2;
 					inCombo = true;
-				//comboTime = Time.time + attack1Time + transition1Time;
-				comboTime = Time.time + attack1Time + comboTransitionDelay;
-				//Debug.Log("Attack 1");
-				//Debug.Log(attack1Time);
+					//comboTime = Time.time + attack1Time + transition1Time;
+					comboTime = Time.time + attack1Time + comboTransitionDelay;
+					//Debug.Log("Attack 1");
+					//Debug.Log(attack1Time);
 					//Debug.Log(comboTime - nextAttackTime);
 				}
-				else if (state == "transtion2" || state == "attack2")
+				else if (/*state == "transtion2" ||*/ state == "attack2")
 				{
 					Attack();
 					nextAttackTime = Time.time + attack3Time + attackDelay;
 					inCombo = false;
 					//Debug.Log("Attack 3");
 				}
-				else /*if (state == "transition1"*/ /*|| state == "attack1")*/
+				else if (state != "transition1" && state != "transition2")/*if (state == "transition1"*/ /*|| state == "attack1")*/
 				{
 					Attack();
-					nextAttackTime = Time.time + attack2Time;
+					nextAttackTime = Time.time + attack2Time / 2;
 					//Debug.Log(nextAttackTime);
 					inCombo = true;
 					//comboTime = Time.time + attack2Time + transition2Time;
@@ -122,7 +122,7 @@ public class PlayerCombat : MonoBehaviour
 					//Debug.Log("Attack 2");
 					//Debug.Log(attack2Time);
 					//Debug.Log(comboTime - nextAttackTime);
-				
+
 				}
 			}
 		}
@@ -155,12 +155,12 @@ public class PlayerCombat : MonoBehaviour
 		{
 			animator.SetTrigger("attack1");
 		}
-		else if (state == "transition1" || state == "attack1") //if we are in transition then play attack 2
+		else if (/*state == "transition1" ||*/ state == "attack1") //if we are in transition then play attack 2
 		{
 			//Debug.Log(transition1Time);
 			animator.SetTrigger("attack2");
 		}
-		else if (state == "transition2" || state == "attack2") // if we are in transition2 then play attack 3
+		else if (/*state == "transition2" ||*/ state == "attack2") // if we are in transition2 then play attack 3
 		{
 			animator.SetTrigger("attack3");
 		}
@@ -180,9 +180,9 @@ public class PlayerCombat : MonoBehaviour
 		//Detect enemies in range of attack
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 		//Filter out each enemy, in the case that they have multiple colliders that were hit
-		foreach(Collider2D collider in hitEnemies)
+		foreach (Collider2D collider in hitEnemies)
 		{
-			if(!enemyObjects.Contains(collider.gameObject))
+			if (!enemyObjects.Contains(collider.gameObject))
 			{
 				enemyObjects.Add(collider.gameObject);
 			}
