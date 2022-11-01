@@ -56,11 +56,12 @@ public class GasController : MonoBehaviour
     IEnumerator waitForTime()
     {
         Debug.Log("Started Coroutine");
+        yield return new WaitForSeconds(gracePeriod + totalActiveTime);
         //insert a while loop that basically says (while the scientist is still alive)
         while (GetComponent<Boss>().enabled)
         {
-            yield return new WaitForSeconds(gracePeriod + totalActiveTime);
             FireRandomVents(randomVents);
+            yield return new WaitForSeconds(gracePeriod + totalActiveTime);
         }
     }
     // Update is called once per frame
