@@ -39,7 +39,7 @@ public class MeleeEnemyController : MonoBehaviour
     void Update()
     {
         dist = target.position.x - transform.position.x;
-        // Debug.Log(dist);
+        Debug.Log(dist);
         if (dist > 0 && !facingRight)
         {
             Flip();
@@ -53,15 +53,14 @@ public class MeleeEnemyController : MonoBehaviour
             setStunEnd();
         }
         currentHealth = enemy.getCurrentHealth();
-        Debug.Log(transform.position.x - target.position.x);
         // While the enemy is more than the minimum distance away from the player , the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance && Vector2.Distance(transform.position, target.position) < maximumDistance && Mathf.Abs(transform.position.x - target.position.x) > 0.5f)
+        if (!CanAttack() && Vector2.Distance(transform.position, target.position) < maximumDistance && Mathf.Abs(transform.position.x - target.position.x) > 0.5f)
         {
             animator.SetBool("Moving", true);
             Move();
         }
         // When the enemy is close enough to the player, it will start attacking
-        else if (Vector2.Distance(transform.position, target.position) <= minimumDistance)
+        else if (CanAttack())
         {
             animator.SetBool("Moving", false);
             // Controls the attack rate
@@ -92,6 +91,12 @@ public class MeleeEnemyController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
         }
+    }
+
+    private bool CanAttack()
+    {
+        Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
+        return hitPlayer != null;
     }
 
     // Function that allows the enemy to attack

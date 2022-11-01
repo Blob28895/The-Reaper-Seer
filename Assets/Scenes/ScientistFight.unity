@@ -907,8 +907,16 @@ PrefabInstance:
       value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 1704869263906569457, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869263906569457, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_fontSizeBase
       value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704869263906569457, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704869264124899992, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_Name
@@ -1013,6 +1021,22 @@ PrefabInstance:
     - target: {fileID: 1704869264310970764, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HomeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704869264340792625, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869264340792625, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704869264707837293, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869264707837293, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1704869265772419743, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2652,11 +2676,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1422529896}
   - {fileID: 1066802283}
   - {fileID: 1559244326}
   - {fileID: 770228418}
   - {fileID: 986515463}
+  - {fileID: 1422529896}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
