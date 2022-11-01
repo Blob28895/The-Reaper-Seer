@@ -8,11 +8,13 @@ public class FlaskProjectile : MonoBehaviour
     public int attackDamage = 1;
     public float speed;
     public int spinSpeed = 135;
+    private float time;
     private Rigidbody2D rb;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        time = Time.time;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Vector3 reaperPosition = FindObjectOfType<CharacterController2D>().transform.position;
@@ -34,22 +36,25 @@ public class FlaskProjectile : MonoBehaviour
     // Function that runs when the flask collides with something
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
-        // Do not collide with the scientist, gas, or the platform
-        if (collision.name != "Scientist" && enabled && collision.name != "Platform" && collision.gameObject.tag != "Vent")
+        if (Time.time >= time + 0.2f)
         {
-            //Debug.Log(collision.name);
-            enabled = false;
-            // If the flask hits the Reaper, deal damage
-            if (collision.name == "Reaper")
+            Debug.Log(collision.name);
+            // Do not collide with the scientist, gas, or the platform
+            if (collision.name != "Scientist" && enabled && collision.name != "Platform" && collision.gameObject.tag != "Vent")
             {
-                collision.GetComponent<Player>().TakeDamage(attackDamage);
+                //Debug.Log(collision.name);
+                enabled = false;
+                // If the flask hits the Reaper, deal damage
+                if (collision.name == "Reaper")
+                {
+                    collision.GetComponent<Player>().TakeDamage(attackDamage);
+                }
+                // Remove the flask object after colliding
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                animator.SetTrigger("Break");
+                // float time = animator.GetCurrentAnimatorClipInfo(0).Length;
+                Destroy(gameObject, 0.75f);
             }
-            // Remove the flask object after colliding
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            animator.SetTrigger("Break");
-            // float time = animator.GetCurrentAnimatorClipInfo(0).Length;
-            Destroy(gameObject, 0.75f);
         }
     }
 }
