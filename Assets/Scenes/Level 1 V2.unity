@@ -787,7 +787,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1844035508, guid: a88230153c3beba48adcefc389f4ca2e, type: 3}
+  m_Sprite: {fileID: 1514935394, guid: 3fc085a450a6ce64283f9f4b58c21e6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9222,14 +9222,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: attackRange
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: minimumDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: killTracker
       value: 
@@ -9237,18 +9229,6 @@ PrefabInstance:
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.0901973
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.0901973
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.38627467
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24201,14 +24181,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: attackRange
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: minimumDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: killTracker
       value: 
@@ -24216,18 +24188,6 @@ PrefabInstance:
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.0901973
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.0901973
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.38627467
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24691,6 +24651,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1649043635}
     m_Modifications:
+    - target: {fileID: 1704869263906569457, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869263906569457, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1704869264124899992, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
       propertyPath: m_Name
       value: GameOver
@@ -24783,6 +24751,22 @@ PrefabInstance:
       propertyPath: fadeAnimator
       value: 
       objectReference: {fileID: 1946753311}
+    - target: {fileID: 1704869264340792625, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869264340792625, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704869264707837293, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5486dd4edc84cb6458ff654e63c3ea7d, type: 2}
+    - target: {fileID: 1704869264707837293, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f038e4d55f908441a003d230d1553f7, type: 3}
@@ -25365,9 +25349,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1342317334}
   - {fileID: 2023074299}
   - {fileID: 540600917}
+  - {fileID: 1342317334}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25704,10 +25688,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: minimumDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: killTracker
       value: 
@@ -26652,10 +26632,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
-    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
-      propertyPath: minimumDistance
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: killTracker
       value: 
