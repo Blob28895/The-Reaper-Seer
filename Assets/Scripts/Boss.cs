@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int maxHealth = 200;
+    public int maxHealth;
     private Animator animator;
     private Renderer renderer;
     int currentHealth;

@@ -14,6 +14,7 @@ public class ScientistBossController : MonoBehaviour
     public float throwRate = 0.5f;
     //private Rigidbody2D rb;
     private int health;
+    private int maxHealth;
     private bool enableGasAttacks = false;
     private Animator animator;
     private float nextThrow = 0f;
@@ -25,6 +26,7 @@ public class ScientistBossController : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        maxHealth = GetComponent<Boss>().maxHealth;
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class ScientistBossController : MonoBehaviour
             Flip();
         }
         // Scientist will enable gas attacks once he reaches below half health
-        if (health <= 175 && enableGasAttacks == false)
+        if (health <= maxHealth / 2 && enableGasAttacks == false)
         {
             enableGasAttacks = true;
             animator.SetBool("Moving", false);
