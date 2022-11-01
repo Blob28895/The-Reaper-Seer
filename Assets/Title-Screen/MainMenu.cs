@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
         // Done to get the fade effect to work correctly
         //SceneManager.LoadScene("Level 1");
         staticVariables.currHealth = Player.maxHealth;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

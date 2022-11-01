@@ -33,6 +33,7 @@ public class Dialogue : MonoBehaviour
         fadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
