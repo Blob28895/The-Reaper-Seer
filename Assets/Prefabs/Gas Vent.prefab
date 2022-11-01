@@ -4862,7 +4862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707cc8411d07db45975f92e8abf466c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDelay: 4
+  startDelay: 3
   gasDuration: 8
   activeGas: {fileID: 3815410511857699641}
   activeEmissionRate: 40
