@@ -75,7 +75,7 @@ public class MafiaGunnerController : MonoBehaviour
 
         currentHealth = enemy.getCurrentHealth();
         // While the enemy is more than the minimum distance away from the player, the enemy will move toward the player
-        if (Vector2.Distance(transform.position, target.position) > (range + 1) && Vector2.Distance(transform.position, target.position) < maximumDistance)
+        if (Vector2.Distance(transform.position, target.position) > (range-1) && Vector2.Distance(transform.position, target.position) < maximumDistance)
         {
             animator.SetBool("Draw", false);
             animator.SetBool("Moving", true);
@@ -136,20 +136,20 @@ public class MafiaGunnerController : MonoBehaviour
     //colliderDistancey -> box will start y distance above from char
     bool PlayerInSightFw()  //First Overlap Box in front
     {
-        Collider2D collider = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex,new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),0,playerLayer);
+        Collider2D collider = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * (range+1) * transform.localScale.x * colliderDistancex,new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z),0,playerLayer);
 
         return collider != null;
     }
     bool PlayerInSightUp() //Second Overlap Box above char
     {
-        Collider2D collider1 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex + transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
+        Collider2D collider1 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * (range + 1) * transform.localScale.x * colliderDistancex + transform.up * (range) * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
 
         return collider1 != null;
     }
 
     bool PlayerInSightDw() //Third Overlap Box below char
     {
-        Collider2D collider2 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex - transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
+        Collider2D collider2 = Physics2D.OverlapBox(boxCollider.bounds.center + transform.right * (range + 1) * transform.localScale.x * colliderDistancex - transform.up * (range) * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, playerLayer);
 
         return collider2 != null;
     }
@@ -158,10 +158,10 @@ public class MafiaGunnerController : MonoBehaviour
     private void OnDrawGizmos() //Gizmos for first, second and third Overlap Box respectively
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * (range + 1) * transform.localScale.x * colliderDistancex, new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z));
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex + transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistancex - transform.up * range * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * (range + 1) * transform.localScale.x * colliderDistancex + transform.up * (range) * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * (range + 1) * transform.localScale.x * colliderDistancex - transform.up * (range) * transform.localScale.x * colliderDistancey, new Vector3(boxCollider.bounds.size.x * (range + 1), boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
 
