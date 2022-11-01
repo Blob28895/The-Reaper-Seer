@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
+    public float transitionTime = 1f;
 
     void Start()
     {
@@ -25,6 +26,16 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    IEnumerator TransitionScene()
+    {
+        GameObject fade = GameObject.FindWithTag("Fade");
+        Animator fadeAnimator = fade.GetComponent<Animator>();
+        fadeAnimator.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        staticVariables.currHealth = Player.maxHealth;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void NextSentence()
     {
         if (index < sentences.Length -1)
@@ -36,7 +47,8 @@ public class Dialogue : MonoBehaviour
         else
         {
             //textDisplay.text = "";
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(TransitionScene());
         }
     }
 }
