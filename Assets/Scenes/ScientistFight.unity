@@ -2678,7 +2678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverUI: {fileID: 0}
-  fadeAnimator: {fileID: 0}
   transitionTime: 1
 --- !u!1 &1066802282
 GameObject:
@@ -9436,7 +9435,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
