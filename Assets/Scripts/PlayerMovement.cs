@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
     {
         if(!isDodging) { 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * staticVariables.movementMultiplier;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         animator.SetBool("grounded", controller.getGrounded());

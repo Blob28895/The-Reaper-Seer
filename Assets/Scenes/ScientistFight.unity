@@ -3072,7 +3072,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 34
   controller: {fileID: 1248206684}
   movement: {fileID: 1248206685}
   attackRate: 2
@@ -3121,6 +3120,9 @@ MonoBehaviour:
   m_GroundNoPlatform:
     serializedVersion: 2
     m_Bits: 128
+  m_WhatisEnemy:
+    serializedVersion: 2
+    m_Bits: 64
   m_GroundCheck: {fileID: 1590869688}
   m_CeilingCheck: {fileID: 2138407939}
   m_CrouchDisableCollider: {fileID: 0}

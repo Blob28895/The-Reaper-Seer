@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections;
+using System.Collections.Generic;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
@@ -9,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
 	[SerializeField] private LayerMask m_GroundNoPlatform;
+	[SerializeField] private LayerMask m_WhatisEnemy;
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;// A collider that will be disabled when crouching
@@ -212,6 +214,23 @@ public class CharacterController2D : MonoBehaviour
 		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_GroundNoPlatform);
 		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_GroundNoPlatform);
 		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_GroundNoPlatform);
+		if(staticVariables.dashDamage)
+		{
+			List<Enemy> enemyObjects = new List<Enemy>();
+			RaycastHit2D[] hitsEnemy;
+			hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatisEnemy);
+			foreach(RaycastHit2D enemy in hitsEnemy)
+			{
+				if(!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()))
+				{
+					enemyObjects.Add(enemy.collider.gameObject.GetComponent<Enemy>());
+				}
+			}
+			foreach(Enemy enemy in enemyObjects)
+			{
+				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
+			}
+		}
 		temp.y -= CircleCollider.offset.y;
 		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
 		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
