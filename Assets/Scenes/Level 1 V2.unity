@@ -26632,6 +26632,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 283336635}
+    - target: {fileID: 7661710627625135602, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135603, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: killTracker
       value: 
@@ -26642,11 +26646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.17
+      value: -7.46
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: -1.02
       objectReference: {fileID: 0}
     - target: {fileID: 7661710627625135609, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
       propertyPath: m_LocalPosition.z
