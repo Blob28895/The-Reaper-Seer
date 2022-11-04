@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1815974066}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &961337496
@@ -3897,6 +3897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 4334728585071270621}
   transitionTime: 1
+  menuFirstSelected: {fileID: 1815974066}
 --- !u!1 &1894006208
 GameObject:
   m_ObjectHideFlags: 0
