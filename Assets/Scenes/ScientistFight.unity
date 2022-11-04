@@ -3033,6 +3033,7 @@ GameObject:
   - component: {fileID: 1248206682}
   - component: {fileID: 1248206681}
   - component: {fileID: 1248206691}
+  - component: {fileID: 1248206692}
   m_Layer: 3
   m_Name: Reaper
   m_TagString: Untagged
@@ -3298,6 +3299,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a21a56d8d6a34441a099d981921a926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1248206692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248206680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64abdb8ca74b4934886f8674693d7354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1270154694
@@ -4153,7 +4166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481746612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.2451262, y: 1.5899999, z: -0.94}
+  m_LocalPosition: {x: 6.208, y: 1.5899999, z: -0.94}
   m_LocalScale: {x: 1, y: 8.125384, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
