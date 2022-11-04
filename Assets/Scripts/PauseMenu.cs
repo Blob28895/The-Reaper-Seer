@@ -8,11 +8,12 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject gameOver;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && !gameOver.activeInHierarchy)
         {
             if (GameIsPaused)
             {
