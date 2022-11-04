@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 		{
             jump = true;
 		}
-            if (Input.GetButtonDown("Dodge") && Time.time >= nextDodgeTime && airDodged == false)
+            if (Input.GetAxisRaw("Dodge") > 0 && Time.time >= nextDodgeTime && airDodged == false)
             {
                 Vector3 currVelocity = controller.getVelocity(); // returns the current velocity of the character
                 nextDodgeTime = Time.time + DodgeCooldown;
