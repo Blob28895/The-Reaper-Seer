@@ -30,6 +30,14 @@ public class PlayerCombat : MonoBehaviour
 	{
 		UpdateAnimClipTimes();
 	}
+	public float getNextAttackTime()
+	{
+		return nextAttackTime;
+	}
+	public bool getCombo()
+	{
+		return inCombo;
+	}
 	public void UpdateAnimClipTimes()
 	{
 		AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;

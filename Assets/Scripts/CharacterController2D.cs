@@ -221,9 +221,13 @@ public class CharacterController2D : MonoBehaviour
 			hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatisEnemy);
 			foreach(RaycastHit2D enemy in hitsEnemy)
 			{
-				if(!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()))
+				if(!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()) && enemy.collider.gameObject.GetComponent<Enemy>() != null)
 				{
 					enemyObjects.Add(enemy.collider.gameObject.GetComponent<Enemy>());
+				}
+				else if(enemy.collider.gameObject.GetComponent<Boss>() != null)
+				{
+					enemy.collider.gameObject.GetComponent<Boss>().TakeDamage((int)(staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
 				}
 			}
 			foreach(Enemy enemy in enemyObjects)
