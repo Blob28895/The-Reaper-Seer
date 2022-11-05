@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
 	public Transform attackPoint;
 	public float attackRange = 0.5f;
 	public LayerMask enemyLayers;
-	public static int attackDamage = 25;
+	[SerializeField] public static int attackDamage = 34;
 	public CharacterController2D controller;
 	public PlayerMovement movement;
 	//attackRate is attacks per second
