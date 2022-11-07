@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4714131350229258619}
   - component: {fileID: 7661710627625135603}
   - component: {fileID: 7661710627625135602}
+  - component: {fileID: 2477446059986307992}
   m_Layer: 6
   m_Name: Mafia Melee Enemy
   m_TagString: Enemy
@@ -244,3 +245,30 @@ MonoBehaviour:
   attackDamage: 1
   attackRate: 1
   hitStun: 1
+--- !u!114 &2477446059986307992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7661710627625135611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.1073093, y: -0.2988781, z: -8.864456e-10}
+  - {x: -0.11017523, y: 0.23909955, z: -8.864456e-10}
+  - {x: 0.11036099, y: 0.23846859, z: -8.864456e-10}
+  - {x: 0.11051576, y: -0.2983814, z: -8.864456e-10}
+  m_ShapePathHash: -290310533
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -96078
