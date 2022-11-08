@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
     }
 	public void Update()
 	{
-		if(Input.GetKeyDown("h"))
+		/*if(Input.GetKeyDown("h"))
 		{
             TakeDamage(1);
-		}
+		}*/
 	}
 	// Function that applies damage to the player
 	public void TakeDamage(int damage)

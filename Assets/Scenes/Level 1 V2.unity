@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 283336626}
   - component: {fileID: 283336636}
   - component: {fileID: 283336637}
+  - component: {fileID: 283336638}
   m_Layer: 3
   m_Name: Reaper
   m_TagString: Player
@@ -602,7 +603,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 34
   controller: {fileID: 283336629}
   movement: {fileID: 283336630}
   attackRate: 2
@@ -651,6 +651,9 @@ MonoBehaviour:
   m_GroundNoPlatform:
     serializedVersion: 2
     m_Bits: 128
+  m_WhatisEnemy:
+    serializedVersion: 2
+    m_Bits: 64
   m_GroundCheck: {fileID: 312661846}
   m_CeilingCheck: {fileID: 1722137877}
   m_CrouchDisableCollider: {fileID: 0}
@@ -841,6 +844,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Keycard: {fileID: 362545437}
+--- !u!114 &283336638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283336625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64abdb8ca74b4934886f8674693d7354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackBetween: 0.75
+  breakCombo: 0
+  comboDelay: 1
+  streak1: {fileID: 4379173985951686555, guid: 1083fce93ac654c4fa8fe35a35f22e4e, type: 3}
+  streak2: {fileID: 977110922017619009, guid: 5637dd3ce66a8444587e45bd754b8484, type: 3}
+  streak3: {fileID: 6529393905960469522, guid: b32d7558e2848604499007b7cdbdcc5d, type: 3}
+  Player: {fileID: 283336625}
 --- !u!1 &302862025
 GameObject:
   m_ObjectHideFlags: 0
