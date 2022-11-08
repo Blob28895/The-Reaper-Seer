@@ -47,24 +47,24 @@ public class PlayerMovement : MonoBehaviour
 		{
             jump = true;
 		}
-            if (Input.GetButtonDown("Dodge") && Time.time >= nextDodgeTime && airDodged == false)
+            if (Input.GetAxisRaw("Dodge") > 0 && Time.time >= nextDodgeTime && airDodged == false)
             {
                 Vector3 currVelocity = controller.getVelocity(); // returns the current velocity of the character
                 nextDodgeTime = Time.time + DodgeCooldown;
                 facingRight = controller.getFacing();
-                if (Input.GetKey("d")) //figuring out which direction to dash
+                if (Input.GetAxisRaw("Horizontal") > 0) //figuring out which direction to dash
                 {
                     xmove += 1.0f;
                 }
-                if (Input.GetKey("a"))
+                if (Input.GetAxisRaw("Horizontal") < 0)
                 {
                     xmove += -1.0f;
                 }
-                if (Input.GetKey("w"))
+                if (Input.GetAxisRaw("Vertical") > 0)
                 {
                     ymove += 1.0f;
                 }
-                if (Input.GetKey("s"))
+                if (Input.GetAxisRaw("Vertical") < 0)
                 {
                     ymove += -1.0f;
                 }

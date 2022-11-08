@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1704869264124899996}
   m_Layer: 5
   m_Name: GameOver
-  m_TagString: Untagged
+  m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameoverUI: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &1704869264310970766
 GameObject:
   m_ObjectHideFlags: 0
