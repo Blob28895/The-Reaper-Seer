@@ -18,7 +18,7 @@ public class GameHandler : MonoBehaviour
         Debug.Log("Game Over Screen");
 
         // Restart goes here
-        //StartCoroutine(RestartRoutine());
+        StartCoroutine(RestartRoutine());
     }
 
     IEnumerator RestartRoutine()

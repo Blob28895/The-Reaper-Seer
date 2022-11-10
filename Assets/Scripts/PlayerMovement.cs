@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
     {
         if(!isDodging) { 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * staticVariables.movementMultiplier;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         animator.SetBool("grounded", controller.getGrounded());
@@ -47,24 +47,24 @@ public class PlayerMovement : MonoBehaviour
 		{
             jump = true;
 		}
-            if (Input.GetAxisRaw("Dodge") > 0 && Time.time >= nextDodgeTime && airDodged == false)
+            if (Input.GetButtonDown("Dodge") && Time.time >= nextDodgeTime && airDodged == false)
             {
                 Vector3 currVelocity = controller.getVelocity(); // returns the current velocity of the character
                 nextDodgeTime = Time.time + DodgeCooldown;
                 facingRight = controller.getFacing();
-                if (Input.GetAxisRaw("Horizontal") > 0) //figuring out which direction to dash
+                if (Input.GetKey("d")) //figuring out which direction to dash
                 {
                     xmove += 1.0f;
                 }
-                if (Input.GetAxisRaw("Horizontal") < 0)
+                if (Input.GetKey("a"))
                 {
                     xmove += -1.0f;
                 }
-                if (Input.GetAxisRaw("Vertical") > 0)
+                if (Input.GetKey("w"))
                 {
                     ymove += 1.0f;
                 }
-                if (Input.GetAxisRaw("Vertical") < 0)
+                if (Input.GetKey("s"))
                 {
                     ymove += -1.0f;
                 }

@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
 	public Transform attackPoint;
 	public float attackRange = 0.5f;
 	public LayerMask enemyLayers;
-	[SerializeField] public static int attackDamage = 34;
+	public int attackDamage = 25;
 	public CharacterController2D controller;
 	public PlayerMovement movement;
 	//attackRate is attacks per second
@@ -29,14 +29,6 @@ public class PlayerCombat : MonoBehaviour
 	void Start()
 	{
 		UpdateAnimClipTimes();
-	}
-	public float getNextAttackTime()
-	{
-		return nextAttackTime;
-	}
-	public bool getCombo()
-	{
-		return inCombo;
 	}
 	public void UpdateAnimClipTimes()
 	{
@@ -201,11 +193,11 @@ public class PlayerCombat : MonoBehaviour
 			Debug.Log("We hit " + enemy.name);
 			if (enemy.tag == "Boss")
 			{
-				enemy.GetComponent<Boss>().TakeDamage((int) (attackDamage * staticVariables.damageMultiplier));
+				enemy.GetComponent<Boss>().TakeDamage(attackDamage);
 			}
 			else
 			{
-				enemy.GetComponent<Enemy>().TakeDamage((int) (attackDamage * staticVariables.damageMultiplier));
+				enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
 			}
 		}
 	}
