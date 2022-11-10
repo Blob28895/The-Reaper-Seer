@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7934403780251059409}
   - component: {fileID: 3876849347951546290}
   - component: {fileID: 3876849347951546293}
+  - component: {fileID: 6859026872370608113}
   m_Layer: 6
   m_Name: Mafia Gunner
   m_TagString: Untagged
@@ -59,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,6 +217,37 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hitStun: 1
+--- !u!114 &6859026872370608113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876849347951546300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.13208358, y: -0.31991556, z: 0}
+  - {x: -0.090047956, y: 0.044907477, z: 0}
+  - {x: -0.13019058, y: 0.22916222, z: 0}
+  - {x: 0.08844542, y: 0.22764374, z: 0}
+  - {x: 0.04918343, y: 0.029372297, z: 0}
+  - {x: 0.09109674, y: -0.31874725, z: 0}
+  - {x: 0.016755685, y: -0.15918882, z: 0}
+  - {x: -0.046254892, y: -0.15918878, z: 0}
+  m_ShapePathHash: 794747445
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 52414
 --- !u!1 &5294379614052560273
 GameObject:
   m_ObjectHideFlags: 0
