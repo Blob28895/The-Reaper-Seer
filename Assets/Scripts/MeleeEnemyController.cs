@@ -39,7 +39,7 @@ public class MeleeEnemyController : MonoBehaviour
     void Update()
     {
         dist = target.position.x - transform.position.x;
-        Debug.Log(dist);
+        //Debug.Log(dist);
         if (dist > 0 && !facingRight)
         {
             Flip();

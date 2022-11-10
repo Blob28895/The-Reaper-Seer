@@ -43,7 +43,7 @@ public class VerticalPlatform : MonoBehaviour
             waitTime = 0.5f;
 		}*/
 		Debug.Log(colliding);
-        if(Input.GetKey("s") && colliding)
+        if(Input.GetAxisRaw("Vertical") < 0 && colliding)
 		{
             /*if(waitTime <=0)
 			{*/
@@ -57,7 +57,7 @@ public class VerticalPlatform : MonoBehaviour
 			}*/
 		}
 
-        if(Input.GetKey("w") || Input.GetKey(KeyCode.Space))
+        if(Input.GetAxisRaw("Vertical") > 0)
 		{
             effector.rotationalOffset = 0;
 		}

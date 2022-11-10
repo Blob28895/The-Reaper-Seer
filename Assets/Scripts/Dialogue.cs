@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
     private int index;
+    private bool ready = true;
     public float typingSpeed;
     public float transitionTime = 1f;
 
@@ -19,11 +20,13 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator Type()
     {
+        ready = false;
         foreach (char letter in sentences[index].ToCharArray())
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        ready = true;
     }
 
     IEnumerator TransitionScene()
@@ -38,13 +41,13 @@ public class Dialogue : MonoBehaviour
 
     public void NextSentence()
     {
-        if (index < sentences.Length -1)
+        if (index < sentences.Length -1 && ready)
         {
             index++;
             textDisplay.text = "";
             StartCoroutine(Type());
         }
-        else
+        else if (index >= sentences.Length - 1)
         {
             //textDisplay.text = "";
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
