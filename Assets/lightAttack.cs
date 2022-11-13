@@ -29,7 +29,7 @@ public class lightAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("altAttack") && Time.time >= nextCombo && Time.time >= combat.getNextAttackTime() && !combat.getCombo())
+        if (Input.GetButtonDown("altAttack") && Time.time >= nextCombo && Time.time >= combat.getNextAttackTime() && !combat.getCombo() && !PauseMenu.GameIsPaused)
 		{
             //Debug.Log("Made it in");
             if(attackTracker == 0)

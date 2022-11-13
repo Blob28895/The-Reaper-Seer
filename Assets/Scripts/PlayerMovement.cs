@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 	// Use this to get input
 	void Update()
     {
-        if(!isDodging) { 
+        if(!isDodging && !PauseMenu.GameIsPaused) { 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * staticVariables.movementMultiplier;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));

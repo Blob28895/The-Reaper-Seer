@@ -72,7 +72,7 @@ public class PlayerCombat : MonoBehaviour
 		//Debug.Log(state);
 		/*transition1Time = comboTransitionDelay;
 		transition2Time = secondTransitionDelay;*/
-		if (Time.time >= nextAttackTime)
+		if (Time.time >= nextAttackTime && !PauseMenu.GameIsPaused)
 		{
 			if (Input.GetButtonDown("Fire3")) // if we push the fire button
 			{
