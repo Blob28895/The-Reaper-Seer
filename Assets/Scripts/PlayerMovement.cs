@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
+    private bool canJump = true;
     private float xmove = 0f;
     private float ymove = 0f;
     private bool facingRight = true;
@@ -28,6 +29,17 @@ public class PlayerMovement : MonoBehaviour
     {
         isAttacking = set;
     }
+
+    IEnumerator WaitForButtonUp()
+    {
+        canJump = false;
+        while (!Input.GetButtonUp("Jump") && PauseMenu.GameIsPaused)
+        {
+            yield return null;
+        }
+        canJump = true;
+    }
+
 	void Start()
 	{
         RB = controller.getRB();
@@ -36,17 +48,20 @@ public class PlayerMovement : MonoBehaviour
 	// Use this to get input
 	void Update()
     {
+        if (PauseMenu.GameIsPaused && canJump)
+        {
+            StartCoroutine(WaitForButtonUp());
+        }
         if(!isDodging && !PauseMenu.GameIsPaused) { 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * staticVariables.movementMultiplier;
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * staticVariables.movementMultiplier;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        animator.SetBool("grounded", controller.getGrounded());
-        animator.SetFloat("Vertical", RB.velocity.y);
-        
-        if(Input.GetButtonDown("Jump"))
-		{
-            jump = true;
-		}
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            animator.SetBool("grounded", controller.getGrounded());
+            animator.SetFloat("Vertical", RB.velocity.y);
+            if (Input.GetButtonDown("Jump") && canJump)
+            {
+                jump = true;
+            }
             if (Input.GetAxisRaw("Dodge") > 0 && Time.time >= nextDodgeTime && airDodged == false)
             {
                 Vector3 currVelocity = controller.getVelocity(); // returns the current velocity of the character
@@ -98,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 	void FixedUpdate()
 	{
         //      With this specific character controller the "false, false" means "i do not want to crouch, and I do not want to jump"
-        if (!isDodging)
+        if (!isDodging && !PauseMenu.GameIsPaused)
         {
             if (isAttacking) {
                 horizontalMove *= attackSlowMultiplier;
