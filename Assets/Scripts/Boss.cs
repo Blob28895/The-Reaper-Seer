@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
     private Renderer renderer;
     int currentHealth;
     public HealthBar healthBar;
+    public KillTracker killTracker;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +64,7 @@ public class Boss : MonoBehaviour
         // Death animation goes here
         //animator.SetBool("Dead", true);
         animator.SetTrigger("Die");
+        killTracker.KilledEnemy(gameObject);
         // Disable the enemy
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         foreach (Collider2D c in GetComponents<Collider2D>())

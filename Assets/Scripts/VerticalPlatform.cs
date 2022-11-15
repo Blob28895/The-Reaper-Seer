@@ -42,7 +42,7 @@ public class VerticalPlatform : MonoBehaviour
 		{
             waitTime = 0.5f;
 		}*/
-		Debug.Log(colliding);
+		//Debug.Log(colliding);
         if(Input.GetAxisRaw("Vertical") < 0 && colliding)
 		{
             /*if(waitTime <=0)

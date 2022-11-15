@@ -12,6 +12,7 @@ public class KillTracker : MonoBehaviour
     void Start()
     {
         listOfEnemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        listOfEnemys.AddRange(GameObject.FindGameObjectsWithTag("Boss"));
         souls.SetMax(staticVariables.maxSouls);
         souls.SetCurrent(staticVariables.currSouls);
         player = GetComponent<Player>();
@@ -20,6 +21,7 @@ public class KillTracker : MonoBehaviour
     {
         if (listOfEnemys.Contains(Enemy))
         {
+            Debug.Log("Enemy died");
             if (staticVariables.currSouls < staticVariables.maxSouls)
             {
                 staticVariables.currSouls += 1;
@@ -29,6 +31,7 @@ public class KillTracker : MonoBehaviour
                 player.Heal(1);
                 
 			}
+            Debug.Log(staticVariables.currSouls);
             souls.SetCurrent(staticVariables.currSouls);
             listOfEnemys.Remove(Enemy);
             int chance = Random.Range(0, listOfEnemys.Count);

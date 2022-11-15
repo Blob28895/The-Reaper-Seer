@@ -34,7 +34,7 @@ public class lightAttack : MonoBehaviour
             //Debug.Log("Made it in");
             if(attackTracker == 0)
 			{
-                Debug.Log("Attack 1");
+                //Debug.Log("Attack 1");
                 animator.SetTrigger("fast1");
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
@@ -45,7 +45,7 @@ public class lightAttack : MonoBehaviour
 			}
             else if (attackTracker == 1)
 			{
-                Debug.Log("Attack 2");
+                //Debug.Log("Attack 2");
                 animator.SetTrigger("fast2");
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
@@ -55,7 +55,7 @@ public class lightAttack : MonoBehaviour
             }
             else if (attackTracker == 2)
 			{
-                Debug.Log("Attack 3");
+                //Debug.Log("Attack 3");
                 animator.SetTrigger("fast3");
                 breakCombo = Time.time + attackBetween;
                 attackTracker = 0;
