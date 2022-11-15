@@ -22,6 +22,21 @@ public class Player : MonoBehaviour
             TakeDamage(1);
 		}*/
 	}
+    public void Heal(int heal)
+	{
+        if(enabled)
+		{
+            if(staticVariables.currHealth + heal <= maxHealth)
+			{
+                staticVariables.currHealth += heal;
+            }
+            else
+			{
+                staticVariables.currHealth = maxHealth;
+			}
+            healthBar.SetHealth(staticVariables.currHealth);
+		}
+	}
 	// Function that applies damage to the player
 	public void TakeDamage(int damage)
     {
