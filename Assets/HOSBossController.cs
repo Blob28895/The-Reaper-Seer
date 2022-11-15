@@ -56,7 +56,7 @@ public class HOSBossController : MonoBehaviour
         {
             Flip();
         }
-        if (!PlayerInRange())
+        if (CanMove() && !PlayerInRange())
         {
             animator.SetBool("Moving", true);
             MoveTowards();
@@ -70,7 +70,7 @@ public class HOSBossController : MonoBehaviour
                 Debug.Log("Attacking!");
                 int index = Random.Range(0, 3);
                 //Attack();
-                animator.SetTrigger(meleeAnimations[index]);
+                animator.SetBool(meleeAnimations[index], true);
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
@@ -79,7 +79,7 @@ public class HOSBossController : MonoBehaviour
     // Check if the Head guard can move
     private bool CanMove()
     {
-        return false;
+        return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  &&!animator.GetBool("Melee3");
     }
 
     // Detects whether the Reaper is in range or not
@@ -103,6 +103,14 @@ public class HOSBossController : MonoBehaviour
         {
             hitPlayer.GetComponent<Player>().TakeDamage(attackDamage);
         }
+    }
+
+    private void ResetMeleeBool()
+    {
+        // Ensures that no matter which animation is played, it will be reset
+        animator.SetBool("Melee1", false);
+        animator.SetBool("Melee2", false);
+        animator.SetBool("Melee3", false);
     }
 
     // Flip the head guard so that he faces the Reaper at all times
