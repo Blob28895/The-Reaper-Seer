@@ -103,6 +103,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06293e4296effd94392641468f4a6e42
-      internalID: -1805973930
+      spriteID: 1424a953fecd5f245b6f6e480585fb67
+      internalID: 1538610963
       vertices: []
       indices: 
       edges: []
@@ -142,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6546a3126994a24d822b36841099e28
-      internalID: 713362926
+      spriteID: f3e5b8cdf1aba644daf168492eae4e97
+      internalID: 647490751
       vertices: []
       indices: 
       edges: []
@@ -163,8 +175,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a9a5c8cd2510ac4e9613c1db618c844
-      internalID: -1371981013
+      spriteID: 6e9684b2a2559034997a209d4b39700e
+      internalID: 1621523325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadGuard_Melee_2_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b9ad41311df66428285483807cecc2
+      internalID: -1509470009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadGuard_Melee_2_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82dec04d3a468f48a380bbc7dcc04ae
+      internalID: -315042772
       vertices: []
       indices: 
       edges: []
@@ -180,9 +234,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeadGuard_Melee_2_1: 713362926
-      HeadGuard_Melee_2_2: -1371981013
-      HeadGuard_Melee_2_0: -1805973930
+      HeadGuard_Melee_2_1: 647490751
+      HeadGuard_Melee_2_3: -1509470009
+      HeadGuard_Melee_2_2: 1621523325
+      HeadGuard_Melee_2_0: 1538610963
+      HeadGuard_Melee_2_4: -315042772
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

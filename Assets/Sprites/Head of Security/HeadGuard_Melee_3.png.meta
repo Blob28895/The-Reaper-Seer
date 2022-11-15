@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a508c3adda48ca4da19657c9ab32ada
+guid: 961b31b7e5c6bc041961b3a429035ebd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeadGuard_Melee_1_0
+      name: HeadGuard_Melee_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62db3dd657a95c54eae3e46550d1e73b
-      internalID: 393660856
+      spriteID: f365dc4ca4d139c4599af9e67b0a4d74
+      internalID: 28770631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_Melee_1_1
+      name: HeadGuard_Melee_3_1
       rect:
         serializedVersion: 2
         x: 160
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005b2d9c79a02004b879313829950286
-      internalID: 1889601458
+      spriteID: 64b2d164cc4145642b34868a03305f99
+      internalID: 423774968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_Melee_1_2
+      name: HeadGuard_Melee_3_2
       rect:
         serializedVersion: 2
         x: 320
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4801b5953e22e1c489459bc4672d2446
-      internalID: -449570783
+      spriteID: 64484fcdd5dd4e943a41b2a34bd0dd84
+      internalID: -586677200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_Melee_1_3
+      name: HeadGuard_Melee_3_3
       rect:
         serializedVersion: 2
         x: 480
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76855e4165cb0204081ae5d0cc4597e9
-      internalID: 1290966073
+      spriteID: 6dcc5651ac911964386d50647ac57f9c
+      internalID: -2110974724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_Melee_1_4
+      name: HeadGuard_Melee_3_4
       rect:
         serializedVersion: 2
         x: 640
@@ -217,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8ffab93890efdf4ab45e58c4bb2c4dd
-      internalID: 279512495
+      spriteID: ae2b8ede4be8539428dd7640817f00f1
+      internalID: -635715532
       vertices: []
       indices: 
       edges: []
@@ -234,11 +234,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeadGuard_Melee_1_2: -449570783
-      HeadGuard_Melee_1_0: 393660856
-      HeadGuard_Melee_1_4: 279512495
-      HeadGuard_Melee_1_3: 1290966073
-      HeadGuard_Melee_1_1: 1889601458
+      HeadGuard_Melee_3_4: -635715532
+      HeadGuard_Melee_3_0: 28770631
+      HeadGuard_Melee_3_1: 423774968
+      HeadGuard_Melee_3_3: -2110974724
+      HeadGuard_Melee_3_2: -586677200
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
