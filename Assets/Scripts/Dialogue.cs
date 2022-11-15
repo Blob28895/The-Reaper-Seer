@@ -54,4 +54,9 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TransitionScene());
         }
     }
+    
+    public void NextScene()
+	{
+        StartCoroutine(TransitionScene());
+	}
 }
