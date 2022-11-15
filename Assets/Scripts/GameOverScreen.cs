@@ -36,6 +36,7 @@ public class GameOverScreen : MonoBehaviour
         fadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;
+        staticVariables.currSouls = 0;
         SceneManager.LoadScene(scene);
     }
 }
