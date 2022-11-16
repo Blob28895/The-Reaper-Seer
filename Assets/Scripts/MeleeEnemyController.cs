@@ -29,7 +29,7 @@ public class MeleeEnemyController : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         currentHealth = enemy.maxHealth;
-
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     public void setStunEnd()
     {

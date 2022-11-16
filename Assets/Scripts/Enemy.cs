@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        killTracker = GameObject.FindGameObjectWithTag("Player").GetComponent<KillTracker>();
     }
     public int getCurrentHealth()
 	{

@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 113934090}
   - component: {fileID: 113934093}
   - component: {fileID: 113934094}
+  - component: {fileID: 113934095}
   m_Layer: 6
   m_Name: HeadGuard
   m_TagString: Boss
@@ -445,6 +446,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2000
   healthBar: {fileID: 1025269699}
+--- !u!114 &113934095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113934084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24c6b01d0117024ebe0a1ad675b7fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  elevatorAnimator: {fileID: 1286054549}
+  topGear: {fileID: 2117872183}
+  bottomGear: {fileID: 1923623075}
+  building: {fileID: 1277682131}
+  spawnPoint: {fileID: 531732651}
 --- !u!1 &235986918
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,6 +5597,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519530736}
   m_CullTransparentMesh: 1
+--- !u!1 &531732650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531732651}
+  m_Layer: 7
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531732651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531732650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.072, y: -0.761, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1286054546}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580218267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,9 +5915,10 @@ GameObject:
   - component: {fileID: 754045430}
   - component: {fileID: 754045429}
   - component: {fileID: 754045428}
+  - component: {fileID: 754045440}
   m_Layer: 3
   m_Name: Reaper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6151,6 +6202,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754045440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754045427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab784962d3b1f644b9219342c813c8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Keycard: {fileID: 531732650}
 --- !u!1001 &757550081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7288,6 +7352,7 @@ Transform:
   m_Children:
   - {fileID: 2117872184}
   - {fileID: 1156326677}
+  - {fileID: 531732651}
   m_Father: {fileID: 1151899849}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
