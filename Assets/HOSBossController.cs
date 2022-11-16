@@ -15,12 +15,13 @@ public class HOSBossController : MonoBehaviour
     private float nextAttackTime = 0f;
 
     // Smash attacks
-    public float smashAttackRate = 0.1f;
+    public float smashAttackIntervalMin = 7f;
+    public float smashAttackIntervalMax = 13f;
     private float nextSmashTime = 10f;
 
     // Call reinforcements
-    public float callRate = 0.1f;
-    private float nextCallRate = 0f;
+    public float callInterval = 15f;
+    private float nextCallTime = 5f;
 
     // Reaper stuff
     public Transform target;
@@ -78,8 +79,16 @@ public class HOSBossController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
             animator.SetBool("ShockwaveAttack", true);
-            nextSmashTime = Time.time + 1f / smashAttackRate;
+            float smashAttackTime = Random.Range(smashAttackIntervalMin, smashAttackIntervalMax);
+            nextSmashTime = Time.time + smashAttackTime;
 
+        }
+        // At some point, introduce an enemy cap to the if statement so that the hos can't keep summoning new enemies when there are too many on screen
+        if (/*health < maxHealth / 2 && */Time.time >= nextCallTime && CanMove())
+        {
+            animator.SetBool("Moving", false);
+            animator.SetBool("Call", true);
+            nextCallTime = Time.time + callInterval;
         }
     }
 
@@ -117,8 +126,17 @@ public class HOSBossController : MonoBehaviour
     private void Smash()
     {
         Debug.Log("Smash Attack!");
+        // Code to spawn shockwave effect prefab goes here
     }
 
+    // Function that gets called to call reinforcements to fight the Reaper
+    private void SummonEnemies()
+    {
+        Debug.Log("Summoning Reinforcements!");
+        // Code to summon enemies (and presumably to temporary stop the elevator) goes here
+    }
+
+    // Called at the end of an attack animation to ensure that head guard can move and use other attacks
     private void ResetBoolVar()
     {
         // Resets all bool variables after performing an attack
