@@ -17,11 +17,11 @@ public class HOSBossController : MonoBehaviour
     // Smash attacks
     public float smashAttackIntervalMin = 7f;
     public float smashAttackIntervalMax = 13f;
-    private float nextSmashTime = 10f;
+    private float nextSmashTime;
 
     // Call reinforcements
     public float callInterval = 15f;
-    private float nextCallTime = 5f;
+    private float nextCallTime;
 
     // Reaper stuff
     public Transform target;
@@ -42,6 +42,10 @@ public class HOSBossController : MonoBehaviour
         meleeAnimations.Add("Melee1");
         meleeAnimations.Add("Melee2");
         meleeAnimations.Add("Melee3");
+
+        // Assign next attack variables here so that hos can't instantly use them upon scene restart
+        nextSmashTime = Time.time + 10f;
+        nextCallTime = Time.time + 5f;
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class HOSBossController : MonoBehaviour
         {
             Flip();
         }
+        // Move towards the Reaper while he's not in range
         if (CanMove() && !PlayerInRange())
         {
             animator.SetBool("Moving", true);
@@ -75,6 +80,7 @@ public class HOSBossController : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
+        // Perform smash attack
         if (Time.time >= nextSmashTime && CanMove())
         {
             animator.SetBool("Moving", false);
@@ -83,6 +89,7 @@ public class HOSBossController : MonoBehaviour
             nextSmashTime = Time.time + smashAttackTime;
 
         }
+        // Summon enemies for help
         // At some point, introduce an enemy cap to the if statement so that the hos can't keep summoning new enemies when there are too many on screen
         if (/*health < maxHealth / 2 && */Time.time >= nextCallTime && CanMove())
         {
@@ -92,14 +99,14 @@ public class HOSBossController : MonoBehaviour
         }
     }
 
-    // Check if the Head guard can move
+    // Head guard should only be able to move while not performing any kind of attack
     private bool CanMove()
     {
         return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  && !animator.GetBool("Melee3")
             && !animator.GetBool("ShockwaveAttack") && !animator.GetBool("Call");
     }
 
-    // Detects whether the Reaper is in range or not
+    // Detects whether the Reaper is in range or not to allow guard to perform melee attacks
     private bool PlayerInRange()
     {
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
@@ -126,6 +133,8 @@ public class HOSBossController : MonoBehaviour
     private void Smash()
     {
         Debug.Log("Smash Attack!");
+        // Add a major attackRate cooldown
+        nextAttackTime = Time.time + 2f;
         // Code to spawn shockwave effect prefab goes here
     }
 
@@ -133,13 +142,13 @@ public class HOSBossController : MonoBehaviour
     private void SummonEnemies()
     {
         Debug.Log("Summoning Reinforcements!");
-        // Code to summon enemies (and presumably to temporary stop the elevator) goes here
+        // Code to summon enemies (and presumably to temporarily stop the elevator) goes here
     }
 
     // Called at the end of an attack animation to ensure that head guard can move and use other attacks
     private void ResetBoolVar()
     {
-        // Resets all bool variables after performing an attack
+        // Resets all bool variables after performing an attack to allow the head guard to move
         animator.SetBool("Melee1", false);
         animator.SetBool("Melee2", false);
         animator.SetBool("Melee3", false);
