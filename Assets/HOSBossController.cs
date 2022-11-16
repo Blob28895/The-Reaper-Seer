@@ -16,7 +16,7 @@ public class HOSBossController : MonoBehaviour
 
     // Smash attacks
     public float smashAttackRate = 0.1f;
-    private float nextSmashTime = 0f;
+    private float nextSmashTime = 10f;
 
     // Call reinforcements
     public float callRate = 0.1f;
@@ -62,7 +62,7 @@ public class HOSBossController : MonoBehaviour
             MoveTowards();
         }
         // Head guard will start attacking once the Reaper is in range
-        else if (PlayerInRange())
+        else if (PlayerInRange() && CanMove())
         {
             animator.SetBool("Moving", false);
             if (Time.time >= nextAttackTime)
@@ -74,12 +74,20 @@ public class HOSBossController : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
+        if (Time.time >= nextSmashTime && CanMove())
+        {
+            animator.SetBool("Moving", false);
+            animator.SetBool("ShockwaveAttack", true);
+            nextSmashTime = Time.time + 1f / smashAttackRate;
+
+        }
     }
 
     // Check if the Head guard can move
     private bool CanMove()
     {
-        return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  &&!animator.GetBool("Melee3");
+        return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  && !animator.GetBool("Melee3")
+            && !animator.GetBool("ShockwaveAttack") && !animator.GetBool("Call");
     }
 
     // Detects whether the Reaper is in range or not
@@ -105,12 +113,20 @@ public class HOSBossController : MonoBehaviour
         }
     }
 
-    private void ResetMeleeBool()
+    // Summon a shockwave to damage the Reaper
+    private void Smash()
     {
-        // Ensures that no matter which animation is played, it will be reset
+        Debug.Log("Smash Attack!");
+    }
+
+    private void ResetBoolVar()
+    {
+        // Resets all bool variables after performing an attack
         animator.SetBool("Melee1", false);
         animator.SetBool("Melee2", false);
         animator.SetBool("Melee3", false);
+        animator.SetBool("ShockwaveAttack", false);
+        animator.SetBool("Call", false);
     }
 
     // Flip the head guard so that he faces the Reaper at all times

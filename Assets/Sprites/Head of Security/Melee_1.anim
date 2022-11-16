@@ -87,7 +87,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.38333333
-    functionName: ResetMeleeBool
+    functionName: ResetBoolVar
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
