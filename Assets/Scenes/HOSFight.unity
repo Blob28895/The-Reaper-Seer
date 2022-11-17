@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 113934093}
   - component: {fileID: 113934094}
   - component: {fileID: 113934095}
+  - component: {fileID: 113934096}
   m_Layer: 6
   m_Name: HeadGuard
   m_TagString: Boss
@@ -465,6 +466,20 @@ MonoBehaviour:
   bottomGear: {fileID: 1923623075}
   building: {fileID: 1277682131}
   spawnPoint: {fileID: 531732651}
+--- !u!114 &113934096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113934084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0e5c355478f5d48bc12d4b9b7e1a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  magnitude: 1
 --- !u!1 &235986918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +6129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 754045432}
   healthBar: {fileID: 1176969358}
+  invicibleTime: 0
 --- !u!114 &754045431
 MonoBehaviour:
   m_ObjectHideFlags: 0

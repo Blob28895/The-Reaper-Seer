@@ -15,6 +15,7 @@ public class HOSBossController : MonoBehaviour
     private float nextAttackTime = 0f;
 
     // Smash attacks
+    private ScreenShake shakeObj;
     public float smashAttackIntervalMin = 7f;
     public float smashAttackIntervalMax = 13f;
     public Shockwave shockwaveObject;
@@ -38,6 +39,7 @@ public class HOSBossController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         maxHealth = GetComponent<Boss>().maxHealth;
+        shakeObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
 
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
@@ -141,6 +143,8 @@ public class HOSBossController : MonoBehaviour
         Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown
         nextAttackTime = Time.time + 2f;
+        // Just don't, lmaooo: GetComponent<ScreenShake>().Shake();
+        shakeObj.Shake();
         // Code to spawn shockwave effect prefab goes here
         Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
         shockwave1.SetDirection(1);

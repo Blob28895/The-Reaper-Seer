@@ -6,7 +6,7 @@ public class ScreenShake : MonoBehaviour
 {
     public float duration = 1f;
     public float magnitude = 1f;
-    IEnumerator Shake (float duration, float magnitude)
+    public IEnumerator DoShake (float duration, float magnitude)
 	{
         Debug.Log("enum");
         Vector3 originalPos = transform.localPosition;
@@ -28,16 +28,21 @@ public class ScreenShake : MonoBehaviour
         transform.localPosition = originalPos;
 	}
 
+    public void Shake()
+    {
+        StartCoroutine(DoShake(duration, magnitude));
+    }
+
     void Start()
     {
         
     }
     void Update()
     {
-        if(Input.GetKeyDown("o"))
+        /*if(Input.GetKeyDown("o"))
 		{
             Debug.Log("Made it");
             StartCoroutine( Shake(duration, magnitude));
-		}
+		}*/
     }
 }
