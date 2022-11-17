@@ -11,12 +11,14 @@ public class KillTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        listOfEnemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        //listOfEnemys.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         listOfEnemys.AddRange(GameObject.FindGameObjectsWithTag("Boss"));
         souls.SetMax(staticVariables.maxSouls);
         souls.SetCurrent(staticVariables.currSouls);
         player = GetComponent<Player>();
     }
+
+    // Make getter function for the listOfEnemys
     public void KilledEnemy(GameObject Enemy)
     {
         if (listOfEnemys.Contains(Enemy))
@@ -56,5 +58,20 @@ public class KillTracker : MonoBehaviour
             // They're still alive dangit
             return false;
         }
+    }
+
+    public void AddNewEnemy(GameObject newEnemy)
+    {
+        // Make sure that enemy is not already in list
+        foreach (GameObject enemy in listOfEnemys)
+        {
+            // If enemy is already present, do not add them to the list
+            if (enemy.name == newEnemy.name)
+            {
+                return;
+            }
+        }
+        // Function will continue here if the enemy is not in the list yet
+        listOfEnemys.Add(newEnemy);
     }
 }
