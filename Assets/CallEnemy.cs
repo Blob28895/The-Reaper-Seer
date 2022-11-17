@@ -22,7 +22,8 @@ public class CallEnemy : MonoBehaviour
 
     public void stopElevator()
 	{
-		parallax.setMoving(false);
+		//parallax.setMoving(false);
+		StartCoroutine(parallax.moveToStop());
 		topGear.GetComponent<Spin>().SpinSpeed = 0;
 		bottomGear.GetComponent<Spin>().SpinSpeed = 0;
 	}

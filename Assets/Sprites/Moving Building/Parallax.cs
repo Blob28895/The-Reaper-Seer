@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
@@ -20,19 +22,19 @@ public class Parallax : MonoBehaviour
 	{
         meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.deltaTime);
     }
-    /*public void moveToStop()
+    public IEnumerator moveToStop()
     {
         Debug.Log("moveToStop");
-        while (meshRenderer.material.mainTextureOffset.x % 1f != 0.48f)
+        while (meshRenderer.material.mainTextureOffset.y % 1f < 0.47f || meshRenderer.material.mainTextureOffset.y % 1f > 0.49f)
         {
-            meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.deltaTime);
-
+            yield return null;
         }
         moving = false;
-    }*/
+    }
 
 	private void Update()
     {
+        Debug.Log(meshRenderer.material.mainTextureOffset.y % 1f);
         if (moving)
         {
             moveBuilding();
