@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f795dc9008c447f45b3ecfbf7d72c411
+guid: 3f055c4bc1dcc124784039693064e157
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeadGuard_0
+      name: HeadGuard_Call_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 354
-        width: 119
-        height: 118
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eda7f1f19a4b6b4793418b5c24127d8
-      internalID: -542343922
+      spriteID: edf1effcc778e52479748be6679a2e37
+      internalID: 2065248215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_1
+      name: HeadGuard_Call_1
       rect:
         serializedVersion: 2
-        x: 119
-        y: 354
-        width: 119
-        height: 118
+        x: 160
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 566bfdd82c52a104aad1c7626f367d96
-      internalID: 1348387135
+      spriteID: b5cc9915b80773241a68042ae0a449ab
+      internalID: -938295441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_2
+      name: HeadGuard_Call_2
       rect:
         serializedVersion: 2
-        x: 238
-        y: 354
-        width: 119
-        height: 118
+        x: 320
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57263d79cd514eb4e951c6adf06e621d
-      internalID: 1058396772
+      spriteID: f1f362a15bbc6ee4f9d4474dc5b60f33
+      internalID: 620397281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_3
+      name: HeadGuard_Call_3
       rect:
         serializedVersion: 2
-        x: 357
-        y: 354
-        width: 119
-        height: 118
+        x: 480
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20bcd57c9f57a99469ad1b23d2dc0b05
-      internalID: -1658838800
+      spriteID: 477c362c53c911949a48ee0e2016faaa
+      internalID: -1883432922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_4
+      name: HeadGuard_Call_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 236
-        width: 119
-        height: 118
+        x: 640
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71c4922bed91b074e920e39097ac0f04
-      internalID: -1241311782
+      spriteID: 40547b49d7b99b54badda2d43ac971ef
+      internalID: -11671131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_5
+      name: HeadGuard_Call_5
       rect:
         serializedVersion: 2
-        x: 119
-        y: 236
-        width: 119
-        height: 118
+        x: 800
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43575715d2bdc2847b8f4f24ff3b5968
-      internalID: -700858075
+      spriteID: 9e6e674d38da3444d830b5534f138ffd
+      internalID: 171579203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_6
+      name: HeadGuard_Call_6
       rect:
         serializedVersion: 2
-        x: 238
-        y: 236
-        width: 119
-        height: 118
+        x: 960
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,20 +247,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a951d2d477e2184eaacf098a7f5ca36
-      internalID: -208385323
+      spriteID: 225270783e0a0064492241c37fee655e
+      internalID: 1797180202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_7
+      name: HeadGuard_Call_7
       rect:
         serializedVersion: 2
-        x: 357
-        y: 236
-        width: 119
-        height: 118
+        x: 1120
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fd10e5a686755a448883fad0d0e9b79
-      internalID: -1912711659
+      spriteID: 67139243f84ed104e924520c243b2298
+      internalID: 1735346053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_8
+      name: HeadGuard_Call_8
       rect:
         serializedVersion: 2
-        x: 476
-        y: 236
-        width: 119
-        height: 118
+        x: 1280
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,20 +289,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d0079258565eb45930e61bcd083acc
-      internalID: 510190178
+      spriteID: 72f27ed4734031c4ab12f8062a409c7f
+      internalID: 2013334412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_9
+      name: HeadGuard_Call_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 118
-        width: 119
-        height: 118
+        x: 1440
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62331bb609b1f574b955f4cd0e8a1daa
-      internalID: -1166757703
+      spriteID: 5367bc8a6538eb841b8a40d1f8ec9a01
+      internalID: -871646451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_10
+      name: HeadGuard_Call_10
       rect:
         serializedVersion: 2
-        x: 119
-        y: 118
-        width: 119
-        height: 118
+        x: 1600
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,62 +331,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e04c48162b2205141aa5cdabab422cfe
-      internalID: 1915203243
+      spriteID: 3e17a8d025295b74c85e445dce540c16
+      internalID: -2068540715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_11
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 118
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb43a59776ec4ce408002c27aecd8b30
-      internalID: -1211644130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_12
-      rect:
-        serializedVersion: 2
-        x: 357
-        y: 118
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9c38912de6a41d428911e642755fb53
-      internalID: 2005434619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_13
+      name: HeadGuard_Call_11
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,20 +352,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 056f1fc184afba4408c1cef10ed71440
-      internalID: 1151695224
+      spriteID: f2a355c5be79f184480633b0e39243a1
+      internalID: -548489278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_14
+      name: HeadGuard_Call_12
       rect:
         serializedVersion: 2
-        x: 119
+        x: 160
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,20 +373,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28793411e456f42448c34d0a8984df5a
-      internalID: 684613848
+      spriteID: 22321af957726934991a81801a1f4fe2
+      internalID: -1940243597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_15
+      name: HeadGuard_Call_13
       rect:
         serializedVersion: 2
-        x: 238
+        x: 320
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,20 +394,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3924359eb6c880b4a877381ee899e393
-      internalID: -737150304
+      spriteID: f8a1eaa08f478664693e827f86bd38ad
+      internalID: -222464707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_16
+      name: HeadGuard_Call_14
       rect:
         serializedVersion: 2
-        x: 357
+        x: 480
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -457,20 +415,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fef8b8cc19610f347aa410bbd27f6f6a
-      internalID: 2013756644
+      spriteID: e4e5b9df2bcdf974e8833d5cc906fc8d
+      internalID: 1226785326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_17
+      name: HeadGuard_Call_15
       rect:
         serializedVersion: 2
-        x: 476
+        x: 640
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,20 +436,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6893bcac49f38748b652ec8b534fd4a
-      internalID: 733203646
+      spriteID: 850f572c17da5464aa4559572b9fff16
+      internalID: 1937059041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_18
+      name: HeadGuard_Call_16
       rect:
         serializedVersion: 2
-        x: 595
+        x: 800
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,20 +457,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5022b5f20d27aa2459c02e60f78fc92c
-      internalID: -1652377769
+      spriteID: a827dbd5a5f71094ab25a3d397f8b619
+      internalID: -1091719517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_19
+      name: HeadGuard_Call_17
       rect:
         serializedVersion: 2
-        x: 714
+        x: 960
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,20 +478,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 827919a74cf6f294cac3084d0a79e557
-      internalID: 1008412048
+      spriteID: 390b61f010e33c746ace673ccdcf3a61
+      internalID: 1760087076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_20
+      name: HeadGuard_Call_18
       rect:
         serializedVersion: 2
-        x: 833
+        x: 1120
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -541,20 +499,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efea48ee9fc3de64b9d3d1c217b98759
-      internalID: 962088857
+      spriteID: 4db7e66474b618546be636e0ab13c11e
+      internalID: -789822361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_21
+      name: HeadGuard_Call_19
       rect:
         serializedVersion: 2
-        x: 952
+        x: 1280
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -562,20 +520,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cdcbdadf3c2ed34da2fc378f1586754
-      internalID: 169650704
+      spriteID: 51006bda1fb89bc4bb9e4a7ab60d7c4a
+      internalID: -1329168524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeadGuard_22
+      name: HeadGuard_Call_20
       rect:
         serializedVersion: 2
-        x: 1071
+        x: 1440
         y: 0
-        width: 119
-        height: 118
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -583,113 +541,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6be43864c9704d409627745277b19d9
-      internalID: 422343168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_23
-      rect:
-        serializedVersion: 2
-        x: 1190
-        y: 0
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0964c9530d1e6d444a1c261ffe5297d4
-      internalID: -1620747461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_24
-      rect:
-        serializedVersion: 2
-        x: 1309
-        y: 0
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 821773a0abcf08548ac21b3bba4558f1
-      internalID: 1738323601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_25
-      rect:
-        serializedVersion: 2
-        x: 1428
-        y: 0
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69ea04957a1bec34685811f330168351
-      internalID: 801474308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_26
-      rect:
-        serializedVersion: 2
-        x: 1547
-        y: 0
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fd78c7ce7b32254c949d770e09b9e22
-      internalID: 1643670136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeadGuard_27
-      rect:
-        serializedVersion: 2
-        x: 1666
-        y: 0
-        width: 119
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ffca5e70c2931e499a577d596914c4b
-      internalID: -497578627
+      spriteID: 768ec3b9557394641a8b8cf484ff7490
+      internalID: 2094563203
       vertices: []
       indices: 
       edges: []
@@ -705,34 +558,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeadGuard_18: -1652377769
-      HeadGuard_22: 422343168
-      HeadGuard_14: 684613848
-      HeadGuard_9: -1166757703
-      HeadGuard_2: 1058396772
-      HeadGuard_23: -1620747461
-      HeadGuard_24: 1738323601
-      HeadGuard_3: -1658838800
-      HeadGuard_15: -737150304
-      HeadGuard_26: 1643670136
-      HeadGuard_21: 169650704
-      HeadGuard_17: 733203646
-      HeadGuard_27: -497578627
-      HeadGuard_25: 801474308
-      HeadGuard_16: 2013756644
-      HeadGuard_1: 1348387135
-      HeadGuard_6: -208385323
-      HeadGuard_0: -542343922
-      HeadGuard_10: 1915203243
-      HeadGuard_4: -1241311782
-      HeadGuard_13: 1151695224
-      HeadGuard_8: 510190178
-      HeadGuard_19: 1008412048
-      HeadGuard_5: -700858075
-      HeadGuard_12: 2005434619
-      HeadGuard_20: 962088857
-      HeadGuard_11: -1211644130
-      HeadGuard_7: -1912711659
+      HeadGuard_Call_12: -1940243597
+      HeadGuard_Call_13: -222464707
+      HeadGuard_Call_8: 2013334412
+      HeadGuard_Call_6: 1797180202
+      HeadGuard_Call_7: 1735346053
+      HeadGuard_Call_14: 1226785326
+      HeadGuard_Call_17: 1760087076
+      HeadGuard_Call_4: -11671131
+      HeadGuard_Call_3: -1883432922
+      HeadGuard_Call_18: -789822361
+      HeadGuard_Call_19: -1329168524
+      HeadGuard_Call_10: -2068540715
+      HeadGuard_Call_0: 2065248215
+      HeadGuard_Call_20: 2094563203
+      HeadGuard_Call_11: -548489278
+      HeadGuard_Call_5: 171579203
+      HeadGuard_Call_9: -871646451
+      HeadGuard_Call_2: 620397281
+      HeadGuard_Call_1: -938295441
+      HeadGuard_Call_15: 1937059041
+      HeadGuard_Call_16: -1091719517
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

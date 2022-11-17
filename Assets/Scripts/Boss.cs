@@ -16,8 +16,11 @@ public class Boss : MonoBehaviour
         animator = GetComponent<Animator>();
         renderer = GetComponent<Renderer>();
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(maxHealth);
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(maxHealth);
+        }
     }
     public int getCurrentHealth()
     {
@@ -29,7 +32,10 @@ public class Boss : MonoBehaviour
         if (enabled)
         {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(currentHealth);
+            }
             Debug.Log(currentHealth);
             //Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
             //insert hurt animation here

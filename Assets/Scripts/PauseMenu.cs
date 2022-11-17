@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -36,6 +37,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        InputSystem.ResumeHaptics();
         GameIsPaused = false;
     }
 
@@ -43,18 +45,21 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        InputSystem.PauseHaptics();
         GameIsPaused = true;
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        InputSystem.ResetHaptics();
         SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting game");
+        InputSystem.ResetHaptics();
         Application.Quit();        
     }
 }
