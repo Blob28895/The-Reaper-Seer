@@ -99,7 +99,7 @@ public class HOSBossController : MonoBehaviour
         }
         // Summon enemies for help
         // At some point, introduce an enemy cap to the if statement so that the hos can't keep summoning new enemies when there are too many on screen
-        if (/*health < maxHealth / 2 && */Time.time >= nextCallTime && CanMove())
+        if (health < maxHealth / 2 && Time.time >= nextCallTime && CanMove())
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Call", true);
@@ -144,7 +144,10 @@ public class HOSBossController : MonoBehaviour
         // Add a major attackRate cooldown
         nextAttackTime = Time.time + 2f;
         //GetComponent<ScreenShake>().Shake();
-        shakeObj.Shake();
+        if (shakeObj != null)
+        {
+            shakeObj.Shake();
+        } 
         // Code to spawn shockwave effect prefab goes here
         Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
         shockwave1.SetDirection(1);

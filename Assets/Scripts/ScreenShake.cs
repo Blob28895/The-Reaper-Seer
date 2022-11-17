@@ -9,7 +9,7 @@ public class ScreenShake : MonoBehaviour
     public float magnitude = 1f;
     public IEnumerator DoShake (float duration, float magnitude)
 	{
-        Debug.Log("enum");
+        //Debug.Log("enum");
         Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0f;

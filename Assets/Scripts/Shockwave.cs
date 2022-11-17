@@ -22,17 +22,18 @@ public class Shockwave : MonoBehaviour
         transform.localScale = new Vector2(direction, transform.localScale.y);
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(speed * direction, 0));
+        // The following is to perform rumble falloff
         leftInitRumble = 0.25f;
         rightInitRumble = 0.75f;
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
         foreach(GameObject wall in walls)
         {
-            if (transform.position.x - wall.GetComponent<Transform>().position.x > 0 && direction == -1)
+            if (transform.position.x - wall.GetComponent<Transform>().position.x > 0f && direction < 0)
             {
                 targetWall = wall;
                 break;
             }
-            else if (transform.position.x - wall.GetComponent<Transform>().position.x < 0 && direction == 1)
+            else if (transform.position.x - wall.GetComponent<Transform>().position.x < 0f && direction > 0)
             {
                 targetWall = wall;
                 break;
@@ -45,6 +46,7 @@ public class Shockwave : MonoBehaviour
 
     void Update()
     {
+        // Applies rumble falloff
         if (targetWall != null)
         {
             float distancePercent = Mathf.Abs(transform.position.x - wallPosition) / totalDistance;
