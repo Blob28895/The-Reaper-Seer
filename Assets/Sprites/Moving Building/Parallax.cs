@@ -7,6 +7,7 @@ public class Parallax : MonoBehaviour
     private MeshRenderer meshRenderer;
     public float animationSpeed = 1f;
     private bool moving = true;
+    private float offset;
 
     private void Awake()
     {
@@ -20,19 +21,22 @@ public class Parallax : MonoBehaviour
 	}
     public void moveBuilding()
 	{
-        meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.deltaTime);
+        meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.fixedDeltaTime);
+        offset = meshRenderer.material.mainTextureOffset.y % 1f;
     }
     public IEnumerator moveToStop()
     {
         Debug.Log("moveToStop");
-        while (meshRenderer.material.mainTextureOffset.y % 1f < 0.47f || meshRenderer.material.mainTextureOffset.y % 1f > 0.49f)
+        while (offset <= 0.47f)
         {
             yield return null;
         }
+        int currentOffset = (int)offset;
+        meshRenderer.material.mainTextureOffset = new Vector2(0, currentOffset + 0.48f);
         moving = false;
     }
 
-	private void Update()
+	private void FixedUpdate()
     {
         //Debug.Log(meshRenderer.material.mainTextureOffset.y % 1f);
         if (moving)
