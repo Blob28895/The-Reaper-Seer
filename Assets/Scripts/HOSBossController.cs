@@ -62,8 +62,13 @@ public class HOSBossController : MonoBehaviour
         {
             Flip();
         }
+        // Make the guard stop moving once his x coordinate matches the Reaper's
+        if (Mathf.Abs(dist) <= 0.1)
+        {
+            animator.SetBool("Moving", false);
+        }
         // Move towards the Reaper while he's not in range
-        if (CanMove() && !PlayerInRange())
+        else if (CanMove() && !PlayerInRange())
         {
             animator.SetBool("Moving", true);
             MoveTowards();
