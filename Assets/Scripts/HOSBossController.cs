@@ -65,7 +65,7 @@ public class HOSBossController : MonoBehaviour
             Flip();
         }
         // Make the guard stop moving once his x coordinate matches the Reaper's
-        if (Mathf.Abs(dist) <= 0.1)
+        if (Mathf.Abs(dist) <= 1)
         {
             animator.SetBool("Moving", false);
         }
@@ -143,7 +143,7 @@ public class HOSBossController : MonoBehaviour
         Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown
         nextAttackTime = Time.time + 2f;
-        // Just don't, lmaooo: GetComponent<ScreenShake>().Shake();
+        //GetComponent<ScreenShake>().Shake();
         shakeObj.Shake();
         // Code to spawn shockwave effect prefab goes here
         Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);

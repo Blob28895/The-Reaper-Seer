@@ -6614,7 +6614,7 @@ GameObject:
   - component: {fileID: 957078845}
   m_Layer: 7
   m_Name: InvisWall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8234,7 +8234,7 @@ GameObject:
   - component: {fileID: 1508860086}
   m_Layer: 7
   m_Name: InvisWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

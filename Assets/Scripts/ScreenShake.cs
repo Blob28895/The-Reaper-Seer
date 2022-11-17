@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScreenShake : MonoBehaviour
 {
@@ -12,21 +13,24 @@ public class ScreenShake : MonoBehaviour
         Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0f;
-
-        while(elapsed < duration)
+        //Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
+        while (elapsed < duration)
 		{
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
-
-            transform.localPosition = new Vector3(x, y, originalPos.z);
+            if (!PauseMenu.GameIsPaused)
+            {
+                transform.localPosition = new Vector3(x, y, originalPos.z);
+            }
 
             elapsed += Time.deltaTime;
 
             yield return null; 
 		}
         transform.localPosition = originalPos;
-	}
+        //Gamepad.current.SetMotorSpeeds(0f, 0f);
+    }
 
     public void Shake()
     {
