@@ -17,6 +17,7 @@ public class HOSBossController : MonoBehaviour
     // Smash attacks
     public float smashAttackIntervalMin = 7f;
     public float smashAttackIntervalMax = 13f;
+    public Shockwave shockwaveObject;
     private float nextSmashTime;
 
     // Call reinforcements
@@ -84,7 +85,7 @@ public class HOSBossController : MonoBehaviour
         if (Time.time >= nextSmashTime && CanMove())
         {
             animator.SetBool("Moving", false);
-            animator.SetBool("ShockwaveAttack", true);
+            animator.SetBool("Slam", true);
             float smashAttackTime = Random.Range(smashAttackIntervalMin, smashAttackIntervalMax);
             nextSmashTime = Time.time + smashAttackTime;
 
@@ -103,7 +104,7 @@ public class HOSBossController : MonoBehaviour
     private bool CanMove()
     {
         return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  && !animator.GetBool("Melee3")
-            && !animator.GetBool("ShockwaveAttack") && !animator.GetBool("Call");
+            && !animator.GetBool("Slam") && !animator.GetBool("Call");
     }
 
     // Detects whether the Reaper is in range or not to allow guard to perform melee attacks
@@ -136,6 +137,10 @@ public class HOSBossController : MonoBehaviour
         // Add a major attackRate cooldown
         nextAttackTime = Time.time + 2f;
         // Code to spawn shockwave effect prefab goes here
+        Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
+        shockwave1.SetDirection(1);
+        Shockwave shockwave2 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
+        shockwave2.SetDirection(-1);
     }
 
     // Function that gets called to call reinforcements to fight the Reaper
@@ -152,7 +157,7 @@ public class HOSBossController : MonoBehaviour
         animator.SetBool("Melee1", false);
         animator.SetBool("Melee2", false);
         animator.SetBool("Melee3", false);
-        animator.SetBool("ShockwaveAttack", false);
+        animator.SetBool("Slam", false);
         animator.SetBool("Call", false);
     }
 

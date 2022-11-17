@@ -34,7 +34,7 @@ public class Parallax : MonoBehaviour
 
 	private void Update()
     {
-        Debug.Log(meshRenderer.material.mainTextureOffset.y % 1f);
+        //Debug.Log(meshRenderer.material.mainTextureOffset.y % 1f);
         if (moving)
         {
             moveBuilding();
