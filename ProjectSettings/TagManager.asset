@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - GameOver
   - Fade
+  - Boss
+  - Vent
   layers:
   - Default
   - TransparentFX

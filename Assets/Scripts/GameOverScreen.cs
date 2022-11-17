@@ -38,6 +38,7 @@ public class GameOverScreen : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;
         InputSystem.ResetHaptics();
+        staticVariables.currSouls = 0;
         SceneManager.LoadScene(scene);
     }
 }

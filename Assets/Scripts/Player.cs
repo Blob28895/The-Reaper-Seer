@@ -24,8 +24,23 @@ public class Player : MonoBehaviour
 		}*/
 	}
     public void invincibility()
-	{
+    {
         invicibleTime = Time.time + 0.5f;
+    }
+    public void Heal(int heal)
+	{
+        if(enabled)
+		{
+            if(staticVariables.currHealth + heal <= maxHealth)
+			{
+                staticVariables.currHealth += heal;
+            }
+            else
+			{
+                staticVariables.currHealth = maxHealth;
+			}
+            healthBar.SetHealth(staticVariables.currHealth);
+		}
 	}
 	// Function that applies damage to the player
 	public void TakeDamage(int damage)

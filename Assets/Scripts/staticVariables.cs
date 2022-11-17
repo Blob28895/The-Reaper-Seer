@@ -7,6 +7,8 @@ public class staticVariables : MonoBehaviour
 	//default stats from other scripts
     public static int currHealth = Player.maxHealth;
 	public static int baseDamage = PlayerCombat.attackDamage;
+	public static int maxSouls = 8;
+	public static int currSouls = 0;
 	//upgrades
 	public static float damageMultiplier = 1f;
 	public static int extraHealth = 0;
