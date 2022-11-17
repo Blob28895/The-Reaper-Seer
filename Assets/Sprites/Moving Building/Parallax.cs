@@ -22,12 +22,12 @@ public class Parallax : MonoBehaviour
     public void moveBuilding()
 	{
         meshRenderer.material.mainTextureOffset += new Vector2(0, animationSpeed * Time.fixedDeltaTime);
-        offset = meshRenderer.material.mainTextureOffset.y % 1f;
+        offset = meshRenderer.material.mainTextureOffset.y;
     }
     public IEnumerator moveToStop()
     {
         Debug.Log("moveToStop");
-        while (offset <= 0.47f)
+        while (offset % 1f <= 0.47f)
         {
             yield return null;
         }
