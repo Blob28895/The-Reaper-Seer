@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public static int maxHealth = 10;
     //private int currentHealth;
     public HealthBar healthBar;
+    public float invicibleTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +23,14 @@ public class Player : MonoBehaviour
             TakeDamage(1);
 		}*/
 	}
+    public void invincibility()
+	{
+        invicibleTime = Time.time + 0.5f;
+	}
 	// Function that applies damage to the player
 	public void TakeDamage(int damage)
     {
-        if (enabled)
+        if (enabled && Time.time >= invicibleTime)
         {
             staticVariables.currHealth -= damage;
             healthBar.SetHealth(staticVariables.currHealth);

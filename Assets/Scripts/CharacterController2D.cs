@@ -25,6 +25,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	private Vector3 targetVelocity;
+	private Player player;
 	//public RaycastHit2D hit;
 
 	// Variables for dash effect
@@ -45,7 +46,7 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
-
+		player = GetComponent<Player>();
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 
@@ -311,6 +312,7 @@ public class CharacterController2D : MonoBehaviour
 			// Only play the dash effect if the Reaper actually moves when dashing
 			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
 			{
+				player.invincibility();
 				DashEffect(direction);
 			}
 		}
