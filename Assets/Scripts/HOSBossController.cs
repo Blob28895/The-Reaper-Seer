@@ -22,6 +22,9 @@ public class HOSBossController : MonoBehaviour
     private float nextSmashTime;
 
     // Call reinforcements
+    private CallEnemy enemyCaller;
+    private List<GameObject> listOfEnemies;
+    public KillTracker killTracker;
     public float callInterval = 15f;
     private float nextCallTime;
 
@@ -40,6 +43,7 @@ public class HOSBossController : MonoBehaviour
         animator = GetComponent<Animator>();
         maxHealth = GetComponent<Boss>().maxHealth;
         shakeObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
+        enemyCaller = GetComponent<CallEnemy>();
 
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
@@ -56,6 +60,8 @@ public class HOSBossController : MonoBehaviour
     {
         health = GetComponent<Boss>().getCurrentHealth();
         dist = target.position.x - transform.position.x;
+        listOfEnemies = killTracker.GetListOfEnemies();
+        //Debug.Log(listOfEnemies.Count);
         if (dist > 0 && !facingRight)
         {
             Flip();
@@ -99,7 +105,7 @@ public class HOSBossController : MonoBehaviour
         }
         // Summon enemies for help
         // At some point, introduce an enemy cap to the if statement so that the hos can't keep summoning new enemies when there are too many on screen
-        if (health < maxHealth / 2 && Time.time >= nextCallTime && CanMove())
+        if (health < maxHealth / 2 && listOfEnemies.Count < 4 && Time.time >= nextCallTime && CanMove())
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Call", true);
@@ -160,6 +166,7 @@ public class HOSBossController : MonoBehaviour
     {
         Debug.Log("Summoning Reinforcements!");
         // Code to summon enemies (and presumably to temporarily stop the elevator) goes here
+        enemyCaller.Spawn();
     }
 
     // Called at the end of an attack animation to ensure that head guard can move and use other attacks

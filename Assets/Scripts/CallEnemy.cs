@@ -34,6 +34,11 @@ public class CallEnemy : MonoBehaviour
 		bottomGear.GetComponent<Spin>().SpinSpeed = 900;
 	}
     
+	public void Spawn()
+    {
+		StartCoroutine(SpawnEnemy());
+    }
+
     public IEnumerator SpawnEnemy()
 	{
 		stopElevator();
@@ -48,11 +53,11 @@ public class CallEnemy : MonoBehaviour
 
 	}
 
-	public void Update()
+	/* public void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.P))
 		{
 			StartCoroutine(SpawnEnemy());
 		}
-	}
+	}*/
 }

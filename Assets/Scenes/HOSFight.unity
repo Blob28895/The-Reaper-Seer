@@ -432,6 +432,7 @@ MonoBehaviour:
   smashAttackIntervalMin: 7
   smashAttackIntervalMax: 13
   shockwaveObject: {fileID: -3521443120036517690, guid: 659ace8560700f44f91281cf1882d373, type: 3}
+  killTracker: {fileID: 754045440}
   callInterval: 15
   target: {fileID: 754045439}
 --- !u!114 &113934094

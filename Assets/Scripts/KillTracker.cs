@@ -18,7 +18,12 @@ public class KillTracker : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    // Make getter function for the listOfEnemys
+    // Retrieves the list of enemies for use in other scripts
+    public List<GameObject> GetListOfEnemies()
+    {
+        return listOfEnemys;
+    }
+
     public void KilledEnemy(GameObject Enemy)
     {
         if (listOfEnemys.Contains(Enemy))
@@ -66,7 +71,7 @@ public class KillTracker : MonoBehaviour
         foreach (GameObject enemy in listOfEnemys)
         {
             // If enemy is already present, do not add them to the list
-            if (enemy.name == newEnemy.name)
+            if (enemy.Equals(newEnemy))
             {
                 return;
             }
