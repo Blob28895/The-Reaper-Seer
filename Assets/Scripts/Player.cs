@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         {
             staticVariables.currHealth -= damage;
             healthBar.SetHealth(staticVariables.currHealth);
+            StartCoroutine(Rumble(0.20f));
             // Insert hurt animation here
             animator.SetTrigger("Hurt");
             //Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
@@ -85,5 +87,13 @@ public class Player : MonoBehaviour
         this.enabled = false;
         // Used for ending the game and giving the player the option to restart
         FindObjectOfType<GameHandler>().GameOver();
+    }
+
+    // Coroutine to rumble the controller when getting hit
+    private IEnumerator Rumble(float duration)
+    {
+        Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
+        yield return new WaitForSeconds(duration);
+        Gamepad.current.SetMotorSpeeds(0f, 0f);
     }
 }

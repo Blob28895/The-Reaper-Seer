@@ -3221,6 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1248206683}
   healthBar: {fileID: 986515464}
+  invicibleTime: 0
 --- !u!114 &1248206682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10265,7 +10266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

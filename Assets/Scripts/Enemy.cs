@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         killTracker = GameObject.FindGameObjectWithTag("Player").GetComponent<KillTracker>();
+        killTracker.AddNewEnemy(gameObject);
     }
     public int getCurrentHealth()
 	{
