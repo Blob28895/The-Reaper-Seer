@@ -1983,7 +1983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e129401f39a2c4caea286400fca9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 700
+  maxHealth: 1400
   healthBar: {fileID: 770228419}
   killTracker: {fileID: 1248206693}
 --- !u!95 &894334546
