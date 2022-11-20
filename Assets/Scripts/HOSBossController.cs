@@ -19,6 +19,7 @@ public class HOSBossController : MonoBehaviour
     private ScreenShake shakeObj;
     public float smashMinInterval = 7f;
     public float smashMaxInterval = 13f;
+    public float smashAttackPenalty = 2f;
     public Shockwave shockwaveObject;
     private float nextSmashTime;
 
@@ -182,7 +183,7 @@ public class HOSBossController : MonoBehaviour
     {
         //Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown and movement cooldown
-        nextAttackTime = Time.time + 2f;
+        nextAttackTime = Time.time + smashAttackPenalty;
 
         //Don't uncomment this: GetComponent<ScreenShake>().Shake();
         // Check to see if a shake component in the camera is present, so that if for whatever reason if it's not, the game will
