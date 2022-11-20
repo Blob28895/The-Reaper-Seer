@@ -229,11 +229,13 @@ public class CharacterController2D : MonoBehaviour
 				else if(enemy.collider.gameObject.GetComponent<Boss>() != null)
 				{
 					enemy.collider.gameObject.GetComponent<Boss>().TakeDamage((int)(staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
+					enemy.collider.gameObject.GetComponent<Boss>().Slow();
 				}
 			}
 			foreach(Enemy enemy in enemyObjects)
 			{
 				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
+				enemy.Slow();
 			}
 		}
 		temp.y -= CircleCollider.offset.y;

@@ -25,6 +25,10 @@ public class MafiaGunnerController : MonoBehaviour
     public float cooldown;    
     public float range;
 
+    //slow effect
+    private float slowMult = 1f;
+    private float slowTime = 0f;
+
     [SerializeField] private float colliderDistancex;
     [SerializeField] private float colliderDistancey;
     [SerializeField] private BoxCollider2D boxCollider;
@@ -51,7 +55,9 @@ public class MafiaGunnerController : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {        
+    {
+        slowMult = enemy.getSlowMult();
+        slowTime = enemy.getSlowTime();
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
         //float distance = Mathf.Abs(transform.position.x - player.transform.position.x);
@@ -172,17 +178,21 @@ public class MafiaGunnerController : MonoBehaviour
 
     private void Move()
     {
+        if (Time.time >= slowTime && slowMult != 1f)
+        {
+            slowMult = 1f;
+        }
         //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         // Allows the enemy to do "hops" to be able to climb stairs when the Reaper is above it
         if (target.position.y > transform.position.y)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * slowMult * Time.deltaTime);
         }
         // Allows the enmy to only move on the x axis to prevent him from going through the ground
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
         }
     }
 

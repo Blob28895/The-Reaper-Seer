@@ -21,18 +21,30 @@ public class ScientistBossController : MonoBehaviour
     private float dist;
     private bool facingRight = false;
     private bool jumping = false;
+
+    private Boss boss;
+    private float slowMult = 1f;
+    private float slowTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        maxHealth = GetComponent<Boss>().maxHealth;
+        boss = GetComponent<Boss>();
+        maxHealth = boss.maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        health = GetComponent<Boss>().getCurrentHealth();
+        slowMult = boss.getSlowMult();
+        slowTime = boss.getSlowTime();
+        //Debug.Log(slowMult);
+        if (Time.time >= slowTime && slowMult != 1f)
+        {
+            slowMult = 1f;
+        }
+        health = boss.getCurrentHealth();
         // Get the distance to determine which direction the Scientist should be facing
         dist = target.position.x - transform.position.x;
         if (dist > 0 && !facingRight)
@@ -82,12 +94,12 @@ public class ScientistBossController : MonoBehaviour
 
     private void MoveTowards()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
     }
 
     private void MoveAway()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), -speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), -speed * slowMult * Time.deltaTime);
     }
 
     // Function for a potential jumping ability
