@@ -47,7 +47,7 @@ public class Shockwave : MonoBehaviour
     void Update()
     {
         // Applies rumble falloff
-        if (targetWall != null && !(Input.GetJoystickNames().Length == 0))
+        if (targetWall != null && Gamepad.current != null)
         {
             float distancePercent = Mathf.Abs(transform.position.x - wallPosition) / totalDistance;
             Debug.Log(distancePercent);
@@ -78,7 +78,7 @@ public class Shockwave : MonoBehaviour
         // Destroy shockwave object after hitting the elevator wall
         if (collision.name == "InvisWall" || collision.name == "InvisWall (1)")
         {
-            if (!(Input.GetJoystickNames().Length == 0))
+            if (Gamepad.current != null)
             {
                 Gamepad.current.SetMotorSpeeds(0f, 0f);
             }

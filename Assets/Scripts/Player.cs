@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         {
             staticVariables.currHealth -= damage;
             healthBar.SetHealth(staticVariables.currHealth);
-            if (!(Input.GetJoystickNames().Length == 0))
+            if (Gamepad.current != null)
             {
                 StartCoroutine(Rumble(0.20f));
             }
