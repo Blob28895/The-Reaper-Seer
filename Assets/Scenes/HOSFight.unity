@@ -422,18 +422,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  attackDamage: 2
+  attackDamage: 1
   attackRange: 1.1
   attackPoint: {fileID: 816830882}
-  attackRate: 1
+  attackRate: 0.8
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  smashAttackIntervalMin: 7
-  smashAttackIntervalMax: 13
+  smashMinInterval: 7
+  smashMaxInterval: 13
   shockwaveObject: {fileID: -3521443120036517690, guid: 659ace8560700f44f91281cf1882d373, type: 3}
   killTracker: {fileID: 754045440}
-  callInterval: 15
+  callMinInterval: 8
+  callMaxInterval: 15
+  maxEnemiesPerCall: 2
   target: {fileID: 754045439}
 --- !u!114 &113934094
 MonoBehaviour:
@@ -462,7 +464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24c6b01d0117024ebe0a1ad675b7fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  enemyPrefabs:
+  - {fileID: 7661710627625135611, guid: 9188ee2a7e63e374ca6bee20865c802f, type: 3}
+  - {fileID: 3876849347951546300, guid: 7639070c6529a7248ae07c8c9ae13274, type: 3}
   elevatorAnimator: {fileID: 1286054549}
   topGear: {fileID: 2117872183}
   bottomGear: {fileID: 1923623075}

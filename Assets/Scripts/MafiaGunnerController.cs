@@ -41,7 +41,7 @@ public class MafiaGunnerController : MonoBehaviour
         enemy = GetComponent<Enemy>();
         currentHealth = enemy.maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
- 
+        target = target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void setStunEnd()

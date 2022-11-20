@@ -36,7 +36,7 @@ public class Boss : MonoBehaviour
             {
                 healthBar.SetHealth(currentHealth);
             }
-            Debug.Log(currentHealth);
+            //Debug.Log(currentHealth);
             //Debug.Log("enemy took" + damage + "and is at " + currentHealth + " health");
             //insert hurt animation here
             //animator.SetTrigger("Hurt");

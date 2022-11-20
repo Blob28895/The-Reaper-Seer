@@ -28,12 +28,12 @@ public class Shockwave : MonoBehaviour
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
         foreach(GameObject wall in walls)
         {
-            if (transform.position.x - wall.GetComponent<Transform>().position.x > 0f && direction < 0)
+            if (transform.position.x - wall.transform.position.x > 0f && direction < 0)
             {
                 targetWall = wall;
                 break;
             }
-            else if (transform.position.x - wall.GetComponent<Transform>().position.x < 0f && direction > 0)
+            else if (transform.position.x - wall.transform.position.x < 0f && direction > 0)
             {
                 targetWall = wall;
                 break;
@@ -41,16 +41,16 @@ public class Shockwave : MonoBehaviour
         }
         wallPosition = targetWall.GetComponent<Transform>().position.x;
         totalDistance = Mathf.Abs(transform.position.x - wallPosition);
-        Debug.Log(totalDistance);
+        //Debug.Log(totalDistance);
     }
 
     void Update()
     {
         // Applies rumble falloff
-        if (targetWall != null)
+        if (targetWall != null && Gamepad.current != null)
         {
             float distancePercent = Mathf.Abs(transform.position.x - wallPosition) / totalDistance;
-            Debug.Log(distancePercent);
+            //Debug.Log(distancePercent);
             float leftRumble = leftInitRumble * distancePercent;
             float rightRumble = rightInitRumble * distancePercent;
             if (!PauseMenu.GameIsPaused)
@@ -78,7 +78,10 @@ public class Shockwave : MonoBehaviour
         // Destroy shockwave object after hitting the elevator wall
         if (collision.name == "InvisWall" || collision.name == "InvisWall (1)")
         {
-            Gamepad.current.SetMotorSpeeds(0f, 0f);
+            if (Gamepad.current != null)
+            {
+                Gamepad.current.SetMotorSpeeds(0f, 0f);
+            }
             Destroy(gameObject);
         }
     }

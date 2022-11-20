@@ -50,7 +50,10 @@ public class Player : MonoBehaviour
         {
             staticVariables.currHealth -= damage;
             healthBar.SetHealth(staticVariables.currHealth);
-            StartCoroutine(Rumble(0.20f));
+            if (Gamepad.current != null)
+            {
+                StartCoroutine(Rumble(0.20f));
+            }
             // Insert hurt animation here
             animator.SetTrigger("Hurt");
             //Debug.Log("Player has taken " + damage + " damage. Current health: " + currentHealth);
