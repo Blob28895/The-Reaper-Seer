@@ -21,7 +21,6 @@ public class HOSBossController : MonoBehaviour
     public float smashMaxInterval = 13f;
     public Shockwave shockwaveObject;
     private float nextSmashTime;
-    private float smashPenaltyTime = 0f;
 
     // Call reinforcements
     private CallEnemy enemyCaller;
@@ -145,7 +144,7 @@ public class HOSBossController : MonoBehaviour
     private bool CanMove()
     {
         return !animator.GetBool("Melee1") && !animator.GetBool("Melee2")  && !animator.GetBool("Melee3")
-            && !animator.GetBool("Slam") && !animator.GetBool("Call") && Time.time >= smashPenaltyTime;
+            && !animator.GetBool("Slam") && !animator.GetBool("Call");
     }
 
     // Detects whether the Reaper is in range or not to allow guard to perform melee attacks
@@ -176,8 +175,8 @@ public class HOSBossController : MonoBehaviour
     {
         Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown and movement cooldown
-        nextAttackTime = Time.time + 2.5f;
-        //smashPenaltyTime = Time.time + 2f;
+        nextAttackTime = Time.time + 2f;
+
         //GetComponent<ScreenShake>().Shake();
         if (shakeObj != null)
         {
