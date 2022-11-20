@@ -26,6 +26,7 @@ public class HOSBossController : MonoBehaviour
     private CallEnemy enemyCaller;
     private List<GameObject> listOfEnemies;
     public KillTracker killTracker;
+    public int maxRegularEnemies = 3;
     public float callMinInterval = 8f;
     public float callMaxInterval = 15;
     public int maxEnemiesPerCall = 3;
@@ -103,7 +104,7 @@ public class HOSBossController : MonoBehaviour
             animator.SetBool("Moving", false);
             if (Time.time >= nextAttackTime)
             {
-                Debug.Log("Attacking!");
+                //Debug.Log("Attacking!");
                 int index = Random.Range(0, 3);
                 //Attack();
                 animator.SetBool(meleeAnimations[index], true);
@@ -125,7 +126,7 @@ public class HOSBossController : MonoBehaviour
         }
         // Summon enemies for help
         // At some point, introduce an enemy cap to the if statement so that the hos can't keep summoning new enemies when there are too many on screen
-        if (health < maxHealth / 2 && listOfEnemies.Count < 4 && Time.time >= nextCallTime && CanMove())
+        if (health < maxHealth / 2 && listOfEnemies.Count < maxRegularEnemies + 1 && Time.time >= nextCallTime && CanMove())
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Call", true);
@@ -137,7 +138,13 @@ public class HOSBossController : MonoBehaviour
     // Check to see if the headguard is close to the wall to prevent him from trapping the Reaper
     private bool CloseToWall()
     {
-        return (Mathf.Abs(transform.position.x - leftWall.transform.position.x) <= 2.7f && !facingRight) || (Mathf.Abs(transform.position.x - rightWall.transform.position.x) <= 2.7f && facingRight);
+        // Add a check to see if walls are not null so for that if any reason if one of the walls are null, the game will continue running
+        if (leftWall != null && rightWall != null)
+        {
+            return (Mathf.Abs(transform.position.x - leftWall.transform.position.x) <= 2.7f && !facingRight) 
+                || (Mathf.Abs(transform.position.x - rightWall.transform.position.x) <= 2.7f && facingRight);
+        }
+        return false;
     }
 
     // Head guard should only be able to move while not performing any kind of attack
@@ -173,11 +180,13 @@ public class HOSBossController : MonoBehaviour
     // Summon a shockwave to damage the Reaper
     private void Smash()
     {
-        Debug.Log("Smash Attack!");
+        //Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown and movement cooldown
         nextAttackTime = Time.time + 2f;
 
-        //GetComponent<ScreenShake>().Shake();
+        //Don't uncomment this: GetComponent<ScreenShake>().Shake();
+        // Check to see if a shake component in the camera is present, so that if for whatever reason if it's not, the game will
+        // continue running
         if (shakeObj != null)
         {
             shakeObj.Shake();
@@ -192,16 +201,25 @@ public class HOSBossController : MonoBehaviour
     // Function that gets called to call reinforcements to fight the Reaper
     private void SummonEnemies()
     {
-        Debug.Log("Summoning Reinforcements!");
+        //Debug.Log("Summoning Reinforcements!");
         // Code to summon enemies (and presumably to temporarily stop the elevator) goes here
         int numberEnemies = Random.Range(1, maxEnemiesPerCall + 1);
+        Debug.Log("Summoning " + numberEnemies + " enemies!");
         for (int n = 1; n <= numberEnemies; n++)
         {
-            enemyCaller.Spawn();
+            // Only spawn the enemy if the new enemy won't cause the number of enemies to go over the cap
+            if (listOfEnemies.Count + n <= maxRegularEnemies + 1)
+            {
+                enemyCaller.Spawn();
+            }
+            else
+            {
+                Debug.Log("Can't spawn additional enemies due to cap");
+            }
         } 
     }
 
-    // Called at the end of an attack animation to ensure that head guard can move and use other attacks
+    // Called as an animation event at the end of an attack animation to ensure that head guard can move and use other attacks
     private void ResetBoolVar()
     {
         // Resets all bool variables after performing an attack to allow the head guard to move

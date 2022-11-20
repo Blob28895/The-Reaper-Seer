@@ -26,7 +26,7 @@ public class Parallax : MonoBehaviour
     }
     public IEnumerator moveToStop()
     {
-        Debug.Log("moveToStop");
+        //Debug.Log("moveToStop");
         while (offset % 1f <= 0.47f)
         {
             yield return null;

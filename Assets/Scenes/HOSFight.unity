@@ -425,7 +425,7 @@ MonoBehaviour:
   attackDamage: 1
   attackRange: 1.1
   attackPoint: {fileID: 816830882}
-  attackRate: 1
+  attackRate: 0.8
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -435,7 +435,7 @@ MonoBehaviour:
   killTracker: {fileID: 754045440}
   callMinInterval: 8
   callMaxInterval: 15
-  maxEnemiesPerCall: 3
+  maxEnemiesPerCall: 2
   target: {fileID: 754045439}
 --- !u!114 &113934094
 MonoBehaviour:

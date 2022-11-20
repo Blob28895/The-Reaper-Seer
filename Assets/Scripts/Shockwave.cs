@@ -41,7 +41,7 @@ public class Shockwave : MonoBehaviour
         }
         wallPosition = targetWall.GetComponent<Transform>().position.x;
         totalDistance = Mathf.Abs(transform.position.x - wallPosition);
-        Debug.Log(totalDistance);
+        //Debug.Log(totalDistance);
     }
 
     void Update()
@@ -50,7 +50,7 @@ public class Shockwave : MonoBehaviour
         if (targetWall != null && Gamepad.current != null)
         {
             float distancePercent = Mathf.Abs(transform.position.x - wallPosition) / totalDistance;
-            Debug.Log(distancePercent);
+            //Debug.Log(distancePercent);
             float leftRumble = leftInitRumble * distancePercent;
             float rightRumble = rightInitRumble * distancePercent;
             if (!PauseMenu.GameIsPaused)

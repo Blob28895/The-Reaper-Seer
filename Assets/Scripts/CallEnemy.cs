@@ -40,7 +40,16 @@ public class CallEnemy : MonoBehaviour
 
     public IEnumerator SpawnEnemy()
 	{
-		int enemyType = Random.Range(0, enemyPrefabs.Length);
+		float chance = Random.Range(1f, 100f);
+		Debug.Log(chance);
+		int enemyType = 0;
+		for (int i = 1; i < enemyPrefabs.Length; i++)
+        {
+			if (chance <= 100 / Mathf.Pow(5, i))
+            {
+				enemyType = i;
+            }
+        }
 		stopElevator();
 		elevatorAnimator.SetTrigger("Open");
 		yield return new WaitForSeconds(1);

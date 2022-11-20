@@ -198,7 +198,7 @@ public class PlayerCombat : MonoBehaviour
 		//Apply damage to those enemies
 		foreach (GameObject enemy in enemyObjects)
 		{
-			Debug.Log("We hit " + enemy.name);
+			//Debug.Log("We hit " + enemy.name);
 			if (enemy.tag == "Boss")
 			{
 				enemy.GetComponent<Boss>().TakeDamage((int) (attackDamage * staticVariables.damageMultiplier));
