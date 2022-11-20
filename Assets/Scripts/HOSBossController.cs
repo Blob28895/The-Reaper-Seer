@@ -16,8 +16,8 @@ public class HOSBossController : MonoBehaviour
 
     // Smash attacks
     private ScreenShake shakeObj;
-    public float smashAttackIntervalMin = 7f;
-    public float smashAttackIntervalMax = 13f;
+    public float smashMinInterval = 7f;
+    public float smashMaxInterval = 13f;
     public Shockwave shockwaveObject;
     private float nextSmashTime;
 
@@ -25,7 +25,9 @@ public class HOSBossController : MonoBehaviour
     private CallEnemy enemyCaller;
     private List<GameObject> listOfEnemies;
     public KillTracker killTracker;
-    public float callInterval = 15f;
+    public float callMinInterval = 8f;
+    public float callMaxInterval = 15;
+    public int maxEnemiesPerCall = 3;
     private float nextCallTime;
 
     // Reaper stuff
@@ -51,8 +53,8 @@ public class HOSBossController : MonoBehaviour
         meleeAnimations.Add("Melee3");
 
         // Assign next attack variables here so that hos can't instantly use them upon scene restart
-        nextSmashTime = Time.time + 10f;
-        nextCallTime = Time.time + 5f;
+        nextSmashTime = Time.time + Random.Range(smashMinInterval, smashMaxInterval); ;
+        nextCallTime = 0f;
     }
 
     // Update is called once per frame
@@ -99,7 +101,7 @@ public class HOSBossController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Slam", true);
-            float smashAttackTime = Random.Range(smashAttackIntervalMin, smashAttackIntervalMax);
+            float smashAttackTime = Random.Range(smashMinInterval, smashMaxInterval);
             nextSmashTime = Time.time + smashAttackTime;
 
         }
@@ -109,7 +111,8 @@ public class HOSBossController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
             animator.SetBool("Call", true);
-            nextCallTime = Time.time + callInterval;
+            float callAttackTime = Random.Range(callMinInterval, callMaxInterval);
+            nextCallTime = Time.time + callAttackTime;
         }
     }
 
@@ -147,8 +150,9 @@ public class HOSBossController : MonoBehaviour
     private void Smash()
     {
         Debug.Log("Smash Attack!");
-        // Add a major attackRate cooldown
+        // Add a major attackRate cooldown and movement cooldown
         nextAttackTime = Time.time + 2f;
+
         //GetComponent<ScreenShake>().Shake();
         if (shakeObj != null)
         {
@@ -166,7 +170,11 @@ public class HOSBossController : MonoBehaviour
     {
         Debug.Log("Summoning Reinforcements!");
         // Code to summon enemies (and presumably to temporarily stop the elevator) goes here
-        enemyCaller.Spawn();
+        int numberEnemies = Random.Range(1, maxEnemiesPerCall + 1);
+        for (int n = 1; n <= numberEnemies; n++)
+        {
+            enemyCaller.Spawn();
+        } 
     }
 
     // Called at the end of an attack animation to ensure that head guard can move and use other attacks

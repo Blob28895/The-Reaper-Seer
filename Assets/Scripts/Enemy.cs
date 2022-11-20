@@ -56,5 +56,6 @@ public class Enemy : MonoBehaviour
         }
         // GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
+        Destroy(gameObject, 1f);
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CallEnemy : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
 
     public Animator elevatorAnimator;
     public GameObject topGear;
@@ -13,7 +13,6 @@ public class CallEnemy : MonoBehaviour
 	public Transform spawnPoint;
 
 	private Parallax parallax;
-	private bool stopped = false;
 
 	public void Start()
 	{
@@ -41,10 +40,11 @@ public class CallEnemy : MonoBehaviour
 
     public IEnumerator SpawnEnemy()
 	{
+		int enemyType = Random.Range(0, enemyPrefabs.Length);
 		stopElevator();
 		elevatorAnimator.SetTrigger("Open");
 		yield return new WaitForSeconds(1);
-		GameObject minion = Instantiate(enemyPrefab);
+		GameObject minion = Instantiate(enemyPrefabs[enemyType]);
 		minion.transform.position = spawnPoint.position;
 		yield return new WaitForSeconds(0.5f);
 		elevatorAnimator.SetTrigger("Close");
