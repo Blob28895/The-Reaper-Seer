@@ -5,7 +5,6 @@ using UnityEngine;
 public class HOSBossController : MonoBehaviour
 {
     public float speed;
-    private GameObject leftWall, rightWall;
     // Following are used for melee attacking
     public int attackDamage = 2;
     public float attackRange = 0.5f;
@@ -57,19 +56,6 @@ public class HOSBossController : MonoBehaviour
         // Assign next attack variables here so that hos can't instantly use them upon scene restart
         nextSmashTime = Time.time + Random.Range(smashMinInterval, smashMaxInterval); ;
         nextCallTime = 0f;
-
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
-        foreach (GameObject wall in walls)
-        {
-            if (wall.transform.position.x < transform.position.x)
-            {
-                leftWall = wall;
-            }
-            else
-            {
-                rightWall = wall;
-            }
-        }
     }
 
     // Update is called once per frame
@@ -93,7 +79,7 @@ public class HOSBossController : MonoBehaviour
             animator.SetBool("Moving", false);
         }
         // Move towards the Reaper while he's not in range
-        else if (CanMove() && !PlayerInRange() && !CloseToWall())
+        else if (CanMove() && !PlayerInRange())
         {
             animator.SetBool("Moving", true);
             MoveTowards();
@@ -110,10 +96,6 @@ public class HOSBossController : MonoBehaviour
                 animator.SetBool(meleeAnimations[index], true);
                 nextAttackTime = Time.time + 1f / attackRate;
             }
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
         }
         // Perform smash attack
         if (Time.time >= nextSmashTime && CanMove())
@@ -133,12 +115,6 @@ public class HOSBossController : MonoBehaviour
             float callAttackTime = Random.Range(callMinInterval, callMaxInterval);
             nextCallTime = Time.time + callAttackTime;
         }
-    }
-
-    // Check to see if the headguard is close to the wall to prevent him from trapping the Reaper
-    private bool CloseToWall()
-    {
-        return (Mathf.Abs(transform.position.x - leftWall.transform.position.x) <= 2.7f && !facingRight) || (Mathf.Abs(transform.position.x - rightWall.transform.position.x) <= 2.7f && facingRight);
     }
 
     // Head guard should only be able to move while not performing any kind of attack

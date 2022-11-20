@@ -28,12 +28,12 @@ public class Shockwave : MonoBehaviour
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
         foreach(GameObject wall in walls)
         {
-            if (transform.position.x - wall.transform.position.x > 0f && direction < 0)
+            if (transform.position.x - wall.GetComponent<Transform>().position.x > 0f && direction < 0)
             {
                 targetWall = wall;
                 break;
             }
-            else if (transform.position.x - wall.transform.position.x < 0f && direction > 0)
+            else if (transform.position.x - wall.GetComponent<Transform>().position.x < 0f && direction > 0)
             {
                 targetWall = wall;
                 break;

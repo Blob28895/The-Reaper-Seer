@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  attackDamage: 1
+  attackDamage: 2
   attackRange: 1.1
   attackPoint: {fileID: 816830882}
   attackRate: 1
