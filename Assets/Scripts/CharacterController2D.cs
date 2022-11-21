@@ -186,7 +186,7 @@ public class CharacterController2D : MonoBehaviour
 		beforeDash = transform.position;
 		Vector3 rayStart = BoxCollider.bounds.center;
 		Vector2 boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y);
-		// Need to retrieve an offset before performing the boxcast
+		// Need to retrieve an offset and potentially change the boxray shape before performing the boxcast
 		// Right
 		if (direction.x > 0)
         {
@@ -202,7 +202,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
-		// Upward Diagonal
+		// Upward Diagonal to allow Reaper to dash up the stairs
 		if (direction.x != 0 && direction.y > 0)
         {
 			boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
@@ -213,6 +213,8 @@ public class CharacterController2D : MonoBehaviour
 		Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
 		Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
 		Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3 (0, -1 * boxShape.y));
+
+		// To deal damage to enemies if the Reaper has the dash damage upgrade
 		if (staticVariables.dashDamage)
 		{
 			List<Enemy> enemyObjects = new List<Enemy>();
@@ -234,13 +236,14 @@ public class CharacterController2D : MonoBehaviour
 				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
 			}
 		}
+
 		Debug.Log(boxCastHit.distance);
-		// If the box ray didn't hit anything
+		// If the box ray didn't hit anything, move Reaper to the full dash distance
 		if (boxCastHit.distance == 0)
         {
 			m_Rigidbody2D.transform.position += direction;
 		}
-		// If the box ray hit something, stop at the point where the ray hit
+		// If the box ray hit something, move the Reaper only to the point where the ray hit
 		else if (boxCastHit.distance > 0.1f)
         {
 			direction /= m_dashDistance;
