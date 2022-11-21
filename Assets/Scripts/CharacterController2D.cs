@@ -182,40 +182,40 @@ public class CharacterController2D : MonoBehaviour
 
 	public void dodge(Vector3 direction)
 	{
+		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
-		RaycastHit2D[] hitsTop;
-		RaycastHit2D[] hitsBottom;
-		RaycastHit2D[] hitsMiddle;
-		Vector2 temp = transform.position;
+		Vector3 rayStart = BoxCollider.bounds.center;
+		Vector2 boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y);
+		// Need to retrieve an offset and potentially change the boxray shape before performing the boxcast
 		// Right
-		if(direction.x > 0) // get neccessary offset of the hitboxes
-		{
-			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
-		}
+		if (direction.x > 0)
+        {
+			rayStart.x += BoxCollider.bounds.extents.x - 0.1f;
+        }
 		// Left
-		if(direction.x < 0)
-		{
-			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
-		}
-		// Up
-		if(direction.y > 0)
-		{
-			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
+		else if (direction.x < 0)
+        {
+			rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
 		}
 		// Down
-		if(direction.y < 0)
+		if (direction.y < 0)
 		{
-			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
+			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
+		// Upward Diagonal to allow Reaper to dash up the stairs
+		if (direction.x != 0 && direction.y > 0)
+        {
+			boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
+        }
+
 		direction *= m_dashDistance;
-		Vector2 topRay = temp;
-		Vector2 bottomRay = temp;
-		topRay.y = m_CeilingCheck.position.y - ((GetComponent<Renderer>().bounds.size.y) / 10);
-		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
-		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_GroundNoPlatform);
-		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_GroundNoPlatform);
-		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_GroundNoPlatform);
-		if(staticVariables.dashDamage)
+		boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance, m_GroundNoPlatform);
+		Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
+		Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
+		Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3 (0, -1 * boxShape.y));
+
+		// To deal damage to enemies if the Reaper has the dash damage upgrade
+		if (staticVariables.dashDamage)
 		{
 			List<Enemy> enemyObjects = new List<Enemy>();
 			RaycastHit2D[] hitsEnemy;
@@ -238,104 +238,25 @@ public class CharacterController2D : MonoBehaviour
 				enemy.Slow();
 			}
 		}
-		temp.y -= CircleCollider.offset.y;
-		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
-		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
-		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
-		if (hitsTop.Length == 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0) // if there is nothing blocking our dash
-		{
-			//Debug.Log("dash"); test if we made it into this if statement
+
+		Debug.Log(boxCastHit.distance);
+		// If the box ray didn't hit anything, move Reaper to the full dash distance
+		if (boxCastHit.distance == 0)
+        {
 			m_Rigidbody2D.transform.position += direction;
+		}
+		// If the box ray hit something, move the Reaper only to the point where the ray hit
+		else if (boxCastHit.distance > 0.1f)
+        {
+			direction /= m_dashDistance;
+			m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
+        }
+		// If the dash moved the player, then grant invincibility and play the dash effect
+		if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
+		{
+			player.invincibility();
 			DashEffect(direction);
 		}
-		else if (hitsTop.Length > 0 || hitsBottom.Length > 0 || hitsMiddle.Length > 0)
-		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
-		  //figure out which one hit something
-			RaycastHit2D[] hitRay;
-
-			/*if (hitsTop.Length != 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0)
-			{
-				hitRay = hitsTop;
-			}
-			else if(hitsBottom.Length != 0 && hitsTop.Length == 0 && hitsMiddle.Length == 0)
-			{
-				hitRay = hitsBottom;
-			}
-			else if(hitsBottom.Length == 0 && hitsTop.Length == 0 && hitsMiddle.Length != 0)
-			{
-				hitRay = hitsMiddle;
-			}
-			else
-			{
-				if (direction.y > 0 && hitsTop.Length != 0) { hitRay = hitsTop; }
-				else if (direction.y < 0 && hitsBottom.Length != 0) { hitRay = hitsBottom; }
-				else { hitRay = hitsMiddle; }
-			}*/
-
-			
-			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
-			float minDist = 1000f;
-			if (hitsBottom.Length != 0 && Vector2.Distance(hitsBottom[0].point, failedDash) < minDist){
-				minDist = Vector2.Distance(hitsBottom[0].point, failedDash);
-			}
-			if (hitsMiddle.Length != 0 && Vector2.Distance(hitsMiddle[0].point, failedDash) < minDist)
-			{
-				minDist = Vector2.Distance(hitsMiddle[0].point, failedDash);
-			}
-			if (hitsTop.Length != 0 && Vector2.Distance(hitsTop[0].point, failedDash) < minDist)
-			{
-				minDist = Vector2.Distance(hitsTop[0].point, failedDash);
-			}
-
-
-			//Vector2 contactPoint = hitRay[0].point;
-			//float failDistance = Vector2.Distance(contactPoint, failedDash);
-			direction /= m_dashDistance;
-			Vector3 spriteSize = new Vector3(0,0,0);
-			// Right
-			if (direction.x > 0) // get neccessary offset of the hitboxes
-			{
-				spriteSize.x += BoxCollider.size.x*2;
-			}
-			// Left
-			if (direction.x < 0)
-			{
-				spriteSize.x -= BoxCollider.size.x*2;
-			}
-			// Up
-			if (direction.y > 0)
-			{
-				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
-			}
-			// Down
-			if (direction.y < 0)
-			{
-				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
-			}
-			// Downward diagonal (left or right)
-			if(direction.x != 0 && direction.y < 0) //if diagonal
-			{
-				spriteSize.y /= 2;
-			}
-			// Upward diagonal (left or right)
-			if(direction.x != 0 && direction.y > 0)
-			{
-				spriteSize /= 2;
-			}
-			// ???
-			if(direction.x == 0 && direction.y > 0)
-			{
-				spriteSize.y /= 2;
-			}
-			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - /*failDistance*/minDist)) - spriteSize/2;
-			// Only play the dash effect if the Reaper actually moves when dashing
-			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
-			{
-				player.invincibility();
-				DashEffect(direction);
-			}
-		}
-		
 	}
 
 	private void DashEffect(Vector3 direction)
@@ -352,7 +273,7 @@ public class CharacterController2D : MonoBehaviour
 		float actualDashDistance = (m_Rigidbody2D.transform.position - beforeDash).magnitude;
 		//Debug.Log(actualDashDistance);
 		dashObject.transform.localScale = new Vector3(actualDashDistance / 1.5f, 1f, 1f); // Stretch the effect depending on dash distance
-		Destroy(dashObject, 0.25f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
+		Destroy(dashObject, 0.2f); // Destroy the clone after the animation plays
 	}
 
 	private void Flip()
