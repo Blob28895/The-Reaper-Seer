@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScientistFight.unity
     guid: 29a6b34bacf596b48b06eb130de2902b
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: ae5e5dc2d1b01df4498ce9a53c0e9a79
+  - enabled: 1
+    path: Assets/Scenes/HOSFight.unity
+    guid: 18f7df8c18b0d984ab66cd14921251ac
   - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729

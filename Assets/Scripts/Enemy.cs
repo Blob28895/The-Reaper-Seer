@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -72,6 +73,10 @@ public class Enemy : MonoBehaviour
         }
         // GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
-        Destroy(gameObject, 1f);
+        if(SceneManager.GetActiveScene().name == "HOSFight")
+		{
+            Destroy(gameObject, 1f);
+        }
+        //
 	}
 }
