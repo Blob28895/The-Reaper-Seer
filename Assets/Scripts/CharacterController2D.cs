@@ -182,40 +182,35 @@ public class CharacterController2D : MonoBehaviour
 
 	public void dodge(Vector3 direction)
 	{
+		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
-		RaycastHit2D[] hitsTop;
-		RaycastHit2D[] hitsBottom;
-		RaycastHit2D[] hitsMiddle;
-		Vector2 temp = transform.position;
+		Vector3 rayStart = transform.position;
 		// Right
 		if(direction.x > 0) // get neccessary offset of the hitboxes
 		{
-			temp.x += (BoxCollider.size.x / 2) + BoxCollider.offset.x;
+			rayStart.x += BoxCollider.bounds.extents.x;
 		}
 		// Left
 		if(direction.x < 0)
 		{
-			temp.x -= (BoxCollider.size.x / 2) + BoxCollider.offset.x; 
+			rayStart.x -= BoxCollider.bounds.extents.x;
 		}
 		// Up
 		if(direction.y > 0)
 		{
-			temp.y += (BoxCollider.size.y / 2) + BoxCollider.offset.y;
+			rayStart.y += BoxCollider.bounds.extents.y;
 		}
 		// Down
 		if(direction.y < 0)
 		{
-			temp.y -= (CircleCollider.radius) - BoxCollider.offset.y;
+			rayStart.y -= (CircleCollider.radius) - BoxCollider.offset.y;
 		}
 		direction *= m_dashDistance;
-		Vector2 topRay = temp;
-		Vector2 bottomRay = temp;
-		topRay.y = m_CeilingCheck.position.y - ((GetComponent<Renderer>().bounds.size.y) / 10);
-		bottomRay.y = m_GroundCheck.position.y + ((GetComponent<Renderer>().bounds.size.y) / 10);
-		hitsTop = Physics2D.RaycastAll(topRay, direction, m_dashDistance, m_GroundNoPlatform);
-		hitsBottom = Physics2D.RaycastAll(bottomRay, direction, m_dashDistance, m_GroundNoPlatform);
-		hitsMiddle = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_GroundNoPlatform);
-		if(staticVariables.dashDamage)
+		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_WhatIsGround);
+		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
+		Debug.DrawRay(rayStart - new Vector3(0, BoxCollider.bounds.extents.y), direction);
+		Debug.DrawRay(rayStart + direction + new Vector3(0, BoxCollider.bounds.extents.y), new Vector3 (0, -2 * BoxCollider.bounds.extents.y));
+		if (staticVariables.dashDamage)
 		{
 			List<Enemy> enemyObjects = new List<Enemy>();
 			RaycastHit2D[] hitsEnemy;
@@ -236,7 +231,7 @@ public class CharacterController2D : MonoBehaviour
 				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
 			}
 		}
-		temp.y -= CircleCollider.offset.y;
+		/*temp.y -= CircleCollider.offset.y;
 		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
 		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
 		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
@@ -315,8 +310,25 @@ public class CharacterController2D : MonoBehaviour
 				player.invincibility();
 				DashEffect(direction);
 			}
+		}*/
+		Debug.Log(boxCastHit.distance);
+		// If the box ray didn't hit anything
+		if (boxCastHit.distance == 0)
+        {
+			m_Rigidbody2D.transform.position += direction;
 		}
-		
+		// If the box ray hit something, stop at the point where the ray hit
+		else if (boxCastHit.distance > 0)
+        {
+			direction /= m_dashDistance;
+			m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
+        }
+		// If the dash moved the player, then grant invincibility and play the dash effect
+		if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
+		{
+			player.invincibility();
+			DashEffect(direction);
+		}
 	}
 
 	private void DashEffect(Vector3 direction)
