@@ -24,6 +24,9 @@ public class MeleeEnemyController : MonoBehaviour
     private float nextAttackTime = 0f;
     public float hitStun = 0.6f;
     private float stunEnd = 0f;
+    //slow effect
+    private float slowMult = 1f;
+    private float slowTime = 0f;
     // Start is called once before update
     void Start()
     {
@@ -38,6 +41,8 @@ public class MeleeEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slowMult = enemy.getSlowMult();
+        slowTime = enemy.getSlowTime();
         dist = target.position.x - transform.position.x;
         //Debug.Log(dist);
         if (dist > 0 && !facingRight)
@@ -81,15 +86,19 @@ public class MeleeEnemyController : MonoBehaviour
     // Function that moves the enemy
     private void Move()
     {
+        if (Time.time >= slowTime && slowMult != 1f)
+        {
+            slowMult = 1f;
+        }
         // Allows the enemy to do "hops" to be able to climb stairs when the Reaper is above it
         if (target.position.y > transform.position.y)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * slowMult * Time.deltaTime);
         }
         // Allows the enmy to only move on the x axis to prevent him from going through the ground
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
         }
     }
 

@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     int currentHealth;
     public KillTracker killTracker;
+
+    private float slowMult = 1f;
+    private float slowTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,14 @@ public class Enemy : MonoBehaviour
 	{
         return currentHealth;
 	}
+    public float getSlowMult()
+    {
+        return slowMult;
+    }
+    public float getSlowTime()
+    {
+        return slowTime;
+    }
 
     public void TakeDamage(int damage)
 	{
@@ -35,6 +46,11 @@ public class Enemy : MonoBehaviour
             }
         }
 	}
+    public void Slow()
+    {
+        slowMult = staticVariables.enemySlowMult;
+        slowTime = Time.time + staticVariables.enemySlowTime;
+    }
 
     void Die()
 	{
