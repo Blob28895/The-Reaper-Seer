@@ -194,7 +194,7 @@ public class CharacterController2D : MonoBehaviour
         {
 			rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
 		}
-		else if (direction.y < 0)
+		if (direction.y < 0)
 		{
 			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
@@ -258,7 +258,7 @@ public class CharacterController2D : MonoBehaviour
 		float actualDashDistance = (m_Rigidbody2D.transform.position - beforeDash).magnitude;
 		//Debug.Log(actualDashDistance);
 		dashObject.transform.localScale = new Vector3(actualDashDistance / 1.5f, 1f, 1f); // Stretch the effect depending on dash distance
-		Destroy(dashObject, 0.25f); // Destroy the clone after the animation plays GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
+		Destroy(dashObject, 0.2f); // Destroy the clone after the animation plays
 	}
 
 	private void Flip()
