@@ -16,7 +16,7 @@ public class GasDamage : MonoBehaviour
 		{
 			
 			player = collision.gameObject.GetComponent<Player>();
-			if (Time.time >= nextHitTime)
+			if (Time.time >= nextHitTime && Time.time >= player.getInvincibleTime())
 			{
 				player.TakeDamage(1);
 				nextHitTime = Time.time + hitRate;
@@ -31,7 +31,7 @@ public class GasDamage : MonoBehaviour
 		{
 
 			player = collision.gameObject.GetComponent<Player>();
-			if (Time.time >= nextHitTime)
+			if (Time.time >= nextHitTime && Time.time >= player.getInvincibleTime())
 			{
 				player.TakeDamage(1);
 				nextHitTime = Time.time + hitRate;

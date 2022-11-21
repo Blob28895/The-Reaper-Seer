@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     {
         invicibleTime = Time.time + 0.5f;
     }
+    public float getInvincibleTime()
+	{
+        return invicibleTime;
+	}
     public void Heal(int heal)
 	{
         if(enabled)
