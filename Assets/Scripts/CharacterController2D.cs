@@ -184,8 +184,8 @@ public class CharacterController2D : MonoBehaviour
 	{
 		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
-		Vector3 rayStart = transform.position;
-		// Right
+		Vector3 rayStart = BoxCollider.bounds.center;
+		/*/ Right
 		if(direction.x > 0) // get neccessary offset of the hitboxes
 		{
 			rayStart.x += BoxCollider.bounds.extents.x;
@@ -203,8 +203,8 @@ public class CharacterController2D : MonoBehaviour
 		// Down
 		if(direction.y < 0)
 		{
-			rayStart.y -= (CircleCollider.radius) - BoxCollider.offset.y;
-		}
+			rayStart.y -= BoxCollider.bounds.extents.y;
+		}*/
 		direction *= m_dashDistance;
 		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_WhatIsGround);
 		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
