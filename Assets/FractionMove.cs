@@ -14,6 +14,7 @@ public class FractionMove : MonoBehaviour
     void Start()
     {
         self = GetComponent<Transform>();
+        self.position = sync.position;
         prevX = sync.position.x;
         prevY = sync.position.y;
     }
@@ -21,11 +22,14 @@ public class FractionMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float tempx = (sync.position.x - prevX) * 0.4f;
+        /*float tempx = (sync.position.x - prevX) * 0.4f;
         float tempy = (sync.position.y - prevY) * 0.4f;
         prevX = sync.position.x;
-        prevY = sync.position.y;
-        Vector3 vec = new Vector3(tempx, tempy, self.position.z);
-        self.Translate(vec * speed * Time.deltaTime);
+        prevY = sync.position.y;*/
+        float tempx = sync.position.x;
+        float tempy = sync.position.y;
+        Vector3 vec = new Vector3(tempx + 100, tempy +30, self.position.z) * -0.1f;
+        //self.Translate(vec * speed * Time.deltaTime);
+        self.position = vec;
     }
 }
