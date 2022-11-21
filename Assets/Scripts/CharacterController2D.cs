@@ -185,13 +185,21 @@ public class CharacterController2D : MonoBehaviour
 		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
 		Vector3 rayStart = BoxCollider.bounds.center;
-		// Need to retrieve an offset if boxray travels down
-		if (direction.y < 0)
+		// Need to retrieve an offset before performing the boxcast
+		if (direction.x > 0)
+        {
+			rayStart.x += BoxCollider.bounds.extents.x - 0.1f;
+        }
+		else if (direction.x < 0)
+        {
+			rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
+		}
+		else if (direction.y < 0)
 		{
 			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
 		direction *= m_dashDistance;
-		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_GroundNoPlatform);
+		boxCastHit = Physics2D.BoxCast(rayStart, new Vector2(0.1f, BoxCollider.bounds.size.y), 0, direction, m_dashDistance, m_GroundNoPlatform);
 		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
 		Debug.DrawRay(rayStart - new Vector3(0, BoxCollider.bounds.extents.y), direction);
 		Debug.DrawRay(rayStart + direction + new Vector3(0, BoxCollider.bounds.extents.y), new Vector3 (0, -2 * BoxCollider.bounds.extents.y));
