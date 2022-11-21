@@ -185,24 +185,34 @@ public class CharacterController2D : MonoBehaviour
 		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
 		Vector3 rayStart = BoxCollider.bounds.center;
+		Vector2 boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y);
 		// Need to retrieve an offset before performing the boxcast
+		// Right
 		if (direction.x > 0)
         {
 			rayStart.x += BoxCollider.bounds.extents.x - 0.1f;
         }
+		// Left
 		else if (direction.x < 0)
         {
 			rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
 		}
+		// Down
 		if (direction.y < 0)
 		{
 			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
+		// Upward Diagonal
+		if (direction.x != 0 && direction.y > 0)
+        {
+			boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
+        }
+
 		direction *= m_dashDistance;
-		boxCastHit = Physics2D.BoxCast(rayStart, new Vector2(0.1f, BoxCollider.bounds.size.y), 0, direction, m_dashDistance, m_GroundNoPlatform);
-		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
-		Debug.DrawRay(rayStart - new Vector3(0, BoxCollider.bounds.extents.y), direction);
-		Debug.DrawRay(rayStart + direction + new Vector3(0, BoxCollider.bounds.extents.y), new Vector3 (0, -2 * BoxCollider.bounds.extents.y));
+		boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance, m_GroundNoPlatform);
+		Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
+		Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
+		Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3 (0, -1 * boxShape.y));
 		if (staticVariables.dashDamage)
 		{
 			List<Enemy> enemyObjects = new List<Enemy>();
