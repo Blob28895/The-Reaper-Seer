@@ -206,7 +206,7 @@ public class CharacterController2D : MonoBehaviour
 			rayStart.y -= BoxCollider.bounds.extents.y;
 		}*/
 		direction *= m_dashDistance;
-		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_WhatIsGround);
+		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_GroundNoPlatform);
 		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
 		Debug.DrawRay(rayStart - new Vector3(0, BoxCollider.bounds.extents.y), direction);
 		Debug.DrawRay(rayStart + direction + new Vector3(0, BoxCollider.bounds.extents.y), new Vector3 (0, -2 * BoxCollider.bounds.extents.y));
