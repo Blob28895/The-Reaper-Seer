@@ -250,7 +250,8 @@ public class CharacterController2D : MonoBehaviour
 		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
 		  //figure out which one hit something
 			RaycastHit2D[] hitRay;
-			if (hitsTop.Length != 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0)
+
+			/*if (hitsTop.Length != 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0)
 			{
 				hitRay = hitsTop;
 			}
@@ -267,10 +268,26 @@ public class CharacterController2D : MonoBehaviour
 				if (direction.y > 0 && hitsTop.Length != 0) { hitRay = hitsTop; }
 				else if (direction.y < 0 && hitsBottom.Length != 0) { hitRay = hitsBottom; }
 				else { hitRay = hitsMiddle; }
-			}
+			}*/
+
+			
 			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
-			Vector2 contactPoint = hitRay[0].point;
-			float failDistance = Vector2.Distance(contactPoint, failedDash);
+			float minDist = 1000f;
+			if (hitsBottom.Length != 0 && Vector2.Distance(hitsBottom[0].point, failedDash) < minDist){
+				minDist = Vector2.Distance(hitsBottom[0].point, failedDash);
+			}
+			if (hitsMiddle.Length != 0 && Vector2.Distance(hitsMiddle[0].point, failedDash) < minDist)
+			{
+				minDist = Vector2.Distance(hitsMiddle[0].point, failedDash);
+			}
+			if (hitsTop.Length != 0 && Vector2.Distance(hitsTop[0].point, failedDash) < minDist)
+			{
+				minDist = Vector2.Distance(hitsTop[0].point, failedDash);
+			}
+
+
+			//Vector2 contactPoint = hitRay[0].point;
+			//float failDistance = Vector2.Distance(contactPoint, failedDash);
 			direction /= m_dashDistance;
 			Vector3 spriteSize = new Vector3(0,0,0);
 			// Right
@@ -308,7 +325,7 @@ public class CharacterController2D : MonoBehaviour
 			{
 				spriteSize.y /= 2;
 			}
-			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
+			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - /*failDistance*/minDist)) - spriteSize/2;
 			// Only play the dash effect if the Reaper actually moves when dashing
 			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
 			{
