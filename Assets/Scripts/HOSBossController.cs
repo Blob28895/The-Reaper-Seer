@@ -42,11 +42,16 @@ public class HOSBossController : MonoBehaviour
     private Animator animator;
     private int maxHealth;
     private int health;
+
+    private Boss boss;
+    private float slowMult = 1f;
+    private float slowTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        maxHealth = GetComponent<Boss>().maxHealth;
+        boss = GetComponent<Boss>();
+        maxHealth = boss.maxHealth;
         shakeObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
         enemyCaller = GetComponent<CallEnemy>();
 
@@ -76,7 +81,14 @@ public class HOSBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health = GetComponent<Boss>().getCurrentHealth();
+        slowMult = boss.getSlowMult();
+        slowTime = boss.getSlowTime();
+        //Debug.Log(slowMult);
+        if (Time.time >= slowTime && slowMult != 1f)
+        {
+            slowMult = 1f;
+        }
+        health = boss.getCurrentHealth();
         dist = target.position.x - transform.position.x;
         listOfEnemies = killTracker.GetListOfEnemies();
         //Debug.Log(listOfEnemies.Count);
@@ -165,7 +177,7 @@ public class HOSBossController : MonoBehaviour
     // Move towards the Reaper
     private void MoveTowards()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
     }
 
     // Deal damage to the Reaper if the attack hits him

@@ -11,6 +11,8 @@ public class Boss : MonoBehaviour
     public HealthBar healthBar;
     public KillTracker killTracker;
     // Start is called before the first frame update
+    private float slowMult = 1f;
+    private float slowTime = 0f;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,6 +27,14 @@ public class Boss : MonoBehaviour
     public int getCurrentHealth()
     {
         return currentHealth;
+    }
+    public float getSlowMult()
+    {
+        return slowMult;
+    }
+    public float getSlowTime()
+    {
+        return slowTime;
     }
 
     public void TakeDamage(int damage)
@@ -59,7 +69,14 @@ public class Boss : MonoBehaviour
         renderer.enabled = true;
     }
 
-    void Die()
+    public void Slow()
+    {
+        slowMult = staticVariables.enemySlowMult;
+        slowTime = Time.time + staticVariables.enemySlowTime;
+    }
+
+
+	void Die()
     {
         //Debug.Log("The enemy is dead");
         // Disables the rest of the enemy scripts so that it can't continue attacking the player

@@ -14,6 +14,9 @@ public class staticVariables : MonoBehaviour
 	public static int extraHealth = 0;
 	public static bool dashDamage = true;
 	public static float movementMultiplier = 1f;
+	//enemy slow
+	public static float enemySlowMult = 0.6f;
+	public static float enemySlowTime = 2f;
 
 	public void Start()
 	{
