@@ -185,26 +185,11 @@ public class CharacterController2D : MonoBehaviour
 		RaycastHit2D boxCastHit;
 		beforeDash = transform.position;
 		Vector3 rayStart = BoxCollider.bounds.center;
-		/*/ Right
-		if(direction.x > 0) // get neccessary offset of the hitboxes
+		// Need to retrieve an offset if boxray travels down
+		if (direction.y < 0)
 		{
-			rayStart.x += BoxCollider.bounds.extents.x;
+			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
 		}
-		// Left
-		if(direction.x < 0)
-		{
-			rayStart.x -= BoxCollider.bounds.extents.x;
-		}
-		// Up
-		if(direction.y > 0)
-		{
-			rayStart.y += BoxCollider.bounds.extents.y;
-		}
-		// Down
-		if(direction.y < 0)
-		{
-			rayStart.y -= BoxCollider.bounds.extents.y;
-		}*/
 		direction *= m_dashDistance;
 		boxCastHit = Physics2D.BoxCast(rayStart, BoxCollider.bounds.size, 0, direction, m_dashDistance, m_GroundNoPlatform);
 		Debug.DrawRay(rayStart + new Vector3(0, BoxCollider.bounds.extents.y), direction);
@@ -231,86 +216,6 @@ public class CharacterController2D : MonoBehaviour
 				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
 			}
 		}
-		/*temp.y -= CircleCollider.offset.y;
-		//Debug.DrawRay(topRay, direction, Color.red, 1.5f);//hitbox check test ray
-		//Debug.DrawRay(bottomRay, direction, Color.red, 1.5f);
-		//Debug.DrawRay(transform.position, direction, Color.green, 1.5f); //movement check test ray
-		if (hitsTop.Length == 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0) // if there is nothing blocking our dash
-		{
-			//Debug.Log("dash"); test if we made it into this if statement
-			m_Rigidbody2D.transform.position += direction;
-			DashEffect(direction);
-		}
-		else if (hitsTop.Length > 0 || hitsBottom.Length > 0 || hitsMiddle.Length > 0)
-		{ //if there is something blocking our dash we still want to move as far as we can without going through walls
-		  //figure out which one hit something
-			RaycastHit2D[] hitRay;
-			if (hitsTop.Length != 0 && hitsBottom.Length == 0 && hitsMiddle.Length == 0)
-			{
-				hitRay = hitsTop;
-			}
-			else if(hitsBottom.Length != 0 && hitsTop.Length == 0 && hitsMiddle.Length == 0)
-			{
-				hitRay = hitsBottom;
-			}
-			else if(hitsBottom.Length == 0 && hitsTop.Length == 0 && hitsMiddle.Length != 0)
-			{
-				hitRay = hitsMiddle;
-			}
-			else
-			{
-				if (direction.y > 0 && hitsTop.Length != 0) { hitRay = hitsTop; }
-				else if (direction.y < 0 && hitsBottom.Length != 0) { hitRay = hitsBottom; }
-				else { hitRay = hitsMiddle; }
-			}
-			Vector2 failedDash = (m_Rigidbody2D.transform.position + direction);
-			Vector2 contactPoint = hitRay[0].point;
-			float failDistance = Vector2.Distance(contactPoint, failedDash);
-			direction /= m_dashDistance;
-			Vector3 spriteSize = new Vector3(0,0,0);
-			// Right
-			if (direction.x > 0) // get neccessary offset of the hitboxes
-			{
-				spriteSize.x += BoxCollider.size.x*2;
-			}
-			// Left
-			if (direction.x < 0)
-			{
-				spriteSize.x -= BoxCollider.size.x*2;
-			}
-			// Up
-			if (direction.y > 0)
-			{
-				spriteSize.y += GetComponent<Renderer>().bounds.size.y;
-			}
-			// Down
-			if (direction.y < 0)
-			{
-				spriteSize.y -= GetComponent<Renderer>().bounds.size.y;
-			}
-			// Downward diagonal (left or right)
-			if(direction.x != 0 && direction.y < 0) //if diagonal
-			{
-				spriteSize.y /= 2;
-			}
-			// Upward diagonal (left or right)
-			if(direction.x != 0 && direction.y > 0)
-			{
-				spriteSize /= 2;
-			}
-			// ???
-			if(direction.x == 0 && direction.y > 0)
-			{
-				spriteSize.y /= 2;
-			}
-			m_Rigidbody2D.transform.position += (direction * (m_dashDistance - failDistance)) - spriteSize/2;
-			// Only play the dash effect if the Reaper actually moves when dashing
-			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
-			{
-				player.invincibility();
-				DashEffect(direction);
-			}
-		}*/
 		Debug.Log(boxCastHit.distance);
 		// If the box ray didn't hit anything
 		if (boxCastHit.distance == 0)
@@ -318,7 +223,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.transform.position += direction;
 		}
 		// If the box ray hit something, stop at the point where the ray hit
-		else if (boxCastHit.distance > 0)
+		else if (boxCastHit.distance > 0.1f)
         {
 			direction /= m_dashDistance;
 			m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
