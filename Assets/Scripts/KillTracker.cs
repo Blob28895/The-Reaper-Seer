@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KillTracker : MonoBehaviour
 {
     List<GameObject> listOfEnemys = new List<GameObject>();
+
     public GameObject Keycard;
     public SoulBar souls;
     private Player player;
+
+    public TextMeshProUGUI textDisplay;
+    public string[] sentences;
+    private int index;
+    public float typingSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +23,23 @@ public class KillTracker : MonoBehaviour
         souls.SetMax(staticVariables.maxSouls);
         souls.SetCurrent(staticVariables.currSouls);
         player = GetComponent<Player>();
+        StartCoroutine(Type());
     }
+
     public void KilledEnemy(GameObject Enemy)
     {
         if (listOfEnemys.Contains(Enemy))
         {
             Debug.Log("Enemy died");
+            staticVariables.kills += 1;
+            if (staticVariables.kills == 1)
+            {
+                NextSentence();
+            }
+            if (staticVariables.kills != 1)
+            {
+                textDisplay.text = "";
+            }
             if (staticVariables.currSouls < staticVariables.maxSouls)
             {
                 staticVariables.currSouls += 1;
@@ -55,6 +73,25 @@ public class KillTracker : MonoBehaviour
         {
             // They're still alive dangit
             return false;
+        }
+    }
+
+    public void NextSentence()
+    {
+        if (index < sentences.Length - 1)
+        {
+            index++;
+            textDisplay.text = "";
+            StartCoroutine(Type());
+        }
+    }
+
+    IEnumerator Type()
+    {
+        foreach (char letter in sentences[index].ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 }

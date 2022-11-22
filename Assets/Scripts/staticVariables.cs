@@ -9,6 +9,7 @@ public class staticVariables : MonoBehaviour
 	public static int baseDamage = PlayerCombat.attackDamage;
 	public static int maxSouls = 8;
 	public static int currSouls = 0;
+	public static int kills = 0;
 	//upgrades
 	public static float damageMultiplier = 1f;
 	public static int extraHealth = 0;

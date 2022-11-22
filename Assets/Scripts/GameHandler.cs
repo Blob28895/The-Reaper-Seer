@@ -34,4 +34,6 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Scene Reloaded!");
     }
+
+
 }
