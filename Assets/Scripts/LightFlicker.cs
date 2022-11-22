@@ -9,16 +9,13 @@ public class LightFlicker : MonoBehaviour
     public int numberOfFlickers = 6;
     public float flickerDelay = 0.02f;
     private Light2D m_light;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         m_light = GetComponent<Light2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animator = GetComponentInChildren<Animator>();
+        animator.SetBool("Lit", true);
     }
 
     public void Flicker()
@@ -29,14 +26,18 @@ public class LightFlicker : MonoBehaviour
     private IEnumerator DoFlicker()
     {
         m_light.intensity = 0;
+        animator.SetBool("Lit", false);
         yield return new WaitForSeconds(stayOffTime);
         for (int i = 0; i < numberOfFlickers; i++)
         {
             m_light.intensity = 2;
+            animator.SetBool("Lit", true);
             yield return new WaitForSeconds(flickerDelay);
             m_light.intensity = 0;
+            animator.SetBool("Lit", false);
             yield return new WaitForSeconds(flickerDelay);
         }
         m_light.intensity = 2;
+        animator.SetBool("Lit", true);
     }
 }
