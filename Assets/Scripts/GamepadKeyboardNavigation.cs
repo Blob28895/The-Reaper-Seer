@@ -10,7 +10,7 @@ public class GamepadKeyboardNavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("Starting Menu Controller Script");
+        
     }
 
     // Update is called once per frame
@@ -27,5 +27,11 @@ public class GamepadKeyboardNavigation : MonoBehaviour
             usingControllerOrKeyboard = false;
             EventSystem.current.SetSelectedGameObject(null);
         }
+    }
+
+    public void ResetSelected()
+    {
+        usingControllerOrKeyboard = false;
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
