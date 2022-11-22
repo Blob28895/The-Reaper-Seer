@@ -27,7 +27,7 @@ public class ElevatorButton : MonoBehaviour
 			StartCoroutine(TransitionScene());
 		}
 	}
-	IEnumerator TransitionScene()
+	public IEnumerator TransitionScene()
     {
 		fadeAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(transitionTime);

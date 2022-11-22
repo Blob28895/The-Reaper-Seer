@@ -6,9 +6,13 @@ public class WinCondition : MonoBehaviour
 {
     public Transform target;
     private bool show = false;
-
-    // Update is called once per frame
-    void Update()
+    ElevatorButton button;
+	private void Start()
+	{
+        button = GetComponent<ElevatorButton>();
+    }
+	// Update is called once per frame
+	void Update()
     {
         //Debug.Log(target.position.x);
         // Checks to see if the Reaper is near the end of the level
@@ -17,6 +21,7 @@ public class WinCondition : MonoBehaviour
             show = true;
             Debug.Log("Win Triggered");
             StartCoroutine(WinScreen());
+            
         }
     }
     IEnumerator WinScreen()
@@ -25,7 +30,8 @@ public class WinCondition : MonoBehaviour
         // Moves the win screen to the Reaper's location
         //transform.position = target.position;
         // Enables the Sprite renderer to have the win screen appear
-        GetComponent<SpriteRenderer>().enabled = true;
+        StartCoroutine(button.TransitionScene());
+        //GetComponent<SpriteRenderer>().enabled = true;
         // Freezes the Reaper in place
         // FindObjectOfType<Player>().GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
