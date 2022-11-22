@@ -6,6 +6,7 @@ public class HOSBossController : MonoBehaviour
 {
     public float speed;
     private GameObject leftWall, rightWall;
+    public LightFlicker elevatorLight;
     // Following are used for melee attacking
     public int attackDamage = 2;
     public float attackRange = 0.5f;
@@ -204,6 +205,10 @@ public class HOSBossController : MonoBehaviour
         {
             shakeObj.Shake();
         } 
+        if (elevatorLight != null)
+        {
+            elevatorLight.Flicker();
+        }
         // Code to spawn shockwave effect prefab goes here
         Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
         shockwave1.SetDirection(1);
