@@ -26,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	private Vector3 targetVelocity;
 	private Player player;
+	private AudioSource dashSound;
 	//public RaycastHit2D hit;
 
 	// Variables for dash effect
@@ -46,6 +47,7 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		dashSound = GetComponentsInChildren<AudioSource>()[2];
 		player = GetComponent<Player>();
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -255,6 +257,7 @@ public class CharacterController2D : MonoBehaviour
 		if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
 		{
 			player.invincibility();
+			dashSound.Play();
 			DashEffect(direction);
 		}
 	}

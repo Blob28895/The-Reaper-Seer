@@ -17,6 +17,7 @@ public class lightAttack : MonoBehaviour
     public GameObject streak3;
     public GameObject Player;
     private PlayerCombat combat;
+    private AudioSource audio;
     private Vector3 offset = new Vector3(0,0,0);
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class lightAttack : MonoBehaviour
         animator = GetComponent<Animator>();
         combat = GetComponent<PlayerCombat>();
         offset.x += Player.GetComponent<BoxCollider2D>().bounds.size.x;
+        audio = GetComponentsInChildren<AudioSource>()[0];
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class lightAttack : MonoBehaviour
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
                 combat.DealDamage();
+                audio.Play();
                 GameObject streakOne = Instantiate(streak1, Player.transform);
                 Destroy(streakOne, 0.5f);
                 
@@ -50,6 +53,7 @@ public class lightAttack : MonoBehaviour
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
                 combat.DealDamage();
+                audio.Play();
                 GameObject streakTwo = Instantiate(streak2, Player.transform);
                 Destroy(streakTwo, 0.5f);
             }
@@ -60,6 +64,7 @@ public class lightAttack : MonoBehaviour
                 breakCombo = Time.time + attackBetween;
                 attackTracker = 0;
                 combat.DealDamage();
+                audio.Play();
                 GameObject streakThree = Instantiate(streak3, Player.transform);
                 Destroy(streakThree, 0.5f);
                 nextCombo = Time.time + comboDelay;
