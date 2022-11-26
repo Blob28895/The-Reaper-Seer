@@ -47,6 +47,8 @@ public class HOSBossController : MonoBehaviour
     private Boss boss;
     private float slowMult = 1f;
     private float slowTime = 0f;
+
+    private AudioSource slamSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class HOSBossController : MonoBehaviour
         maxHealth = boss.maxHealth;
         shakeObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
         enemyCaller = GetComponent<CallEnemy>();
+        slamSound = GetComponentsInChildren<AudioSource>()[0];
 
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
@@ -209,6 +212,8 @@ public class HOSBossController : MonoBehaviour
         {
             elevatorLight.Flicker();
         }
+        //sound effect
+        slamSound.Play();
         // Code to spawn shockwave effect prefab goes here
         Shockwave shockwave1 = Instantiate(shockwaveObject, new Vector2(transform.position.x, 0), Quaternion.identity);
         shockwave1.SetDirection(1);

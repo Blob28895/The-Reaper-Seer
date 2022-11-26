@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     //private int currentHealth;
     public HealthBar healthBar;
     public float invicibleTime = 0f;
+    public AudioSource takeDamage;
     // Start is called before the first frame update
     void Start()
     {
         //currentHealth = staticVariables.currHealth;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(staticVariables.currHealth);
+        takeDamage = GetComponentsInChildren<AudioSource>()[1];
     }
 	public void Update()
 	{
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
         if (enabled && Time.time >= invicibleTime)
         {
             staticVariables.currHealth -= damage;
+            takeDamage.Play();
             healthBar.SetHealth(staticVariables.currHealth);
             if (Gamepad.current != null)
             {
