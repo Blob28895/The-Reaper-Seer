@@ -47,11 +47,11 @@ public class ReaperSeerBossController : MonoBehaviour
         }
         health = boss.getCurrentHealth();
         dist = target.position.x - transform.position.x;
-        if (dist > 0 && !facingRight)
+        if (dist > 1f && !facingRight)
         {
             Flip();
         }
-        else if (dist < 0 && facingRight)
+        else if (dist < -1f && facingRight)
         {
             Flip();
         }
@@ -103,6 +103,8 @@ public class ReaperSeerBossController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        // Move Reaper Seer's x coordinate since he's not centered in the sprite
+        transform.position += (transform.localScale.x * -1) * new Vector3(0.45f, 0f);
     }
 
     // Show attack point in editor
