@@ -48,4 +48,9 @@ public class PauseGamepadKeyboardNavigation : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
         }
     }
+    public void ResetSelected()
+    {
+        usingControllerOrKeyboard = false;
+        EventSystem.current.SetSelectedGameObject(null);
+    }
 }
