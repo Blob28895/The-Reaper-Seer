@@ -34,4 +34,12 @@ public class GamepadKeyboardNavigation : MonoBehaviour
         usingControllerOrKeyboard = false;
         EventSystem.current.SetSelectedGameObject(null);
     }
+
+    public void ResetButton()
+    {
+        if (!usingControllerOrKeyboard)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+    }
 }
