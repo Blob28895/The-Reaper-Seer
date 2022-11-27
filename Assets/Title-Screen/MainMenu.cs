@@ -30,4 +30,9 @@ public class MainMenu : MonoBehaviour
         staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void MoveToScene(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+    }
 }

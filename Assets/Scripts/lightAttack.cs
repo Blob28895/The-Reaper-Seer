@@ -40,7 +40,7 @@ public class lightAttack : MonoBehaviour
                 animator.SetTrigger("fast1");
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
-                combat.DealDamage();
+                DealLightDamage();
                 audio.Play();
                 GameObject streakOne = Instantiate(streak1, Player.transform);
                 Destroy(streakOne, 0.5f);
@@ -52,7 +52,7 @@ public class lightAttack : MonoBehaviour
                 animator.SetTrigger("fast2");
                 breakCombo = Time.time + attackBetween;
                 attackTracker++;
-                combat.DealDamage();
+                DealLightDamage();
                 audio.Play();
                 GameObject streakTwo = Instantiate(streak2, Player.transform);
                 Destroy(streakTwo, 0.5f);
@@ -63,7 +63,7 @@ public class lightAttack : MonoBehaviour
                 animator.SetTrigger("fast3");
                 breakCombo = Time.time + attackBetween;
                 attackTracker = 0;
-                combat.DealDamage();
+                DealLightDamage();
                 audio.Play();
                 GameObject streakThree = Instantiate(streak3, Player.transform);
                 Destroy(streakThree, 0.5f);
@@ -75,5 +75,32 @@ public class lightAttack : MonoBehaviour
             attackTracker = 0;
             
 		}
+    }
+    public void DealLightDamage()
+    {
+        List<GameObject> enemyObjects = new List<GameObject>();
+        //Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(combat.attackPoint.position, combat.attackRange, combat.enemyLayers);
+        //Filter out each enemy, in the case that they have multiple colliders that were hit
+        foreach (Collider2D collider in hitEnemies)
+        {
+            if (!enemyObjects.Contains(collider.gameObject))
+            {
+                enemyObjects.Add(collider.gameObject);
+            }
+        }
+        //Apply damage to those enemies
+        foreach (GameObject enemy in enemyObjects)
+        {
+            //Debug.Log("We hit " + enemy.name);
+            if (enemy.tag == "Boss")
+            {
+                enemy.GetComponent<Boss>().TakeDamage((int)(staticVariables.lightDamage * staticVariables.damageMultiplier));
+            }
+            else
+            {
+                enemy.GetComponent<Enemy>().TakeDamage((int)(staticVariables.lightDamage * staticVariables.damageMultiplier));
+            }
+        }
     }
 }
