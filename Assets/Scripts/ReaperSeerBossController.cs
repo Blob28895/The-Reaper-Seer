@@ -13,6 +13,14 @@ public class ReaperSeerBossController : MonoBehaviour
     public LayerMask playerLayer;
     private List<string> meleeAnimations = new List<string>();
     private float nextAttackTime = 0f;
+    // Used for slam attack
+    public int slamDamage = 2;
+    public float slamRange = 1.5f;
+    public float knockBackSpeed = 30f;
+    public Transform slamPoint;
+    public float slamMinInterval = 6f;
+    public float slamMaxInterval = 11f;
+    private float nextSlamTime;
     // Reaper stuff
     public Transform target;
     private float dist;
@@ -37,6 +45,8 @@ public class ReaperSeerBossController : MonoBehaviour
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
         meleeAnimations.Add("Melee2");
+        // Next attack variables go here
+        nextSlamTime = Time.time + Random.Range(slamMinInterval, slamMaxInterval);
     }
 
     // Update is called once per frame
@@ -84,6 +94,15 @@ public class ReaperSeerBossController : MonoBehaviour
             animator.SetBool("Moving", false);
             StopMoving();
         }
+        // Slam attack
+        if (Time.time >= nextSlamTime && CanMove())
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
+            animator.SetBool("Slam", true);
+            float slamAttackTime = Random.Range(slamMinInterval, slamMaxInterval);
+            nextSlamTime = Time.time + slamAttackTime;
+        }
     }
 
     // Reaper Seer should only be able to move while not performing any kind of attack
@@ -123,6 +142,18 @@ public class ReaperSeerBossController : MonoBehaviour
         }
     }
 
+    // Deal damage and knockback if Reaper is within range of the slam attack
+    private void Slam()
+    {
+        Collider2D hitPlayer = Physics2D.OverlapCircle(slamPoint.position, slamRange, playerLayer);
+        if (hitPlayer != null)
+        {
+            hitPlayer.GetComponent<Player>().TakeDamage(slamDamage);
+            float xDirection = dist / Mathf.Abs(dist);
+            hitPlayer.GetComponent<Player>().Knockback(new Vector2(xDirection * knockBackSpeed * 2, knockBackSpeed / 2));
+        }
+    }
+
     // Called as an animation event at the end of an attack animation to ensure that the Reaper Seer can move and use other attacks
     private void ResetBoolVar()
     {
@@ -147,10 +178,13 @@ public class ReaperSeerBossController : MonoBehaviour
     // Show attack point in editor
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
+        if (attackPoint != null)
         {
-            return;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        if (slamPoint != null)
+        {
+            Gizmos.DrawWireSphere(slamPoint.position, slamRange);
+        }
     }
 }

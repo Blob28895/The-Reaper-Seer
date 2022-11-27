@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public float invicibleTime = 0f;
     public AudioSource takeDamage;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(staticVariables.currHealth);
         takeDamage = GetComponentsInChildren<AudioSource>()[1];
+        rb = GetComponent<Rigidbody2D>();
     }
 	public void Update()
 	{
@@ -71,6 +73,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Knockback(Vector2 velocity)
+    {
+        if (enabled)
+        {
+            //StartCoroutine(ApplyKnockback(velocity));
+            rb.velocity = new Vector2(rb.velocity.x + velocity.x, rb.velocity.y + velocity.y);
+        }
+    }
+
     // Function that plays the dying animation and disables the player when they run out of health
     private void Die()
     {
@@ -105,5 +116,12 @@ public class Player : MonoBehaviour
         Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
         yield return new WaitForSeconds(duration);
         Gamepad.current.SetMotorSpeeds(0f, 0f);
+    }
+
+    private IEnumerator ApplyKnockback(Vector2 velocity)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, velocity.y);
+        yield return new WaitForSeconds(0.1f);
+        rb.velocity = new Vector2(velocity.x, rb.velocity.y);
     }
 }
