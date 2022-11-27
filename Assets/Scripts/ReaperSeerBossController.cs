@@ -65,6 +65,20 @@ public class ReaperSeerBossController : MonoBehaviour
             animator.SetBool("Moving", true);
             MoveTowards();
         }
+        // The Reaper Seer will start attacking once the Reaper is in range
+        else if (PlayerInRange() && CanMove())
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
+            if (Time.time >= nextAttackTime)
+            {
+                //Debug.Log("Attacking!");
+                int index = Random.Range(0, 2);
+                //Attack();
+                animator.SetBool(meleeAnimations[index], true);
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
+        }
         else
         {
             animator.SetBool("Moving", false);
