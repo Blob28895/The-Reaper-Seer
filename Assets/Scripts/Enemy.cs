@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     private float slowMult = 1f;
     private float slowTime = 0f;
+
+    private AudioSource deathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         killTracker = GameObject.FindGameObjectWithTag("Player").GetComponent<KillTracker>();
         killTracker.AddNewEnemy(gameObject);
+        deathSound = GetComponentsInChildren<AudioSource>()[0];
     }
     public int getCurrentHealth()
 	{
@@ -63,6 +66,7 @@ public class Enemy : MonoBehaviour
         }
         // Death animation goes here
         animator.SetBool("Dead", true);
+        deathSound.Play();
         //Count them as dead in the counter
         killTracker.KilledEnemy(gameObject);
         // Disable the enemy

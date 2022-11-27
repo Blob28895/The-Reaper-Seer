@@ -52,6 +52,7 @@ public class FlaskProjectile : MonoBehaviour
                 // Remove the flask object after colliding
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 animator.SetTrigger("Break");
+                GetComponent<AudioSource>().Play();
                 // float time = animator.GetCurrentAnimatorClipInfo(0).Length;
                 Destroy(gameObject, 0.75f);
             }

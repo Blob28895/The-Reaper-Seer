@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject gameOver;
+    public GameObject controls;
+    private PauseGamepadKeyboardNavigation nav;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameIsPaused = false;
+        nav = GetComponent<PauseGamepadKeyboardNavigation>();
     }
 
     // Update is called once per frame
@@ -35,7 +39,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        if (nav != null)
+        {
+            nav.ResetSelected();
+        }
         pauseMenuUI.SetActive(false);
+        controls.SetActive(false);
         Time.timeScale = 1f;
         InputSystem.ResumeHaptics();
         GameIsPaused = false;
