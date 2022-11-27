@@ -17,6 +17,8 @@ public class ReaperSeerBossController : MonoBehaviour
     public Transform target;
     private float dist;
     // Used for Reaper Seer
+    public Transform centerPivot;
+    private Rigidbody2D rb;
     private bool facingRight = false;
     private Animator animator;
     private int maxHealth;
@@ -28,6 +30,7 @@ public class ReaperSeerBossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boss = GetComponent<Boss>();
         maxHealth = boss.maxHealth;
@@ -46,21 +49,33 @@ public class ReaperSeerBossController : MonoBehaviour
             slowMult = 1f;
         }
         health = boss.getCurrentHealth();
-        dist = target.position.x - transform.position.x;
-        if (dist > 1f && !facingRight)
+        dist = target.position.x - centerPivot.position.x;
+        // Offset added since Reaper Seer's x changes when he flips
+        if (dist > 0 && !facingRight)
         {
             Flip();
         }
-        else if (dist < -1f && facingRight)
+        else if (dist < 0 && facingRight)
         {
             Flip();
+        }
+        // Move towards the Reaper while he's not in range
+        if (CanMove() && !PlayerInRange())
+        {
+            animator.SetBool("Moving", true);
+            MoveTowards();
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
         }
     }
 
     // Reaper Seer should only be able to move while not performing any kind of attack
     private bool CanMove()
     {
-        return true;
+        return !animator.GetBool("Melee1") && !animator.GetBool("Melee2") && !animator.GetBool("Slam");
     }
 
     // Detects whether the Reaper is in range or not to allow the Reaper Seer to perform melee attacks
@@ -73,7 +88,15 @@ public class ReaperSeerBossController : MonoBehaviour
     // Move towards the Reaper
     private void MoveTowards()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
+        float xDirection = dist / Mathf.Abs(dist);
+        // transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), speed * slowMult * Time.deltaTime);
+        rb.velocity = new Vector2(xDirection * speed * slowMult, rb.velocity.y);
+    }
+
+    // Set velocity to 0 so that the Reaper Seer doesn't just slide when he stops moving towards the Reaper
+    private void StopMoving()
+    {
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     // Deal damage to the Reaper if the attack hits him
@@ -93,7 +116,7 @@ public class ReaperSeerBossController : MonoBehaviour
         animator.SetBool("Melee1", false);
         animator.SetBool("Melee2", false);
         animator.SetBool("Slam", false);
-
+        animator.SetBool("TryGrab", false);
     }
 
     // Flip the Reaper Seer so that he faces the Reaper at all times
