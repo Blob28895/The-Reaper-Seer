@@ -16,7 +16,8 @@ public class ReaperSeerBossController : MonoBehaviour
     // Used for slam attack
     public int slamDamage = 2;
     public float slamRange = 1.5f;
-    public float knockBackSpeed = 30f;
+    public float knockBackForce = 15f;
+    public float knockBackDuration = 0.2f;
     public Transform slamPoint;
     public float slamMinInterval = 6f;
     public float slamMaxInterval = 11f;
@@ -52,6 +53,11 @@ public class ReaperSeerBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.K))
+        {
+            float xDirection = dist / Mathf.Abs(dist);
+            target.GetComponent<Player>().Knockback(new Vector2(xDirection * knockBackForce, knockBackForce / 2), knockBackDuration);
+        }*/
         slowMult = boss.getSlowMult();
         slowTime = boss.getSlowTime();
         if (Time.time >= slowTime && slowMult != 1f)
@@ -75,33 +81,30 @@ public class ReaperSeerBossController : MonoBehaviour
             animator.SetBool("Moving", true);
             MoveTowards();
         }
-        // The Reaper Seer will start attacking once the Reaper is in range
-        else if (PlayerInRange() && CanMove())
-        {
-            animator.SetBool("Moving", false);
-            StopMoving();
-            if (Time.time >= nextAttackTime)
-            {
-                //Debug.Log("Attacking!");
-                int index = Random.Range(0, 2);
-                //Attack();
-                animator.SetBool(meleeAnimations[index], true);
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-            StopMoving();
-        }
         // Slam attack
-        if (Time.time >= nextSlamTime && CanMove())
+        else if (Time.time >= nextSlamTime && CanMove() && PlayerInRange())
         {
             animator.SetBool("Moving", false);
             StopMoving();
             animator.SetBool("Slam", true);
             float slamAttackTime = Random.Range(slamMinInterval, slamMaxInterval);
             nextSlamTime = Time.time + slamAttackTime;
+        }
+        // The Reaper Seer will start attacking once the Reaper is in range
+        else if (Time.time >= nextAttackTime && CanMove() && PlayerInRange())
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
+            //Debug.Log("Attacking!");
+            int index = Random.Range(0, 2);
+            //Attack();
+            animator.SetBool(meleeAnimations[index], true);
+            nextAttackTime = Time.time + 1f / attackRate;          
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
         }
     }
 
@@ -150,7 +153,7 @@ public class ReaperSeerBossController : MonoBehaviour
         {
             hitPlayer.GetComponent<Player>().TakeDamage(slamDamage);
             float xDirection = dist / Mathf.Abs(dist);
-            hitPlayer.GetComponent<Player>().Knockback(new Vector2(xDirection * knockBackSpeed * 2, knockBackSpeed / 2));
+            hitPlayer.GetComponent<Player>().Knockback(new Vector2(xDirection * knockBackForce, knockBackForce / 2), knockBackDuration);
         }
     }
 

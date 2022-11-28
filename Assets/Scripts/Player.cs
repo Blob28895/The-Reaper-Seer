@@ -21,38 +21,35 @@ public class Player : MonoBehaviour
         takeDamage = GetComponentsInChildren<AudioSource>()[1];
         rb = GetComponent<Rigidbody2D>();
     }
-	public void Update()
-	{
-		/*if(Input.GetKeyDown("h"))
-		{
-            TakeDamage(1);
-		}*/
-	}
+    public void FixedUpdate()
+    {
+
+    }
     public void invincibility()
     {
         invicibleTime = Time.time + 0.5f;
     }
     public float getInvincibleTime()
-	{
+    {
         return invicibleTime;
-	}
+    }
     public void Heal(int heal)
-	{
-        if(enabled)
-		{
-            if(staticVariables.currHealth + heal <= maxHealth)
-			{
+    {
+        if (enabled)
+        {
+            if (staticVariables.currHealth + heal <= maxHealth)
+            {
                 staticVariables.currHealth += heal;
             }
             else
-			{
+            {
                 staticVariables.currHealth = maxHealth;
-			}
+            }
             healthBar.SetHealth(staticVariables.currHealth);
-		}
-	}
-	// Function that applies damage to the player
-	public void TakeDamage(int damage)
+        }
+    }
+    // Function that applies damage to the player
+    public void TakeDamage(int damage)
     {
         if (enabled && Time.time >= invicibleTime)
         {
@@ -73,12 +70,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Knockback(Vector2 velocity)
+    public void Knockback(Vector2 force, float time)
     {
         if (enabled)
         {
-            //StartCoroutine(ApplyKnockback(velocity));
-            rb.velocity = new Vector2(rb.velocity.x + velocity.x, rb.velocity.y + velocity.y);
+            StartCoroutine(ApplyKnockback(force, time));
         }
     }
 
@@ -118,10 +114,14 @@ public class Player : MonoBehaviour
         Gamepad.current.SetMotorSpeeds(0f, 0f);
     }
 
-    private IEnumerator ApplyKnockback(Vector2 velocity)
+    private IEnumerator ApplyKnockback(Vector2 force, float time)
     {
-        rb.velocity = new Vector2(rb.velocity.x, velocity.y);
-        yield return new WaitForSeconds(0.1f);
-        rb.velocity = new Vector2(velocity.x, rb.velocity.y);
+        float knockBackDuration = Time.time + time;
+        while (Time.time <= knockBackDuration)
+        {
+            rb.velocity = force;
+            yield return null;
+        }
+        rb.velocity = new Vector2(force.x, 0);
     }
 }
