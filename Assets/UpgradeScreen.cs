@@ -27,5 +27,24 @@ public class UpgradeScreen : MonoBehaviour
         staticVariables.heavyAtkEnabled = true;
         StartCoroutine(button.TransitionScene());
     }
+    public void SharpBlade()
+	{
+        staticVariables.damageMultiplier = 1.3f;
+        StartCoroutine(button.TransitionScene());
+    }
+    public void GoodDefense()
+	{
+        Player.maxHealth += 3;
+        StartCoroutine(button.TransitionScene());
+    }
+    public void BurstsOfSpeed()
+	{
+        staticVariables.dashDistanceMult = 1.4f;
+        StartCoroutine(button.TransitionScene());
+    }
+    public void HealPlayer()
+	{
+        staticVariables.currHealth = Player.maxHealth;
+	}
 
 }

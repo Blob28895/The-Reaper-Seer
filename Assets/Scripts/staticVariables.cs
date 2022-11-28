@@ -18,6 +18,7 @@ public class staticVariables : MonoBehaviour
 	public static float movementMultiplier = 1f;
 	public static bool heavyAtkEnabled = false;
 	public static bool moveSpeedEnabled = false;
+	public static float dashDistanceMult = 1f;
 	//enemy slow
 	public static float enemySlowMult = 0.6f;
 	public static float enemySlowTime = 2f;
