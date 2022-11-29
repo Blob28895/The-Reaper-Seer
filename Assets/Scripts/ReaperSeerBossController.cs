@@ -215,6 +215,7 @@ public class ReaperSeerBossController : MonoBehaviour
         }
     }
 
+    // This is also what lifts the Reaper up as the claw is raised
     private void UpdateClawPosition(float y)
     {
         clawPosition.localPosition = new Vector3(clawPosition.localPosition.x, y);
