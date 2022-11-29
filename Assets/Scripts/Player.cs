@@ -78,6 +78,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Immobolize(float duration)
+    {
+        if (enabled)
+        {
+            StartCoroutine(ApplyImmobilization(duration));
+        }
+    }
+
     // Function that plays the dying animation and disables the player when they run out of health
     private void Die()
     {
@@ -123,5 +131,23 @@ public class Player : MonoBehaviour
             yield return null;
         }
         rb.velocity = new Vector2(force.x, 0);
+    }
+    private IEnumerator ApplyImmobilization(float duration)
+    {
+        // Get character controller, player combat, and light attack components to disable moving, dashing, and attacks while immobilized
+        CharacterController2D cc = GetComponent<CharacterController2D>();
+        cc.setImmobilization(true);
+        PlayerCombat pc = GetComponent<PlayerCombat>();
+        pc.SetNextAttack(duration * 2);
+        lightAttack la = GetComponent<lightAttack>();
+        la.SetNextCombo(duration * 2);
+        // Set velocity and freeze rigid body to prevent player movement
+        rb.velocity = new Vector2(0, 0);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(duration);
+        // After the duration passes, unfreeze rigid body and allow moving, dashing, and attacking again
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        cc.setImmobilization(false);
     }
 }

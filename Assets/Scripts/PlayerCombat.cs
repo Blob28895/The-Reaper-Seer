@@ -38,6 +38,10 @@ public class PlayerCombat : MonoBehaviour
 	{
 		return inCombo;
 	}
+	public void SetNextAttack(float val)
+	{
+		nextAttackTime = Time.time + val;
+	}
 	public void UpdateAnimClipTimes()
 	{
 		AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;

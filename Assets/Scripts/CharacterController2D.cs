@@ -27,6 +27,7 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 targetVelocity;
 	private Player player;
 	private AudioSource dashSound;
+	private bool immobilized = false;
 	//public RaycastHit2D hit;
 
 	// Variables for dash effect
@@ -55,6 +56,10 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
+	public void setImmobilization(bool val)
+    {
+		immobilized = val;
+    }
 	public Vector3 getVelocity()
 	{
 		return targetVelocity;
@@ -113,152 +118,159 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
+		if (!immobilized)
 		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+			// If crouching, check to see if the character can stand up
+			if (!crouch)
 			{
-				crouch = true;
-			}
-		}
-
-		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
-		{
-
-			// If crouching
-			if (crouch)
-			{
-				if (!m_wasCrouching)
+				// If the character has a ceiling preventing them from standing up, keep them crouching
+				if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
 				{
-					m_wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
-				}
-
-				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
-
-				// Disable one of the colliders when crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = false;
-			} else
-			{
-				// Enable the collider when not crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = true;
-
-				if (m_wasCrouching)
-				{
-					m_wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
+					crouch = true;
 				}
 			}
 
-			// Move the character by finding the target velocity
-			targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			//only control the player if grounded or airControl is turned on
+			if (m_Grounded || m_AirControl)
+			{
 
-			// If the input is moving the player right and the player is facing left...
-			if (move > 0 && !m_FacingRight)
-			{
-				// ... flip the player.
-				Flip();
+				// If crouching
+				if (crouch)
+				{
+					if (!m_wasCrouching)
+					{
+						m_wasCrouching = true;
+						OnCrouchEvent.Invoke(true);
+					}
+
+					// Reduce the speed by the crouchSpeed multiplier
+					move *= m_CrouchSpeed;
+
+					// Disable one of the colliders when crouching
+					if (m_CrouchDisableCollider != null)
+						m_CrouchDisableCollider.enabled = false;
+				}
+				else
+				{
+					// Enable the collider when not crouching
+					if (m_CrouchDisableCollider != null)
+						m_CrouchDisableCollider.enabled = true;
+
+					if (m_wasCrouching)
+					{
+						m_wasCrouching = false;
+						OnCrouchEvent.Invoke(false);
+					}
+				}
+
+				// Move the character by finding the target velocity
+				targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+				// And then smoothing it out and applying it to the character
+				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+				// If the input is moving the player right and the player is facing left...
+				if (move > 0 && !m_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
+				// Otherwise if the input is moving the player left and the player is facing right...
+				else if (move < 0 && m_FacingRight)
+				{
+					// ... flip the player.
+					Flip();
+				}
 			}
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if (move < 0 && m_FacingRight)
+			// If the player should jump...
+			if (m_Grounded && jump)
 			{
-				// ... flip the player.
-				Flip();
+				// Add a vertical force to the player.
+				m_Grounded = false;
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			}
-		}
-		// If the player should jump...
-		if (m_Grounded && jump)
-		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 	}
 
 	public void dodge(Vector3 direction)
 	{
-		RaycastHit2D boxCastHit;
-		beforeDash = transform.position;
-		Vector3 rayStart = BoxCollider.bounds.center;
-		Vector2 boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y);
-		// Need to retrieve an offset and potentially change the boxray shape before performing the boxcast
-		// Right
-		if (direction.x > 0)
-        {
-			rayStart.x += BoxCollider.bounds.extents.x - 0.1f;
-        }
-		// Left
-		else if (direction.x < 0)
-        {
-			rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
-		}
-		// Down
-		if (direction.y < 0)
+		if (!immobilized)
 		{
-			rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
-		}
-		// Upward Diagonal to allow Reaper to dash up the stairs
-		if (direction.x != 0 && direction.y > 0)
-        {
-			boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
-        }
-
-		direction *= m_dashDistance;
-		boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance, m_GroundNoPlatform);
-		Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
-		Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
-		Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3 (0, -1 * boxShape.y));
-
-		// To deal damage to enemies if the Reaper has the dash damage upgrade
-		if (staticVariables.dashDamage)
-		{
-			List<Enemy> enemyObjects = new List<Enemy>();
-			RaycastHit2D[] hitsEnemy;
-			hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatisEnemy);
-			foreach(RaycastHit2D enemy in hitsEnemy)
+			RaycastHit2D boxCastHit;
+			beforeDash = transform.position;
+			Vector3 rayStart = BoxCollider.bounds.center;
+			Vector2 boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y);
+			// Need to retrieve an offset and potentially change the boxray shape before performing the boxcast
+			// Right
+			if (direction.x > 0)
 			{
-				if(!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()) && enemy.collider.gameObject.GetComponent<Enemy>() != null)
+				rayStart.x += BoxCollider.bounds.extents.x - 0.1f;
+			}
+			// Left
+			else if (direction.x < 0)
+			{
+				rayStart.x -= BoxCollider.bounds.extents.x - 0.1f;
+			}
+			// Down
+			if (direction.y < 0)
+			{
+				rayStart.y -= BoxCollider.bounds.extents.y + CircleCollider.radius - 0.45f;
+			}
+			// Upward Diagonal to allow Reaper to dash up the stairs
+			if (direction.x != 0 && direction.y > 0)
+			{
+				boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
+			}
+
+			direction *= m_dashDistance;
+			boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance, m_GroundNoPlatform);
+			Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
+			Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
+			Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3(0, -1 * boxShape.y));
+
+			// To deal damage to enemies if the Reaper has the dash damage upgrade
+			if (staticVariables.dashDamage)
+			{
+				List<Enemy> enemyObjects = new List<Enemy>();
+				RaycastHit2D[] hitsEnemy;
+				hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatisEnemy);
+				foreach (RaycastHit2D enemy in hitsEnemy)
 				{
-					enemyObjects.Add(enemy.collider.gameObject.GetComponent<Enemy>());
+					if (!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()) && enemy.collider.gameObject.GetComponent<Enemy>() != null)
+					{
+						enemyObjects.Add(enemy.collider.gameObject.GetComponent<Enemy>());
+					}
+					else if (enemy.collider.gameObject.GetComponent<Boss>() != null)
+					{
+						enemy.collider.gameObject.GetComponent<Boss>().TakeDamage((int)(staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
+						enemy.collider.gameObject.GetComponent<Boss>().Slow();
+					}
 				}
-				else if(enemy.collider.gameObject.GetComponent<Boss>() != null)
+				foreach (Enemy enemy in enemyObjects)
 				{
-					enemy.collider.gameObject.GetComponent<Boss>().TakeDamage((int)(staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
-					enemy.collider.gameObject.GetComponent<Boss>().Slow();
+					enemy.TakeDamage((int)(staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
+					enemy.Slow();
 				}
 			}
-			foreach(Enemy enemy in enemyObjects)
-			{
-				enemy.TakeDamage((int) (staticVariables.baseDamage * staticVariables.damageMultiplier * 0.5f));
-				enemy.Slow();
-			}
-		}
 
-		Debug.Log(boxCastHit.distance);
-		// If the box ray didn't hit anything, move Reaper to the full dash distance
-		if (boxCastHit.distance == 0)
-        {
-			m_Rigidbody2D.transform.position += direction;
-		}
-		// If the box ray hit something, move the Reaper only to the point where the ray hit
-		else if (boxCastHit.distance > 0.1f)
-        {
-			direction /= m_dashDistance;
-			m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
-        }
-		// If the dash moved the player, then grant invincibility and play the dash effect
-		if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
-		{
-			player.invincibility();
-			dashSound.Play();
-			DashEffect(direction);
+			Debug.Log(boxCastHit.distance);
+			// If the box ray didn't hit anything, move Reaper to the full dash distance
+			if (boxCastHit.distance == 0)
+			{
+				m_Rigidbody2D.transform.position += direction;
+			}
+			// If the box ray hit something, move the Reaper only to the point where the ray hit
+			else if (boxCastHit.distance > 0.1f)
+			{
+				direction /= m_dashDistance;
+				m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
+			}
+			// If the dash moved the player, then grant invincibility and play the dash effect
+			if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
+			{
+				player.invincibility();
+				dashSound.Play();
+				DashEffect(direction);
+			}
 		}
 	}
 

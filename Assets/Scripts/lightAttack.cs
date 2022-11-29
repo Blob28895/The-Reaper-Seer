@@ -19,6 +19,12 @@ public class lightAttack : MonoBehaviour
     private PlayerCombat combat;
     private AudioSource audio;
     private Vector3 offset = new Vector3(0,0,0);
+
+    public void SetNextCombo(float val)
+    {
+        nextCombo = Time.time + val;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
