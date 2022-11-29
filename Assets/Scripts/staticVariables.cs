@@ -11,6 +11,7 @@ public class staticVariables : MonoBehaviour
 	public static int currSouls = 0;
 	public static float lightDamage = 34f;
 	public static float heavyDamage = 100f;
+	public static int totalKills = 0;
 	//upgrades
 	public static float damageMultiplier = 1f;
 	public static int extraHealth = 0;

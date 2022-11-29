@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KillTracker : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class KillTracker : MonoBehaviour
     public GameObject Keycard;
     public SoulBar souls;
     private Player player;
+    public TextMeshProUGUI textDisplay;
+    public string[] sentences;
+    private int index;
+    public float typingSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +21,7 @@ public class KillTracker : MonoBehaviour
         souls.SetMax(staticVariables.maxSouls);
         souls.SetCurrent(staticVariables.currSouls);
         player = GetComponent<Player>();
+        StartCoroutine(Type());
     }
 
     // Retrieves the list of enemies for use in other scripts
@@ -29,27 +35,36 @@ public class KillTracker : MonoBehaviour
         if (listOfEnemys.Contains(Enemy))
         {
             //Debug.Log("Enemy died");
+            staticVariables.totalKills++;
+            if (staticVariables.totalKills == 1)
+            {
+                NextSentence();
+            }
+            if (staticVariables.totalKills == 2)
+            {
+                NextSentence();
+            }
             if (staticVariables.currSouls < staticVariables.maxSouls)
             {
                 staticVariables.currSouls += 1;
             }
-            if(staticVariables.currSouls >= staticVariables.maxSouls){
+            if (staticVariables.currSouls >= staticVariables.maxSouls) {
                 staticVariables.currSouls -= staticVariables.maxSouls;
                 player.Heal(1);
-                
-			}
+
+            }
             //Debug.Log(staticVariables.currSouls);
             souls.SetCurrent(staticVariables.currSouls);
             listOfEnemys.Remove(Enemy);
             int chance = Random.Range(0, listOfEnemys.Count);
-            if(chance == 0)
-			{
+            if (chance == 0)
+            {
                 Keycard.SetActive(true);
-			}
+            }
         }
         AreOpponentsDead();
         //print(listOfEnemys.Count);
-	}
+    }
     public bool AreOpponentsDead()
     {
         if (listOfEnemys.Count <= 0)
@@ -78,5 +93,23 @@ public class KillTracker : MonoBehaviour
         }
         // Function will continue here if the enemy is not in the list yet
         listOfEnemys.Add(newEnemy);
+    }
+
+    IEnumerator Type()
+    {
+        foreach(char letter in sentences[index].ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+    public void NextSentence()
+    {
+        if (index < sentences.Length - 1)
+        {
+            index++;
+            textDisplay.text = "";
+            StartCoroutine(Type());
+        }
     }
 }
