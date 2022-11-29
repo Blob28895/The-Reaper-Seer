@@ -221,23 +221,18 @@ public class CharacterController2D : MonoBehaviour
 				boxShape = new Vector2(0.1f, BoxCollider.bounds.size.y / 1.2f);
 			}
 
-		direction *= m_dashDistance * staticVariables.dashDistanceMult;
-		boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance * staticVariables.dashDistanceMult, m_GroundNoPlatform);
-		Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
-		Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
-		Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3 (0, -1 * boxShape.y));
+			direction *= m_dashDistance * staticVariables.dashDistanceMult;
+			boxCastHit = Physics2D.BoxCast(rayStart, boxShape, 0, direction, m_dashDistance * staticVariables.dashDistanceMult, m_GroundNoPlatform);
+			Debug.DrawRay(rayStart + new Vector3(0, boxShape.y / 2), direction);
+			Debug.DrawRay(rayStart - new Vector3(0, boxShape.y / 2), direction);
+			Debug.DrawRay(rayStart + direction + new Vector3(0, boxShape.y / 2), new Vector3(0, -1 * boxShape.y));
 
-		// To deal damage to enemies if the Reaper has the dash damage upgrade
-		if (staticVariables.dashDamage)
-		{
-			List<Enemy> enemyObjects = new List<Enemy>();
-			RaycastHit2D[] hitsEnemy;
-			hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance * staticVariables.dashDistanceMult, m_WhatisEnemy);
-			foreach(RaycastHit2D enemy in hitsEnemy)
+			// To deal damage to enemies if the Reaper has the dash damage upgrade
+			if (staticVariables.dashDamage)
 			{
 				List<Enemy> enemyObjects = new List<Enemy>();
 				RaycastHit2D[] hitsEnemy;
-				hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance, m_WhatisEnemy);
+				hitsEnemy = Physics2D.RaycastAll(m_Rigidbody2D.position, direction, m_dashDistance * staticVariables.dashDistanceMult, m_WhatisEnemy);
 				foreach (RaycastHit2D enemy in hitsEnemy)
 				{
 					if (!enemyObjects.Contains(enemy.collider.gameObject.GetComponent<Enemy>()) && enemy.collider.gameObject.GetComponent<Enemy>() != null)
@@ -266,7 +261,7 @@ public class CharacterController2D : MonoBehaviour
 			// If the box ray hit something, move the Reaper only to the point where the ray hit
 			else if (boxCastHit.distance > 0.1f)
 			{
-				direction /= m_dashDistance;
+				direction /= m_dashDistance * staticVariables.dashDistanceMult;
 				m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
 			}
 			// If the dash moved the player, then grant invincibility and play the dash effect
@@ -276,26 +271,6 @@ public class CharacterController2D : MonoBehaviour
 				dashSound.Play();
 				DashEffect(direction);
 			}
-		}
-
-		Debug.Log(boxCastHit.distance);
-		// If the box ray didn't hit anything, move Reaper to the full dash distance
-		if (boxCastHit.distance == 0)
-        {
-			m_Rigidbody2D.transform.position += direction;
-		}
-		// If the box ray hit something, move the Reaper only to the point where the ray hit
-		else if (boxCastHit.distance > 0.1f)
-        {
-			direction /= m_dashDistance * staticVariables.dashDistanceMult;
-			m_Rigidbody2D.transform.position += direction * boxCastHit.distance;
-        }
-		// If the dash moved the player, then grant invincibility and play the dash effect
-		if ((m_Rigidbody2D.transform.position - beforeDash).magnitude > 0.1f)
-		{
-			player.invincibility();
-			dashSound.Play();
-			DashEffect(direction);
 		}
 	}
 
