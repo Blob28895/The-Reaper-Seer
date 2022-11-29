@@ -14,8 +14,9 @@ public class GameHandler : MonoBehaviour
     // Function to end the game when the Reaper reaches 0 hp
     public void GameOver()
     {
-        gameoverUI.SetActive(true);
+        //gameoverUI.SetActive(true);
         Debug.Log("Game Over Screen");
+        StartCoroutine(GameOverRoutine());
 
         // Restart goes here
         //StartCoroutine(RestartRoutine());
@@ -33,5 +34,11 @@ public class GameHandler : MonoBehaviour
         staticVariables.currHealth = Player.maxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Scene Reloaded!");
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        yield return new WaitForSeconds(inputDelay);
+        gameoverUI.SetActive(true);
     }
 }
