@@ -22,6 +22,8 @@ public class HOSBossController : MonoBehaviour
     public float smashMaxInterval = 13f;
     public float smashAttackPenalty = 2f;
     public Shockwave shockwaveObject;
+    public GameObject building;
+    private Parallax parallax;
     private float nextSmashTime;
 
     // Call reinforcements
@@ -58,6 +60,7 @@ public class HOSBossController : MonoBehaviour
         shakeObj = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
         enemyCaller = GetComponent<CallEnemy>();
         slamSound = GetComponentsInChildren<AudioSource>()[0];
+        parallax = building.GetComponent<Parallax>();
 
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
@@ -200,13 +203,13 @@ public class HOSBossController : MonoBehaviour
         //Debug.Log("Smash Attack!");
         // Add a major attackRate cooldown and movement cooldown
         nextAttackTime = Time.time + smashAttackPenalty;
-
+        StartCoroutine(StopElevator());
         //Don't uncomment this: GetComponent<ScreenShake>().Shake();
         // Check to see if a shake component in the camera is present, so that if for whatever reason if it's not, the game will
         // continue running
         if (shakeObj != null)
         {
-            shakeObj.Shake();
+            //shakeObj.Shake();
         } 
         if (elevatorLight != null)
         {
@@ -260,6 +263,14 @@ public class HOSBossController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private IEnumerator StopElevator()
+    {
+        Debug.Log("Stopping Elevator");
+        StartCoroutine(parallax.moveToStop());
+        yield return new WaitForSeconds(0.8f);
+        parallax.setMoving(true);
     }
 
     // Show attack point in editor
