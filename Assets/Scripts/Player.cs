@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public float invicibleTime = 0f;
     public AudioSource takeDamage;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,39 +19,37 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(staticVariables.currHealth);
         takeDamage = GetComponentsInChildren<AudioSource>()[1];
+        rb = GetComponent<Rigidbody2D>();
     }
-	public void Update()
-	{
-		/*if(Input.GetKeyDown("h"))
-		{
-            TakeDamage(1);
-		}*/
-	}
+    public void FixedUpdate()
+    {
+
+    }
     public void invincibility()
     {
         invicibleTime = Time.time + 0.5f;
     }
     public float getInvincibleTime()
-	{
+    {
         return invicibleTime;
-	}
+    }
     public void Heal(int heal)
-	{
-        if(enabled)
-		{
-            if(staticVariables.currHealth + heal <= maxHealth)
-			{
+    {
+        if (enabled)
+        {
+            if (staticVariables.currHealth + heal <= maxHealth)
+            {
                 staticVariables.currHealth += heal;
             }
             else
-			{
+            {
                 staticVariables.currHealth = maxHealth;
-			}
+            }
             healthBar.SetHealth(staticVariables.currHealth);
-		}
-	}
-	// Function that applies damage to the player
-	public void TakeDamage(int damage)
+        }
+    }
+    // Function that applies damage to the player
+    public void TakeDamage(int damage)
     {
         if (enabled && Time.time >= invicibleTime)
         {
@@ -68,6 +67,22 @@ public class Player : MonoBehaviour
             {
                 Die();
             }
+        }
+    }
+
+    public void Knockback(Vector2 force, float time)
+    {
+        if (enabled)
+        {
+            StartCoroutine(ApplyKnockback(force, time));
+        }
+    }
+
+    public void Immobolize(float duration)
+    {
+        if (enabled)
+        {
+            StartCoroutine(ApplyImmobilization(duration));
         }
     }
 
@@ -105,5 +120,34 @@ public class Player : MonoBehaviour
         Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
         yield return new WaitForSeconds(duration);
         Gamepad.current.SetMotorSpeeds(0f, 0f);
+    }
+
+    private IEnumerator ApplyKnockback(Vector2 force, float time)
+    {
+        float knockBackDuration = Time.time + time;
+        while (Time.time <= knockBackDuration)
+        {
+            rb.velocity = force;
+            yield return null;
+        }
+        rb.velocity = new Vector2(force.x, 0);
+    }
+    private IEnumerator ApplyImmobilization(float duration)
+    {
+        // Get character controller, player combat, and light attack components to disable moving, dashing, and attacks while immobilized
+        CharacterController2D cc = GetComponent<CharacterController2D>();
+        cc.setImmobilization(true);
+        PlayerCombat pc = GetComponent<PlayerCombat>();
+        pc.SetNextAttack(duration * 2);
+        lightAttack la = GetComponent<lightAttack>();
+        la.SetNextCombo(duration * 2);
+        // Set velocity and freeze rigid body to prevent player movement
+        rb.velocity = new Vector2(0, 0);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(duration);
+        // After the duration passes, unfreeze rigid body and allow moving, dashing, and attacking again
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        cc.setImmobilization(false);
     }
 }
