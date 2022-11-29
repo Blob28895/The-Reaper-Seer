@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
     public Transform target;
+    public float deathTime = 3f;
     private bool show = false;
     ElevatorButton button;
 	private void Start()
@@ -26,7 +27,7 @@ public class WinCondition : MonoBehaviour
     }
     IEnumerator WinScreen()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(deathTime);
         // Moves the win screen to the Reaper's location
         //transform.position = target.position;
         // Enables the Sprite renderer to have the win screen appear

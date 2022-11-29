@@ -36,7 +36,17 @@ public class Dialogue : MonoBehaviour
         fadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         staticVariables.currHealth = Player.maxHealth;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(SceneManager.GetActiveScene().name != "ConclusionDialogue")
+		{
+            Debug.Log("Normal Transition");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+		{
+            Debug.Log("special transition");
+            SceneManager.LoadScene(1);
+		}
+        
     }
 
     public void NextSentence()
