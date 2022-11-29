@@ -209,7 +209,7 @@ public class HOSBossController : MonoBehaviour
         // continue running
         if (shakeObj != null)
         {
-            shakeObj.Shake();
+            //shakeObj.Shake();
         } 
         if (elevatorLight != null)
         {

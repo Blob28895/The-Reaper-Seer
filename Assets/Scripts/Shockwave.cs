@@ -13,12 +13,14 @@ public class Shockwave : MonoBehaviour
     private float leftInitRumble;
     private float rightInitRumble;
     private GameObject targetWall;
+    private ScreenShake screenShake;
     private float wallPosition;
     private float totalDistance;
 
     // Start is called before the first frame update
     void Start()
     {
+        screenShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
         transform.localScale = new Vector2(direction, transform.localScale.y);
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(speed * direction, 0));
@@ -53,6 +55,10 @@ public class Shockwave : MonoBehaviour
             //Debug.Log(distancePercent);
             float leftRumble = leftInitRumble * distancePercent;
             float rightRumble = rightInitRumble * distancePercent;
+            if (screenShake != null)
+            {
+                screenShake.ShockwaveShake(0.6f * distancePercent);
+            }
             if (!PauseMenu.GameIsPaused)
             {
                 Gamepad.current.SetMotorSpeeds(leftRumble, rightRumble);
