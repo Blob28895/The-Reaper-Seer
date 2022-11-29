@@ -81,7 +81,7 @@ public class lightAttack : MonoBehaviour
     {
         if (Gamepad.current != null)
         {
-            StartCoroutine(SwingRumble(0.1f));
+            StartCoroutine(LightSwingRumble(0.1f));
         }
         List<GameObject> enemyObjects = new List<GameObject>();
         //Detect enemies in range of attack
@@ -109,7 +109,7 @@ public class lightAttack : MonoBehaviour
         }
     }
 
-    private IEnumerator SwingRumble(float duration)
+    private IEnumerator LightSwingRumble(float duration)
     {
         Gamepad.current.SetMotorSpeeds(0.05f, 0.1f);
         yield return new WaitForSeconds(duration);

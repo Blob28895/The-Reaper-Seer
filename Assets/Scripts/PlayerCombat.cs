@@ -221,7 +221,7 @@ public class PlayerCombat : MonoBehaviour
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
-	private IEnumerator SwingRumble(float duration)
+	private IEnumerator HeavySwingRumble(float duration)
 	{
 		if (Gamepad.current != null)
 		{
