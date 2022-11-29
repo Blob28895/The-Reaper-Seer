@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 	// Use this to get input
 	void Update()
     {
+        animator.SetBool("Run", staticVariables.moveSpeedEnabled);
         if (PauseMenu.GameIsPaused && canJump)
         {
             StartCoroutine(WaitForButtonUp());

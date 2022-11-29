@@ -76,7 +76,7 @@ public class PlayerCombat : MonoBehaviour
 		//Debug.Log(state);
 		/*transition1Time = comboTransitionDelay;
 		transition2Time = secondTransitionDelay;*/
-		if (Time.time >= nextAttackTime && !PauseMenu.GameIsPaused)
+		if (Time.time >= nextAttackTime && !PauseMenu.GameIsPaused && staticVariables.heavyAtkEnabled)
 		{
 			if (Input.GetButtonDown("Fire3")) // if we push the fire button
 			{
@@ -205,11 +205,11 @@ public class PlayerCombat : MonoBehaviour
 			//Debug.Log("We hit " + enemy.name);
 			if (enemy.tag == "Boss")
 			{
-				enemy.GetComponent<Boss>().TakeDamage((int) (attackDamage * staticVariables.damageMultiplier));
+				enemy.GetComponent<Boss>().TakeDamage((int) (staticVariables.heavyDamage * staticVariables.damageMultiplier));
 			}
 			else
 			{
-				enemy.GetComponent<Enemy>().TakeDamage((int) (attackDamage * staticVariables.damageMultiplier));
+				enemy.GetComponent<Enemy>().TakeDamage((int) (staticVariables.heavyDamage * staticVariables.damageMultiplier));
 			}
 		}
 	}
