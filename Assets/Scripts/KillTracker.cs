@@ -11,7 +11,7 @@ public class KillTracker : MonoBehaviour
     private Player player;
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
-    private int index;
+    private int index = 0;
     public float typingSpeed;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class KillTracker : MonoBehaviour
         souls.SetMax(staticVariables.maxSouls);
         souls.SetCurrent(staticVariables.currSouls);
         player = GetComponent<Player>();
-        StartCoroutine(Type());
+        //StartCoroutine(Type());
     }
 
     // Retrieves the list of enemies for use in other scripts
@@ -97,6 +97,7 @@ public class KillTracker : MonoBehaviour
 
     IEnumerator Type()
     {
+        //Debug.Log(sentences[index]);
         foreach(char letter in sentences[index].ToCharArray())
         {
             textDisplay.text += letter;
@@ -107,9 +108,9 @@ public class KillTracker : MonoBehaviour
     {
         if (index < sentences.Length - 1)
         {
-            index++;
             textDisplay.text = "";
             StartCoroutine(Type());
+            index++;
         }
     }
 }
