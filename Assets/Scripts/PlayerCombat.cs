@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -222,5 +223,15 @@ public class PlayerCombat : MonoBehaviour
 			return;
 		}
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+	}
+
+	private IEnumerator HeavySwingRumble(float duration)
+	{
+		if (Gamepad.current != null)
+		{
+			Gamepad.current.SetMotorSpeeds(0.1f, 0.2f);
+			yield return new WaitForSeconds(duration);
+			Gamepad.current.SetMotorSpeeds(0, 0);
+		}
 	}
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class lightAttack : MonoBehaviour
 {
@@ -84,6 +85,10 @@ public class lightAttack : MonoBehaviour
     }
     public void DealLightDamage()
     {
+        if (Gamepad.current != null)
+        {
+            StartCoroutine(LightSwingRumble(0.1f));
+        }
         List<GameObject> enemyObjects = new List<GameObject>();
         //Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(combat.attackPoint.position, combat.attackRange, combat.enemyLayers);
@@ -108,5 +113,12 @@ public class lightAttack : MonoBehaviour
                 enemy.GetComponent<Enemy>().TakeDamage((int)(staticVariables.lightDamage * staticVariables.damageMultiplier));
             }
         }
+    }
+
+    private IEnumerator LightSwingRumble(float duration)
+    {
+        Gamepad.current.SetMotorSpeeds(0.05f, 0.1f);
+        yield return new WaitForSeconds(duration);
+        Gamepad.current.SetMotorSpeeds(0, 0);
     }
 }
