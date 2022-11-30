@@ -65,7 +65,7 @@ public class ReaperSeerBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(clawPosition.localPosition);
+        //Debug.Log(clawPosition.localPosition);
         /*if (Input.GetKeyDown(KeyCode.K))
         {
             float xDirection = dist / Mathf.Abs(dist);
@@ -207,10 +207,6 @@ public class ReaperSeerBossController : MonoBehaviour
             Debug.Log("Reaper has been grabbed!");
             // Immobilize the Reaper here
             grabbedPlayer.GetComponent<Player>().Immobolize(0.56f);
-        }
-        else
-        {
-            Debug.Log("Reaper has NOT been grabbed!");
         }
     }
 
