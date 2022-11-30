@@ -84,11 +84,11 @@ public class ReaperSeerBossController : MonoBehaviour
         health = boss.getCurrentHealth();
         dist = target.position.x - centerPivot.position.x;
         // Offset added since Reaper Seer's x changes when he flips
-        if (dist > 0 && !facingRight)
+        if (dist > 0.1 && !facingRight)
         {
             Flip();
         }
-        else if (dist < 0 && facingRight)
+        else if (dist < -0.1 && facingRight)
         {
             Flip();
         }
@@ -210,7 +210,6 @@ public class ReaperSeerBossController : MonoBehaviour
         }
         else
         {
-            animator.SetBool("GrabSuccessful", false);
             Debug.Log("Reaper has NOT been grabbed!");
         }
     }
