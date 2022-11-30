@@ -20,6 +20,7 @@ public class GameOverScreen : MonoBehaviour
     public void HomeButton()
     {
         staticVariables.ResetUpgrades();
+        staticVariables.ResetStatics();
         StartCoroutine(TransitionScene("Main Menu"));
         //SceneManager.LoadScene("Main Menu");
     }

@@ -63,6 +63,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         InputSystem.ResetHaptics();
         staticVariables.ResetUpgrades();
+        staticVariables.ResetStatics();
         staticVariables.currSouls = 0;
         SceneManager.LoadScene("Main Menu");
     }

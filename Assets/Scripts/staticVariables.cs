@@ -35,4 +35,10 @@ public class staticVariables : MonoBehaviour
 		moveSpeedEnabled = false;
 		dashDistanceMult = 1f;
 	}
+	public static void ResetStatics()
+	{
+		currHealth = 10;
+		currSouls = 0;
+		totalKills = 0;
+	}
 }
