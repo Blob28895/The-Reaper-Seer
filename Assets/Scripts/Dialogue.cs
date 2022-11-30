@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class Dialogue : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class Dialogue : MonoBehaviour
         else
 		{
             Debug.Log("special transition");
+            staticVariables.ResetUpgrades();
+            InputSystem.ResetHaptics();
             SceneManager.LoadScene(1);
 		}
         

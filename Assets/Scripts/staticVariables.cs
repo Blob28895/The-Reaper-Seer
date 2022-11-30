@@ -24,11 +24,15 @@ public class staticVariables : MonoBehaviour
 	public static float enemySlowMult = 0.6f;
 	public static float enemySlowTime = 2f;
 
-	public void Start()
+	public static void ResetUpgrades()
 	{
-		
-	}
-	void Update()
-	{
+		damageMultiplier = 1f;
+		extraHealth = 0;
+		Player.maxHealth = 10;
+		dashDamage = false;
+		movementMultiplier = 1f;
+		heavyAtkEnabled = false;
+		moveSpeedEnabled = false;
+		dashDistanceMult = 1f;
 	}
 }

@@ -40,10 +40,10 @@ public class KillTracker : MonoBehaviour
             {
                 NextSentence();
             }
-            if (staticVariables.totalKills == 2)
+            /*if (staticVariables.totalKills >= 2)
             {
                 NextSentence();
-            }
+            }*/
             if (staticVariables.currSouls < staticVariables.maxSouls)
             {
                 staticVariables.currSouls += 1;
@@ -103,6 +103,9 @@ public class KillTracker : MonoBehaviour
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        yield return new WaitForSeconds(3f);
+        NextSentence();
+        
     }
     public void NextSentence()
     {
