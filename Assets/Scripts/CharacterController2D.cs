@@ -252,7 +252,7 @@ public class CharacterController2D : MonoBehaviour
 				}
 			}
 
-			Debug.Log(boxCastHit.distance);
+			//Debug.Log(boxCastHit.distance);
 			// If the box ray didn't hit anything, move Reaper to the full dash distance
 			if (boxCastHit.distance == 0)
 			{
