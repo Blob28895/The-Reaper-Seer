@@ -48,8 +48,8 @@ public class Shockwave : MonoBehaviour
 
     void Update()
     {
-        // Applies rumble falloff
-        if (targetWall != null && Gamepad.current != null)
+        // Applies rumble falloff and screen shake
+        if (targetWall != null)
         {
             float distancePercent = Mathf.Abs(transform.position.x - wallPosition) / totalDistance;
             //Debug.Log(distancePercent);
@@ -59,7 +59,7 @@ public class Shockwave : MonoBehaviour
             {
                 screenShake.ShockwaveShake(0.6f * distancePercent);
             }
-            if (!PauseMenu.GameIsPaused)
+            if (!PauseMenu.GameIsPaused && Gamepad.current != null)
             {
                 Gamepad.current.SetMotorSpeeds(leftRumble, rightRumble);
             }
