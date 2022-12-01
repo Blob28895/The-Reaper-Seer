@@ -229,6 +229,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameoverUI: {fileID: 0}
   transitionTime: 1
+  textDisplay: {fileID: 0}
+  sentences:
+  - 
+  - ...wait...that's not how it went...
+  - 
+  typingSpeed: 0.02
 --- !u!1 &1704869264310970766
 GameObject:
   m_ObjectHideFlags: 0
