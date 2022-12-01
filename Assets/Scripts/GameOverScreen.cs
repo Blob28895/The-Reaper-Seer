@@ -14,9 +14,11 @@ public class GameOverScreen : MonoBehaviour
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
     private int index = 0;
-    public float typingSpeed;
+    public float typingSpeed = 0.06f;
+    private string sentence = "...wait...that's not how it went...";
 
-	public void Start()
+
+    public void Start()
 	{
         textDisplay = GameObject.FindGameObjectWithTag("MidText").GetComponent<TextMeshProUGUI>();
         
@@ -52,7 +54,7 @@ public class GameOverScreen : MonoBehaviour
         if(scene == SceneManager.GetActiveScene().name)
 		{
             Debug.Log("Restarting");
-            NextSentence();
+            StartCoroutine(Type());
             yield return new WaitForSeconds(3f);
             StartCoroutine(ReverseType());
             yield return new WaitForSeconds(3f);
@@ -66,10 +68,12 @@ public class GameOverScreen : MonoBehaviour
     IEnumerator Type()
     {
         //Debug.Log(sentences[index]);
-        foreach (char letter in sentences[index].ToCharArray())
+        //foreach (char letter in sentences[index].ToCharArray())
+
+        foreach (char letter in sentence.ToCharArray())
         {
             textDisplay.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(0.06f);
         }
         yield return new WaitForSeconds(3f);
         index = 0;
@@ -80,14 +84,17 @@ public class GameOverScreen : MonoBehaviour
         foreach (char letter in textDisplay.text.ToCharArray())
 		{
             textDisplay.text = textDisplay.text.Substring(0, textDisplay.text.Length - 1);
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(0.06f);
 		}
         yield return new WaitForSeconds(3f);
 	}
     public void NextSentence()
     {
+        Debug.Log(index);
+        Debug.Log(sentences[0]);
         if (index < sentences.Length - 1)
         {
+            Debug.Log("Made it into nextSentence if statement");
             textDisplay.text = "";
             StartCoroutine(Type());
             index++;
