@@ -46,6 +46,7 @@ public class Dialogue : MonoBehaviour
 		{
             Debug.Log("special transition");
             staticVariables.ResetUpgrades();
+            staticVariables.ResetStatics();
             InputSystem.ResetHaptics();
             SceneManager.LoadScene(1);
 		}
