@@ -16,7 +16,12 @@ public class GameOverScreen : MonoBehaviour
     private int index = 0;
     public float typingSpeed;
 
-    public void RestartButton()
+	public void Start()
+	{
+        textDisplay = GameObject.FindGameObjectWithTag("MidText").GetComponent<TextMeshProUGUI>();
+        
+	}
+	public void RestartButton()
     {
         StartCoroutine(TransitionScene(SceneManager.GetActiveScene().name));
         //staticVariables.currHealth = Player.maxHealth;
