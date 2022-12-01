@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1371354487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371354488}
+  m_Layer: 6
+  m_Name: FirePointU
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1371354488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371354487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.151, y: -0.042, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155492104949928124}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517723790
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +159,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1566465881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566465882}
+  m_Layer: 6
+  m_Name: FirePointD
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566465882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566465881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15, y: -0.125, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155492104949928124}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155492104949928114
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +227,8 @@ Transform:
   m_Children:
   - {fileID: 8048887720335285532}
   - {fileID: 1517723791}
+  - {fileID: 1371354488}
+  - {fileID: 1566465882}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccb9a95ebbe48d48b5ce84ec193d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 250
   killTracker: {fileID: 0}
 --- !u!114 &1896752249
 MonoBehaviour:
@@ -309,15 +373,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37db7e3fa44a464b876a253cb00cedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3.3
   target: {fileID: 0}
   minimumDistance: 3
   maximumDistance: 12
   animator: {fileID: 1896752248}
   bulletM: {fileID: 5655509084971642738, guid: 3c647d0708dfeaf44baa689d5c0069a5, type: 3}
-  bulletU: {fileID: 750075688591565854, guid: 7239320fad4586944a65913017bfb3c8, type: 3}
-  firepoint: {fileID: 8048887720335285532}
-  cooldown: 3
+  firepointM: {fileID: 8048887720335285532}
+  firepointU: {fileID: 1371354488}
+  firepointD: {fileID: 1566465882}
+  cooldown: 2
   range: 3.5
   colliderDistancex: 0.156
   colliderDistancey: 0.1
@@ -356,7 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8048887720335285532}
   m_Layer: 6
-  m_Name: Firepoint
+  m_Name: FirepointM
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -370,7 +435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6323875835837804540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.151, y: -0.087, z: 0}
+  m_LocalPosition: {x: 0.146, y: -0.085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -21,9 +21,10 @@ public class ShotgunController : MonoBehaviour
     private float timer;
 
     public GameObject bulletM;
-    public GameObject bulletU;
 
-    public Transform firepoint;
+    public Transform firepointM;
+    public Transform firepointU;
+    public Transform firepointD;
     public float cooldown;
     public float range;
 
@@ -142,8 +143,9 @@ public class ShotgunController : MonoBehaviour
 
     void Shoot() //Shoot() will be called as an animation event for smoother anim
     {
-        Instantiate(bulletM, firepoint.position, Quaternion.identity); 
-        Instantiate(bulletU, firepoint.position, Quaternion.identity);
+        Instantiate(bulletM, firepointM.position, Quaternion.identity); 
+        Instantiate(bulletM, firepointU.position, Quaternion.identity);
+        Instantiate(bulletM, firepointD.position, Quaternion.identity);
     }
 
     private void Move()
