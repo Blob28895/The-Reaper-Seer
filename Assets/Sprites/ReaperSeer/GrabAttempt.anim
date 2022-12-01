@@ -29,6 +29,8 @@ AnimationClip:
       value: {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
     - time: 0.93333334
       value: {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
+    - time: 1
+      value: {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,12 +56,13 @@ AnimationClip:
     - {fileID: -1936534580, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
     - {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
     - {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
+    - {fileID: -152175399, guid: 9367b17297e431d40895bf3a8c87dce0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.95
+    m_StopTime: 1.0166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,6 +83,34 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.6666667
+    functionName: ReaperGrabbed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.71666664
+    functionName: ReaperGrabbed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76666665
+    functionName: ReaperGrabbed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.81666666
+    functionName: ReaperGrabbed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8666667
     functionName: ReaperGrabbed
     data: 
     objectReferenceParameter: {fileID: 0}

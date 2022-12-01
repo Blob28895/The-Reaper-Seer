@@ -138,9 +138,9 @@ public class Player : MonoBehaviour
         CharacterController2D cc = GetComponent<CharacterController2D>();
         cc.setImmobilization(true);
         PlayerCombat pc = GetComponent<PlayerCombat>();
-        pc.SetNextAttack(duration * 2);
+        pc.SetNextAttack(duration * 1.5f);
         lightAttack la = GetComponent<lightAttack>();
-        la.SetNextCombo(duration * 2);
+        la.SetNextCombo(duration * 1.5f);
         // Set velocity and freeze rigid body to prevent player movement
         rb.velocity = new Vector2(0, 0);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -148,6 +148,7 @@ public class Player : MonoBehaviour
         // After the duration passes, unfreeze rigid body and allow moving, dashing, and attacking again
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        yield return new WaitForSeconds(duration * 0.5f);
         cc.setImmobilization(false);
     }
 }

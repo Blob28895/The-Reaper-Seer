@@ -41,8 +41,8 @@ public class ReaperSeerBossController : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = false;
     private Animator animator;
-    private int maxHealth;
-    private int health;
+    //private int maxHealth;
+    //private int health;
     private Boss boss;
     private float slowMult;
     private float slowTime;
@@ -53,7 +53,7 @@ public class ReaperSeerBossController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boss = GetComponent<Boss>();
-        maxHealth = boss.maxHealth;
+        //maxHealth = boss.maxHealth;
         // Adds names of melee animations so that we can pick randomly
         meleeAnimations.Add("Melee1");
         meleeAnimations.Add("Melee2");
@@ -65,7 +65,7 @@ public class ReaperSeerBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(clawPosition.localPosition);
+        //Debug.Log(clawPosition.localPosition);
         /*if (Input.GetKeyDown(KeyCode.K))
         {
             float xDirection = dist / Mathf.Abs(dist);
@@ -81,25 +81,19 @@ public class ReaperSeerBossController : MonoBehaviour
         {
             slowMult = 1f;
         }
-        health = boss.getCurrentHealth();
+        //health = boss.getCurrentHealth();
         dist = target.position.x - centerPivot.position.x;
-        // Offset added since Reaper Seer's x changes when he flips
-        if (dist > 0 && !facingRight)
+        if (dist > 0.25f && !facingRight)
         {
             Flip();
         }
-        else if (dist < 0 && facingRight)
+        else if (dist < -0.25f && facingRight)
         {
             Flip();
         }
-        // Move towards the Reaper while he's not in range
-        if (CanMove() && !PlayerInRange(0))
-        {
-            animator.SetBool("Moving", true);
-            MoveTowards();
-        }
+        // Priority list: Slam -> Grab -> Melee -> Don't move if close -> Move -> Don't move otherwise
         // Slam attack
-        else if (Time.time >= nextSlamTime && CanMove() && PlayerInRange(1))
+        if (Time.time >= nextSlamTime && CanMove() && PlayerInRange(1))
         {
             animator.SetBool("Moving", false);
             StopMoving();
@@ -126,6 +120,18 @@ public class ReaperSeerBossController : MonoBehaviour
             //Attack();
             animator.SetBool(meleeAnimations[index], true);
             nextAttackTime = Time.time + 1f / attackRate;    
+        }
+        // Make Reaper Seer stop moving once he's within a certain distance from the Reaper
+        else if (Mathf.Abs(dist) <= 1.5f)
+        {
+            animator.SetBool("Moving", false);
+            StopMoving();
+        }
+        // Move towards the Reaper while he's not in range
+        else if (CanMove())
+        {
+            animator.SetBool("Moving", true);
+            MoveTowards();
         }
         else
         {
@@ -206,12 +212,7 @@ public class ReaperSeerBossController : MonoBehaviour
             animator.SetBool("GrabSuccessful", true);
             Debug.Log("Reaper has been grabbed!");
             // Immobilize the Reaper here
-            grabbedPlayer.GetComponent<Player>().Immobolize(0.56f);
-        }
-        else
-        {
-            animator.SetBool("GrabSuccessful", false);
-            Debug.Log("Reaper has NOT been grabbed!");
+            grabbedPlayer.GetComponent<Player>().Immobolize(0.55f);
         }
     }
 
