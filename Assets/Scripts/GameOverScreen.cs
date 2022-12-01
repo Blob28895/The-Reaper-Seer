@@ -48,7 +48,9 @@ public class GameOverScreen : MonoBehaviour
 		{
             Debug.Log("Restarting");
             NextSentence();
-            yield return new WaitForSeconds(1.75f);
+            yield return new WaitForSeconds(3f);
+            StartCoroutine(ReverseType());
+            yield return new WaitForSeconds(3f);
 		}
         staticVariables.currHealth = Player.maxHealth;
         InputSystem.ResetHaptics();
@@ -65,10 +67,18 @@ public class GameOverScreen : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         yield return new WaitForSeconds(3f);
-        NextSentence();
         index = 0;
 
     }
+    IEnumerator ReverseType()
+	{
+        foreach (char letter in textDisplay.text.ToCharArray())
+		{
+            textDisplay.text = textDisplay.text.Substring(0, textDisplay.text.Length - 1);
+            yield return new WaitForSeconds(typingSpeed);
+		}
+        yield return new WaitForSeconds(3f);
+	}
     public void NextSentence()
     {
         if (index < sentences.Length - 1)
