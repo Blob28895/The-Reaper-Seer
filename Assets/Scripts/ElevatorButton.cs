@@ -65,7 +65,7 @@ public class ElevatorButton : MonoBehaviour
 			yield return new WaitForSeconds(typingSpeed);
 		}
 		yield return new WaitForSeconds(3f);
-		NextSentence();
+		textDisplay.text = "";
 		index = 0;
 
 	}
