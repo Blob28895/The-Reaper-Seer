@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371354487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.151, y: -0.042, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566465881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.125, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -373,17 +373,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37db7e3fa44a464b876a253cb00cedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.3
+  speed: 3
   target: {fileID: 0}
   minimumDistance: 3
-  maximumDistance: 12
+  maximumDistance: 10
   animator: {fileID: 1896752248}
   bulletM: {fileID: 5655509084971642738, guid: 3c647d0708dfeaf44baa689d5c0069a5, type: 3}
+  bulletU: {fileID: 5655509084971642738, guid: 8e03f45b31858f94f90a005534f40f5c, type: 3}
+  bulletD: {fileID: 5655509084971642738, guid: 80edae98b1563414286635779d1e0a61, type: 3}
   firepointM: {fileID: 8048887720335285532}
   firepointU: {fileID: 1371354488}
   firepointD: {fileID: 1566465882}
   cooldown: 2
-  range: 3.5
+  range: 4
   colliderDistancex: 0.156
   colliderDistancey: 0.1
   boxCollider: {fileID: 155492104949928113}
@@ -435,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6323875835837804540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.146, y: -0.085, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

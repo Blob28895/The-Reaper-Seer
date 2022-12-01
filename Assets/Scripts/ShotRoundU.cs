@@ -21,9 +21,9 @@ public class ShotRoundU : MonoBehaviour
 
 
         Vector3 direction = player.transform.position - transform.position;
-        bulletrb.velocity = new Vector2(direction.x, (direction.y) * 7).normalized * force;
+        bulletrb.velocity = new Vector2(direction.x, (direction.y) * 20).normalized * force;
 
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        float rot = Mathf.Atan2(-direction.y * 20, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
     }
 
@@ -50,3 +50,4 @@ public class ShotRoundU : MonoBehaviour
         }
     }
 }
+

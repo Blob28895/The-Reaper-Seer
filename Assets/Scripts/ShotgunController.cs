@@ -21,6 +21,8 @@ public class ShotgunController : MonoBehaviour
     private float timer;
 
     public GameObject bulletM;
+    public GameObject bulletU;
+    public GameObject bulletD;
 
     public Transform firepointM;
     public Transform firepointU;
@@ -143,9 +145,12 @@ public class ShotgunController : MonoBehaviour
 
     void Shoot() //Shoot() will be called as an animation event for smoother anim
     {
-        Instantiate(bulletM, firepointM.position, Quaternion.identity); 
+        Instantiate(bulletM, firepointM.position, Quaternion.identity);
         Instantiate(bulletM, firepointU.position, Quaternion.identity);
         Instantiate(bulletM, firepointD.position, Quaternion.identity);
+
+        Instantiate(bulletU, firepointU.position, Quaternion.identity);
+        Instantiate(bulletD, firepointD.position, Quaternion.identity);
     }
 
     private void Move()
