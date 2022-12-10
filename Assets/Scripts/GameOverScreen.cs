@@ -16,34 +16,42 @@ public class GameOverScreen : MonoBehaviour
     private int index = 0;
     public float typingSpeed = 0.06f;
     private string sentence = "...wait...that's not how it went...";
-
+    private bool optionSelected;
 
     public void Start()
 	{
         textDisplay = GameObject.FindGameObjectWithTag("MidText").GetComponent<TextMeshProUGUI>();
-        
-	}
+        optionSelected = false;
+    }
 	public void RestartButton()
     {
-        StartCoroutine(TransitionScene(SceneManager.GetActiveScene().name));
-        //staticVariables.currHealth = Player.maxHealth;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (!optionSelected)
+        {
+            optionSelected = true;
+            StartCoroutine(TransitionScene(SceneManager.GetActiveScene().name));
+            //staticVariables.currHealth = Player.maxHealth;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void HomeButton()
     {
-        staticVariables.ResetUpgrades();
-        staticVariables.ResetStatics();
-        StartCoroutine(TransitionScene("Main Menu"));
-        //SceneManager.LoadScene("Main Menu");
+        if (!optionSelected)
+        {
+            optionSelected = true;
+            staticVariables.ResetUpgrades();
+            staticVariables.ResetStatics();
+            StartCoroutine(TransitionScene("Main Menu"));
+            //SceneManager.LoadScene("Main Menu");
+        }
     }
 
-    public void ScientistFight()
+   /* public void ScientistFight()
     {
         StartCoroutine(TransitionScene("ScientistFight"));
         //staticVariables.currHealth = Player.maxHealth;
         //SceneManager.LoadScene("ScientistFight");
-    }
+    }*/
 
     IEnumerator TransitionScene(string scene)
     {
@@ -51,7 +59,7 @@ public class GameOverScreen : MonoBehaviour
         fadeAnimator = fade.GetComponent<Animator>();
         fadeAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        if(scene == SceneManager.GetActiveScene().name)
+        if (scene == SceneManager.GetActiveScene().name)
 		{
             Debug.Log("Restarting");
             StartCoroutine(Type());
@@ -59,8 +67,8 @@ public class GameOverScreen : MonoBehaviour
             StartCoroutine(ReverseType());
             yield return new WaitForSeconds(3f);
 		}
-        staticVariables.currHealth = Player.maxHealth;
         InputSystem.ResetHaptics();
+        staticVariables.currHealth = Player.maxHealth;
         staticVariables.currSouls = 0;
         SceneManager.LoadScene(scene);
     }

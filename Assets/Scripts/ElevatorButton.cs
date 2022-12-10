@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using TMPro;
 public class ElevatorButton : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class ElevatorButton : MonoBehaviour
     {
 		fadeAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(transitionTime);
+		InputSystem.ResetHaptics();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 	// Update is called once per frame
