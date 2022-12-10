@@ -582,10 +582,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4186106157508926093, guid: e37eb8f1dd063504780cb3e169326935, type: 3}
-      propertyPath: startDelay
-      value: 5.7
-      objectReference: {fileID: 0}
     - target: {fileID: 4186106157508926130, guid: e37eb8f1dd063504780cb3e169326935, type: 3}
       propertyPath: m_RootOrder
       value: 0

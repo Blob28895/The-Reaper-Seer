@@ -6353,10 +6353,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 445862897933918276, guid: 813f3102b67b1964fa9514446db39557, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 445862899151730128, guid: 813f3102b67b1964fa9514446db39557, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6404,10 +6400,6 @@ PrefabInstance:
     - target: {fileID: 445862899151730129, guid: 813f3102b67b1964fa9514446db39557, type: 3}
       propertyPath: m_Name
       value: SceneFade
-      objectReference: {fileID: 0}
-    - target: {fileID: 445862899151730129, guid: 813f3102b67b1964fa9514446db39557, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
