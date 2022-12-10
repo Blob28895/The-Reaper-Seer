@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1704869264124899993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -227,12 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3061c169ae2cb1469770aad92fde913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameoverUI: {fileID: 0}
+  gameoverUI: {fileID: 1704869264124899992}
   transitionTime: 1
-  textDisplay: {fileID: 1704869264707837293}
+  textDisplay: {fileID: 0}
   sentences:
   - ...wait...that's not how it went...
-  - 
   typingSpeed: 0.06
 --- !u!1 &1704869264310970766
 GameObject:
